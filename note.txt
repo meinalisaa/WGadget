@@ -1,0 +1,39 @@
+TUBES PI
+website spek hp kayak https://www.gsmarena.com
+
+FITUR USER:
+-home : menampilkan list brand [GET] 
+-halaman search : untuk mencari hape tertentu [GET]
+[POST] untuk buat history search, dipake utk top interest
+-halaman brand : menampilkan list hape pada brand tertentu [GET] 
+-halaman spek : menampilkan spek hape yang dipilih [GET] 
+-halaman compare : menampilkan spek hape tertentu dengan hape lain
+[GET] spek1
+[GET] spek2
+-halaman top interest : menampilkan hape yang paling diminati
+[GET] dari tabel history search
+
+ADMIN : terdapat pilihan mengubah, menambah, menghapus data
+-CRUD BRAND
+-CRUD BRAND LIST PHONE
+-CRUD SPEK
+-CR HISTORY search
+
+
+LIST TABEL
+1. tabel brand (12) : samsung, xiaomi, apple, vivo, oppo, acer, realme, infinix, huawei, 
+id brand(pk), nama brand
+
+2. tabel brand list phones (5 hp per brand = 5*9 = 45)
+id hape(pk), id brand(fk), nama hape, foto hape(.img)
+
+3. tabel spek :
+id spek(pk), id hape(fk), tgl rilis(tgl-bln-thn), ukuran layar(x*x inci), os(android, dll), chipset(Qualcomm dll), memory(GB RAM, GB ROM), daya baterai(Mah), kamera(MP), jaringan(2G/3G/4G), harga(RP), warna(text)
+
+4. tabel history search
+id search(pk), id hape(fk)
+
+
+samsung, xiaomi, apple - meina id 1-15
+vivo, oppo, acer - pije id 16-30
+realme, infinix, huawei, - dinda id 31-45
