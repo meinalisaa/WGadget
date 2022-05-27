@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2022 at 09:23 AM
+-- Generation Time: May 27, 2022 at 09:37 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -85,7 +85,7 @@ CREATE TABLE `tabel_spek` (
   `sistem_operasi` varchar(255) NOT NULL,
   `chipset` varchar(255) NOT NULL,
   `memori` varchar(255) NOT NULL,
-  `daya_baterai` varchar(255) NOT NULL,
+  `daya_baterai` int(11) NOT NULL,
   `kamera` varchar(255) NOT NULL,
   `jaringan` varchar(255) NOT NULL,
   `harga` int(11) NOT NULL,
