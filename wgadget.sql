@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2022 at 08:53 AM
+-- Generation Time: May 27, 2022 at 09:04 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -88,7 +88,7 @@ CREATE TABLE `tabel_spek` (
   `daya_baterai` varchar(255) NOT NULL,
   `kamera` varchar(255) NOT NULL,
   `jaringan` varchar(255) NOT NULL,
-  `harga` int(11) NOT NULL,
+  `harga` varchar(255) NOT NULL,
   `warna` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
