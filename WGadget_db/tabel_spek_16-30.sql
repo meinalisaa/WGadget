@@ -27,20 +27,20 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `tabel_spek`
 --
 
-CREATE TABLE `tabel_spek` (
-  `id_spek` int(11) NOT NULL,
-  `id_hp` int(11) NOT NULL,
-  `tgl_rilis` date NOT NULL,
-  `ukuran_layar` float NOT NULL,
-  `sistem_operasi` varchar(255) NOT NULL,
-  `chipset` varchar(255) NOT NULL,
-  `memori` varchar(255) NOT NULL,
-  `daya_baterai` int(11) NOT NULL,
-  `kamera` varchar(255) NOT NULL,
-  `jaringan` varchar(255) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `warna` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- CREATE TABLE `tabel_spek` (
+--   `id_spek` int(11) NOT NULL,
+--   `id_hp` int(11) NOT NULL,
+--   `tgl_rilis` date NOT NULL,
+--   `ukuran_layar` float NOT NULL,
+--   `sistem_operasi` varchar(255) NOT NULL,
+--   `chipset` varchar(255) NOT NULL,
+--   `memori` varchar(255) NOT NULL,
+--   `daya_baterai` int(11) NOT NULL,
+--   `kamera` varchar(255) NOT NULL,
+--   `jaringan` varchar(255) NOT NULL,
+--   `harga` int(11) NOT NULL,
+--   `warna` text NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tabel_spek`

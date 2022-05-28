@@ -27,12 +27,12 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `tabel_hp`
 --
 
-CREATE TABLE `tabel_hp` (
-  `id_hp` int(11) NOT NULL,
-  `id_brand` int(11) NOT NULL,
-  `nama_hp` varchar(255) NOT NULL,
-  `foto_hp` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- CREATE TABLE `tabel_hp` (
+--   `id_hp` int(11) NOT NULL,
+--   `id_brand` int(11) NOT NULL,
+--   `nama_hp` varchar(255) NOT NULL,
+--   `foto_hp` varchar(255) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tabel_hp`
