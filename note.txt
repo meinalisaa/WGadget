@@ -37,3 +37,16 @@ id search(pk), id hape(fk)
 samsung, xiaomi, apple - meina id 1-15
 vivo, oppo, acer - pije id 16-30
 realme, infinix, huawei, - dinda id 31-45
+
+https://techspecs.readme.io/reference/all-categories
+https://github.com/azharimm/phone-specs-api
+https://www.gsmarena.com/
+
+PI yang harus dikerjakan:
+- coding method dan endpoint
+- testing di postman
+- dokumentasi
+- 4 fase :
+bisnis flow, UI/UX screen, API doc, develop restful
+- laporan
+- PPT 
