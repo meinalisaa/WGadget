@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Bulan Mei 2022 pada 19.27
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.4.11
+-- Generation Time: May 29, 2022 at 11:44 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tabel_brand`
+-- Table structure for table `tabel_brand`
 --
 
 CREATE TABLE `tabel_brand` (
@@ -33,7 +33,7 @@ CREATE TABLE `tabel_brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tabel_brand`
+-- Dumping data for table `tabel_brand`
 --
 
 INSERT INTO `tabel_brand` (`id_brand`, `nama_brand`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `tabel_brand` (`id_brand`, `nama_brand`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tabel_hp`
+-- Table structure for table `tabel_hp`
 --
 
 CREATE TABLE `tabel_hp` (
@@ -61,7 +61,7 @@ CREATE TABLE `tabel_hp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tabel_hp`
+-- Dumping data for table `tabel_hp`
 --
 
 INSERT INTO `tabel_hp` (`id_hp`, `id_brand`, `nama_hp`, `foto_hp`) VALUES
@@ -114,7 +114,7 @@ INSERT INTO `tabel_hp` (`id_hp`, `id_brand`, `nama_hp`, `foto_hp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tabel_pencarian`
+-- Table structure for table `tabel_pencarian`
 --
 
 CREATE TABLE `tabel_pencarian` (
@@ -125,7 +125,7 @@ CREATE TABLE `tabel_pencarian` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tabel_spek`
+-- Table structure for table `tabel_spek`
 --
 
 CREATE TABLE `tabel_spek` (
@@ -144,25 +144,25 @@ CREATE TABLE `tabel_spek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tabel_spek`
+-- Dumping data for table `tabel_spek`
 --
 
 INSERT INTO `tabel_spek` (`id_spek`, `id_hp`, `tgl_rilis`, `ukuran_layar`, `sistem_operasi`, `chipset`, `memori`, `daya_baterai`, `kamera`, `jaringan`, `harga`, `warna`) VALUES
-(1, 1, '2022-04-22', 6.7, 'Android 12, One UI 4.1', 'MediaTek MT6877 Dimensity 900 (6 nm)', '6/8 GB RAM, 128/256 GB Memori Internal', 5000, 'Belakang Quad 108 MP + 8 MP + 2 MP + 2 MP, Depan 32 MP', 'GSM / HSPA / LTE / 5G', 5799000, 'Green, Blue, Brown'),
-(2, 2, '2022-04-08', 6.6, 'Android 12, One UI 4.1', 'Exynos 1280 (5 nm)', '6/8 GB RAM, 128 GB Memori Internal', 5000, 'Belakang Quad 50 MP + 8 MP + 2 MP + 2 MP, Depan 8 MP', 'GSM / HSPA / LTE / 5G', 3999000, 'Green, Blue, Brown'),
-(3, 3, '2022-04-08', 6.6, 'Android 12, One UI 4.1', 'Qualcomm SM7225 Snapdragon 750G 5G (8 nm)', '4/6 GB RAM, 128 GB Memori Internal', 5000, 'Belakang Triple 50 MP + 8 MP + 2 MP, Depan 8 MP', 'GSM / HSPA / LTE / 5G', 9999999, 'Deep Green, Light Blue, Orange Copper'),
-(4, 4, '2022-03-22', 11, 'Android 12, One UI 4.1', 'Qualcomm SM8450 Snapdragon 8 Gen 1 (4 nm)', '8/12 GB RAM, 128/256 GB Memori Internal', 8000, 'Belakang Dual 13 MP + 6 MP, Depan 12 MP', 'GSM / HSPA / LTE / 5G', 9999000, 'Graphite, Silver, Pink Gold'),
-(5, 5, '2021-10-13', 6.4, 'Android 11, upgradable to Android 12, One UI 4.1', 'Mediatek MT6769V/CU Helio G80 (12 nm)', '4/6 GB RAM, 64/128 GB Memori Internal', 5000, 'Belakang Quad 48 MP + 8 MP + 2 MP + 2 MP, Depan 13 MP', 'GSM / HSPA / LTE', 4199000, 'Black, White, Light Blue'),
-(6, 6, '2022-03-31', 6.53, 'Android 11, MIUI 12.5', 'MediaTek MT6762G Helio G25 (12 nm)', '2/3/4/6 GB RAM, 32/64/128 GB Memori Internal', 5000, 'Belakang 13 MP, Depan 5 MP', 'GSM / HSPA / CDMA2000 / LTE', 1449000, 'Charcoal Black, Sea Blue, Slate Grey'),
-(7, 7, '2022-03-23', 6.71, 'Android 11, MIUI 13', 'Qualcomm SM6225 Snapdragon 680 4G (6 nm)', '4 GB RAM, 64/128 GB Memori Internal', 5000, 'Belakang Dual 50 MP + 2 MP, Depan 5 MP', 'GSM / HSPA / LTE', 1849000, 'Graphite Gray, Ocean Blue, Mint Green'),
-(8, 8, '2022-03-04', 6.67, 'Android 11, MIUI 13', 'Qualcomm SM6375 Snapdragon 695 5G (6 nm)', '6/8 GB RAM, 128/256 GB Memori Internal', 5000, 'Belakang Triple 108 MP + 8 MP + 2 MP, Depan 16 MP', 'GSM / CDMA / HSPA / CDMA2000 / LTE / 5G', 3899000, 'Graphite Gray, Polar White, Atlantic Blue'),
-(9, 9, '2022-02-09', 6.43, 'Android 11, MIUI 13', 'Mediatek Helio G96 (12 nm)', '6/8 GB RAM, 64/128 GB Memori Internal', 5000, 'Belakang Quad 108 MP + 8 MP + 2 MP + 2 MP, Depan 16 MP', 'GSM / HSPA / LTE', 3599000, 'Graphite Gray, Pearl White, Twilight Blue'),
-(10, 10, '2022-02-09', 6.43, 'Android 11, MIUI 13', 'Qualcomm SM6225 Snapdragon 680 4G (6 nm)', '4/6 GB RAM, 64/128 GB Memori Internal', 5000, 'Belakang Quad 50 MP + 8 MP + 2 MP + 2 MP, Depan 13 MP', 'GSM / HSPA / LTE', 2499000, 'Graphite Gray, Pearl White, Star Blue'),
-(11, 11, '2021-09-24', 6.7, 'iOS 15, upgradable to iOS 15.5', 'Apple A15 Bionic (5 nm)', '6 GB RAM, 128/256/512 GB / 1 TB Memori Internal', 4352, 'Belakang Quad 12 MP + 12 MP + 12 MP + TOF 3D LiDAR scanner, Depan Dual 12 MP + SL 3D', 'GSM / CDMA / HSPA / EVDO / LTE / 5G', 19999000, 'Graphite, Gold, Silver, Sierra Blue, Alpine Green'),
-(12, 12, '2021-09-24', 6.1, 'iOS 15, upgradable to iOS 15.5', 'Apple A15 Bionic (5 nm)', '6 GB RAM, 128/256/512 GB / 1 TB Memori Internal', 3095, 'Belakang Quad 12 MP + 12 MP + 12 MP + TOF 3D LiDAR scanner, Depan Dual 12 MP + SL 3D', 'GSM / CDMA / HSPA / EVDO / LTE / 5G', 18499000, 'Graphite, Gold, Silver, Sierra Blue, Alpine Green'),
-(13, 13, '2021-09-24', 6.1, 'iOS 15, upgradable to iOS 15.5', 'Apple A15 Bionic (5 nm)', '4 GB RAM, 128/256/512 GB Memori Internal', 3240, 'Belakang Dual 12 MP + 12 MP, Depan Dual 12 MP + SL 3D', 'GSM / CDMA / HSPA / EVDO / LTE / 5G', 14999000, 'Starlight, Midnight, Blue, Pink, Red, Green'),
-(14, 14, '2021-09-24', 5.4, 'iOS 15, upgradable to iOS 15.5', 'Apple A15 Bionic (5 nm)', '4 GB RAM, 128/256/512 GB Memori Internal', 2438, 'Belakang Dual 12 MP + 12 MP, Depan Dual 12 MP + SL 3D', 'GSM / CDMA / HSPA / EVDO / LTE / 5G', 12999000, 'Starlight, Midnight, Blue, Pink, Red, Green'),
-(15, 15, '2020-10-23', 6.1, 'iOS 14.1, upgradable to iOS 15.5', 'Apple A14 Bionic (5 nm)', '4 GB RAM, 64/128/256 GB Memori Internal', 2815, 'Belakang Dual 12 MP + 12 MP, Depan Dual 12 MP + SL 3D', 'GSM / CDMA / HSPA / EVDO / LTE / 5G', 12999000, 'Black, White, Red, Green, Blue, Purple'),
+(1, 1, '2022-04-22', 6.7, 'Android 12, One UI 4.1', 'MediaTek MT6877 Dimensity 900 (6 nm)', '6 GB/8 GB RAM, 128 GB/256 GB Memori Internal', 5000, 'Kamera Depan 32 MP, Kamera Belakang 108 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE/5G', 5799000, 'Green, Blue, Brown'),
+(2, 2, '2022-04-08', 6.6, 'Android 12, One UI 4.1', 'Exynos 1280 (5 nm)', '6 GB/8 GB RAM, 128 GB Memori Internal', 5000, 'Kamera Depan 8 MP, Kamera Belakang 50 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE/5G', 3999000, 'Green, Blue, Brown'),
+(3, 3, '2022-04-08', 6.6, 'Android 12, One UI 4.1', 'Qualcomm SM7225 Snapdragon 750G 5G (8 nm)', '4 GB/6 GB RAM, 128 GB Memori Internal', 5000, 'Kamera Depan 8 MP, Kamera Belakang 50 MP + 8 MP + 2 MP', 'GSM/HSPA/LTE/5G', 9999999, 'Deep Green, Light Blue, Orange Copper'),
+(4, 4, '2022-03-22', 11, 'Android 12, One UI 4.1', 'Qualcomm SM8450 Snapdragon 8 Gen 1 (4 nm)', '8 GB/12 GB RAM, 128 GB/256 GB Memori Internal', 8000, 'Kamera Depan 12 MP, Kamera Belakang 13 MP + 6 MP', 'GSM/HSPA/LTE/5G', 9999000, 'Graphite, Silver, Pink Gold'),
+(5, 5, '2021-10-13', 6.4, 'Android 11, upgradable to Android 12, One UI 4.1', 'Mediatek MT6769V/CU Helio G80 (12 nm)', '4 GB/6 GB RAM, 64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 13 MP, Kamera Belakang 48 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE', 4199000, 'Black, White, Light Blue'),
+(6, 6, '2022-03-31', 6.53, 'Android 11, MIUI 12.5', 'MediaTek MT6762G Helio G25 (12 nm)', '2 GB/3 GB/4 GB/6 GB RAM, 32 GB/64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 5 MP, Kamera Belakang 13 MP ', 'GSM/HSPA/CDMA2000/LTE', 1449000, 'Charcoal Black, Sea Blue, Slate Grey'),
+(7, 7, '2022-03-23', 6.71, 'Android 11, MIUI 13', 'Qualcomm SM6225 Snapdragon 680 4G (6 nm)', '4 GB RAM, 64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 5 MP, Kamera Belakang 50 MP + 2 MP', 'GSM/HSPA/LTE', 1849000, 'Graphite Gray, Ocean Blue, Mint Green'),
+(8, 8, '2022-03-04', 6.67, 'Android 11, MIUI 13', 'Qualcomm SM6375 Snapdragon 695 5G (6 nm)', '6 GB/8 GB RAM, 128 GB/256 GB Memori Internal', 5000, 'Kamera Depan 16 MP, Kamera Belakang 108 MP + 8 MP + 2 MP', 'GSM/CDMA/HSPA/CDMA2000/LTE/5G', 3899000, 'Graphite Gray, Polar White, Atlantic Blue'),
+(9, 9, '2022-02-09', 6.43, 'Android 11, MIUI 13', 'Mediatek Helio G96 (12 nm)', '6 GB/8 GB RAM, 64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 16 MP, Kamera Belakang 108 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE', 3599000, 'Graphite Gray, Pearl White, Twilight Blue'),
+(10, 10, '2022-02-09', 6.43, 'Android 11, MIUI 13', 'Qualcomm SM6225 Snapdragon 680 4G (6 nm)', '4 GB/6 GB RAM, 64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 13 MP, Kamera Belakang 50 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE', 2499000, 'Graphite Gray, Pearl White, Star Blue'),
+(11, 11, '2021-09-24', 6.7, 'iOS 15, upgradable to iOS 15.5', 'Apple A15 Bionic (5 nm)', '6 GB RAM, 128 GB/256 GB/512 GB/1 TB Memori Internal', 4352, 'Kamera Depan 12 MP + SL 3D, Kamera Belakang 12 MP + 12 MP + 12 MP + TOF 3D LiDAR Scanner', 'GSM/CDMA/HSPA/EVDO/LTE/5G', 19999000, 'Graphite, Gold, Silver, Sierra Blue, Alpine Green'),
+(12, 12, '2021-09-24', 6.1, 'iOS 15, upgradable to iOS 15.5', 'Apple A15 Bionic (5 nm)', '6 GB RAM, 128 GB/256 GB/512 GB/1 TB Memori Internal', 3095, 'Kamera Depan 12 MP + SL 3D, Kamera Belakang 12 MP + 12 MP + 12 MP + TOF 3D LiDAR Scanner', 'GSM/CDMA/HSPA/EVDO/LTE/5G', 18499000, 'Graphite, Gold, Silver, Sierra Blue, Alpine Green'),
+(13, 13, '2021-09-24', 6.1, 'iOS 15, upgradable to iOS 15.5', 'Apple A15 Bionic (5 nm)', '4 GB RAM, 128 GB/256 GB/512 GB Memori Internal', 3240, 'Kamera Depan 12 MP + SL 3D, Kamera Belakang 12 MP + 12 MP', 'GSM/CDMA/HSPA/EVDO/LTE/5G', 14999000, 'Starlight, Midnight, Blue, Pink, Red, Green'),
+(14, 14, '2021-09-24', 5.4, 'iOS 15, upgradable to iOS 15.5', 'Apple A15 Bionic (5 nm)', '4 GB RAM, 128 GB/256 GB/512 GB Memori Internal', 2438, 'Kamera Depan 12 MP + SL 3D, Kamera Belakang 12 MP + 12 MP', 'GSM/CDMA/HSPA/EVDO/LTE/5G', 12999000, 'Starlight, Midnight, Blue, Pink, Red, Green'),
+(15, 15, '2020-10-23', 6.1, 'iOS 14.1, upgradable to iOS 15.5', 'Apple A14 Bionic (5 nm)', '4 GB RAM, 64 GB/128 GB/256 GB Memori Internal', 2815, 'Kamera Depan 12 MP + SL 3D, Kamera Belakang 12 MP + 12 MP', 'GSM/CDMA/HSPA/EVDO/LTE/5G', 12999000, 'Black, White, Red, Green, Blue, Purple'),
 (16, 16, '2019-12-15', 6.22, 'Android 8.1', 'MediaTek (MTK6762R) Helio P2', '3 GB RAM, 32 GB Memori Internal', 4030, 'Kamera Depan 8 MP, Kamera Belakang 13 MP + 2 MP', 'GSM/HSDPA/LTE', 1899000, 'Starry Black, Ocean Blue'),
 (17, 17, '2018-11-18', 6.22, 'Android 8.1', 'Qualcomm SDM439 Snapdragon 439 (12 nm)', '4 GB RAM, 64 GB Memori Internal', 4030, 'Kamera Depan 20 MP, Kamera Belakang 13 MP + 2 MP', 'GSM/HSDPA/LTE', 2399000, 'Starry Night, Nebula Purple, Aurora Red'),
 (18, 18, '2019-07-07', 6.53, 'Android 9.0', 'Qualcomm SDM712 Snapdragon 712', '4 GB RAM, 64 GB Memori Internal', 5000, 'Kamera Depan 32 MP, Kamera Belakang Triple 16 MP + 8 MP + 2 MP', 'GSM/HSDPA/LTE', 3099000, 'Sonic Blue, Sonic Black, Mirror Black'),
@@ -199,78 +199,78 @@ INSERT INTO `tabel_spek` (`id_spek`, `id_hp`, `tgl_rilis`, `ukuran_layar`, `sist
 --
 
 --
--- Indeks untuk tabel `tabel_brand`
+-- Indexes for table `tabel_brand`
 --
 ALTER TABLE `tabel_brand`
   ADD PRIMARY KEY (`id_brand`);
 
 --
--- Indeks untuk tabel `tabel_hp`
+-- Indexes for table `tabel_hp`
 --
 ALTER TABLE `tabel_hp`
   ADD PRIMARY KEY (`id_hp`),
   ADD KEY `id_brand` (`id_brand`);
 
 --
--- Indeks untuk tabel `tabel_pencarian`
+-- Indexes for table `tabel_pencarian`
 --
 ALTER TABLE `tabel_pencarian`
   ADD PRIMARY KEY (`id_pencarian`),
   ADD KEY `id_hp_pencarian` (`id_hp`);
 
 --
--- Indeks untuk tabel `tabel_spek`
+-- Indexes for table `tabel_spek`
 --
 ALTER TABLE `tabel_spek`
   ADD PRIMARY KEY (`id_spek`),
   ADD KEY `id_hp` (`id_hp`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tabel_brand`
+-- AUTO_INCREMENT for table `tabel_brand`
 --
 ALTER TABLE `tabel_brand`
   MODIFY `id_brand` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `tabel_hp`
+-- AUTO_INCREMENT for table `tabel_hp`
 --
 ALTER TABLE `tabel_hp`
   MODIFY `id_hp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT untuk tabel `tabel_pencarian`
+-- AUTO_INCREMENT for table `tabel_pencarian`
 --
 ALTER TABLE `tabel_pencarian`
   MODIFY `id_pencarian` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tabel_spek`
+-- AUTO_INCREMENT for table `tabel_spek`
 --
 ALTER TABLE `tabel_spek`
   MODIFY `id_spek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tabel_hp`
+-- Constraints for table `tabel_hp`
 --
 ALTER TABLE `tabel_hp`
   ADD CONSTRAINT `id_brand` FOREIGN KEY (`id_brand`) REFERENCES `tabel_brand` (`id_brand`);
 
 --
--- Ketidakleluasaan untuk tabel `tabel_pencarian`
+-- Constraints for table `tabel_pencarian`
 --
 ALTER TABLE `tabel_pencarian`
   ADD CONSTRAINT `id_hp_pencarian` FOREIGN KEY (`id_hp`) REFERENCES `tabel_hp` (`id_hp`);
 
 --
--- Ketidakleluasaan untuk tabel `tabel_spek`
+-- Constraints for table `tabel_spek`
 --
 ALTER TABLE `tabel_spek`
   ADD CONSTRAINT `id_hp` FOREIGN KEY (`id_hp`) REFERENCES `tabel_hp` (`id_hp`);
