@@ -1,6 +1,7 @@
 TUBES PI
 website spek hp kayak https://www.gsmarena.com
----
+https://mfikri.com/artikel/restful-api-codeigniter4
+
 FITUR USER:
 -home : menampilkan list brand [GET] 
 -halaman search : untuk mencari hape tertentu [GET]
@@ -50,3 +51,63 @@ PI yang harus dikerjakan:
 bisnis flow, UI/UX screen, API doc, develop restful
 - laporan
 - PPT 
+
+
+METHOD LIST
+
+[GET]
+read list_brand 		- WGadget/brand/
+read list_hp			- WGadget/hp/
+read list_hp($x)		- WGadget/hp/$x
+	where brand = x
+read list_spek			- WGadget/spek/
+read spek($id)			- WGadget/spek/$id
+read spek($id, $id)		- WGadget/spek?id1=$id1&id2=$id2
+read hp($search)		- WGadget/hp/$search
+read top_interest		- WGadget/top/
+
+[POST]
+create riwayat 			- WGadget/top?id=$id&id_hp=$id_hp
+create brand  			- 
+create hp  				- 
+create spek  			- 
+
+[PUT]
+update brand($id)  		- 
+update hp($id)  		- 
+update spek($id)  		- 
+--update riwayat($id)	- WGadget/top/$id
+
+[DELETE]
+delete brand($id)  		- 
+delete hp($id)  		- 
+delete spek($id)  		- 
+--delete riwayat($id)	- WGadget/top/$id
+
+PAGE LIST
+User
+1- Hal. home 			: GET list_brand, top_interest 
+1- Hal. brand 			: GET list_hp 
+1- Hal. spek			: GET spek($id) 				JOIN TABLE HP
+2- Hal. hasil search	: GET hp($search), POST riwayat
+2- Hal. top_int 		: GET top_interest 				JOIN TABLE HP
+2- Hal. compare			: GET spek($id, $id) 			JOIN TABLE HP
+
+Admin
+1- (front end, route ke bagian lain) GANTI SIDEBAR
+ADMIN PAGE SIDEBAR
+ADMIN HP, ADMIN BRAND
+
+CRUD HP
+1- Hal. admin hp 		: GET list_hp, GET list_spek 	JOIN TABLE, DELETE spek($id) (MODAL)
+2- Hal. detail hp 		: GET hp($id), GET spek($id) 	JOIN TABLE
+1- Hal. tambah hp & spek : POST hp, POST spek 			JOIN TABLE
+2- Hal. ubah hp & spek 	: PUT hp($id), PUT spek($id) 	JOIN TABLE
+CRUD BRAND
+1- Hal. admin brand 	: GET brand($id), DELETE brand($id) (MODAL)
+2- tambah brand 		: POST brand (MODAL)
+2- ubah brand 			: PUT brand($id) (MODAL)
+
+
+user 	: meina(1) dinda(2)
+admin : milpa(2) pije(1)
