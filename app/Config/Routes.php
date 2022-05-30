@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 // $routes->get('/', 'Home::index');
 $routes->resource('brand');
 $routes->resource('hp');
+$routes->resource('top');
 
 /*
  * --------------------------------------------------------------------

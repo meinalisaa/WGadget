@@ -86,11 +86,11 @@ delete spek($id)  		-
 
 PAGE LIST
 User
-1- Hal. home 			: GET list_brand, top_interest 
-1- Hal. brand 			: GET list_hp 
+DONE 1- Hal. home 			: GET list_brand, GET top_interest 
+DONE 1- Hal. brand 			: GET list_hp 
 1- Hal. spek			: GET spek($id) 				JOIN TABLE HP
-2- Hal. hasil search	: GET hp($search), POST riwayat
-2- Hal. top_int 		: GET top_interest 				JOIN TABLE HP
+2- Hal. hasil search	: GET hp($search), POST top_interest
+DONE 2- Hal. top_int 		: GET top_interest 				JOIN TABLE HP
 2- Hal. compare			: GET spek($id, $id) 			JOIN TABLE HP
 
 Admin
@@ -104,9 +104,9 @@ CRUD HP
 1- Hal. tambah hp & spek : POST hp, POST spek 			JOIN TABLE
 2- Hal. ubah hp & spek 	: PUT hp($id), PUT spek($id) 	JOIN TABLE
 CRUD BRAND
-1- Hal. admin brand 	: GET brand($id), DELETE brand($id) (MODAL)
-2- tambah brand 		: POST brand (MODAL)
-2- ubah brand 			: PUT brand($id) (MODAL)
+DONE 1- Hal. admin brand 	: GET brand($id), DELETE brand($id) (MODAL)
+DONE 2- tambah brand 		: POST brand (MODAL)
+DONE 2- ubah brand 			: PUT brand($id) (MODAL)
 
 
 user 	: meina(1) dinda(2)
