@@ -1,9 +1,9 @@
 <?php namespace App\Controllers;
- 
+
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\HpModel;
- 
+
 class Hp extends ResourceController
 {
     use ResponseTrait;
@@ -14,7 +14,7 @@ class Hp extends ResourceController
         $data = $model->findAll();
         return $this->respond($data, 200);
     }
- 
+
     // GET hp($id)
     public function show($id = null)
     {
@@ -26,7 +26,7 @@ class Hp extends ResourceController
             return $this->failNotFound('No Data Found with id '.$id, 404);
         }
     }
- 
+
     // POST hp
     public function create()
     {
@@ -45,10 +45,10 @@ class Hp extends ResourceController
                 'success' => 'Data Saved'
             ]
         ];
-         
+
         return $this->respondCreated($data, 201);
     }
- 
+
     // PUT hp($id)
     public function update($id = null)
     {
@@ -68,6 +68,10 @@ class Hp extends ResourceController
                 'foto_hp' => $input['foto_hp']
             ];
         }
+
+        
+
+
         // Insert to Database
         $model->update($id, $data);
         $response = [
@@ -79,7 +83,7 @@ class Hp extends ResourceController
         ];
         return $this->respond($response);
     }
- 
+
     // DELETE hp($id)
     public function delete($id = null)
     {
@@ -94,12 +98,12 @@ class Hp extends ResourceController
                     'success' => 'Data Deleted'
                 ]
             ];
-             
+
             return $this->respondDeleted($response);
         }else{
             return $this->failNotFound('No Data Found with id '.$id);
         }
-         
+
     }
- 
+
 }
