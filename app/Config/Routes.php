@@ -35,6 +35,7 @@ $routes->setAutoRoute(true);
 $routes->resource('brand');
 $routes->resource('hp');
 $routes->resource('top');
+$routes->resource('spek');
 
 /*
  * --------------------------------------------------------------------
