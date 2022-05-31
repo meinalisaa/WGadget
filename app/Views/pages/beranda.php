@@ -9,8 +9,9 @@
           <div class="card" style="padding: 20px 10px 70px 10px; width: 100%; height: 200px">
             <img src="<?= base_url('/images/hp/'.$db->nama_brand.'/'.$db->foto_hp) ?>" style="height: 80%; margin-left: auto; margin-right: auto">
             <p style="margin-top: 10px"><?= $db->nama_brand." ".$db->nama_hp ?></p>
+          </div>
         </div>
-      </div>
-  <?php endforeach ?>
+      <?php endforeach ?>
+    </div>
   </div>
 <?= $this->endSection() ?>
