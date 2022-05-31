@@ -36,6 +36,9 @@ $routes->resource('brand');
 $routes->resource('hp');
 $routes->resource('top');
 $routes->resource('spek');
+$routes->resource('getHp');
+
+$routes->get('/', 'Beranda::index');
 
 /*
  * --------------------------------------------------------------------

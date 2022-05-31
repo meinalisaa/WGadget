@@ -69,7 +69,7 @@ class Hp extends ResourceController
             ];
         }
 
-        
+
 
 
         // Insert to Database
