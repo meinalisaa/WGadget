@@ -1,7 +1,7 @@
 <?= $this->extend('layout/template') ?>
 <?= $this->section('content') ?>
   <div class="container mt-3 mb-4">
-    <h1 align="center">DAFTAR HANDPHONE</h1>
+    <h1 align="center">DAFTAR HP</h1>
 
     <div class="row">
       <?php foreach($database as $db) : ?>
