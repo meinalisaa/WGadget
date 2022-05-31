@@ -4,41 +4,66 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width = device-width, initial-scale = 1, shrink-to-fit = no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="shortcut icon" href="<?= base_url('/images/favicon.ico') ?>">
     <title><?= $judul ?></title>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" style="box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3)">
       <a class="navbar-brand">
         <img src="<?= base_url('/images/logo/logo-ungu.png') ?>" style="max-height: 30px">
-        <b>WGadget</b>
       </a>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="<?= base_url('/') ?>">Beranda</a>
-          </li>
+          <?php if($judul == 'WGadget') : ?>
+            <li class="nav-item active">
+              <b><a class="nav-link disabled" style="color: #460137">Beranda</a></b>
+            </li>
+          <?php else : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('/') ?>">Beranda</a>
+            </li>
+          <?php endif ?>
 
-          <li class="nav-item active">
-            <a class="nav-link" href="<?= base_url('/paling-diminati') ?>">Paling Diminati</a>
-          </li>
+          <?php if($judul == 'WGadget | Paling Diminati') : ?>
+            <li class="nav-item active">
+              <b><a class="nav-link disabled" style="color: #460137">Paling Diminati</a></b>
+            </li>
+          <?php else : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('/paling_diminati') ?>">Paling Diminati</a>
+            </li>
+          <?php endif ?>
 
-          <li class="nav-item active">
-            <a class="nav-link" href="<?= base_url('/bandingkan-hp') ?>">Bandingkan HP</a>
-          </li>
+          <?php if($judul == 'WGadget | Bandingkan HP') : ?>
+            <li class="nav-item active">
+              <b><a class="nav-link disabled" style="color: #460137">Bandingkan HP</a></b>
+            </li>
+          <?php else : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('/bandingkan_hp') ?>">Bandingkan HP</a>
+            </li>
+          <?php endif ?>
 
-          <li class="nav-item active">
-            <a class="nav-link" href="<?= base_url('/tentang') ?>">Tentang</a>
-          </li>
+          <?php if($judul == 'WGadget | Tentang') : ?>
+            <li class="nav-item active">
+              <b><a class="nav-link disabled" style="color: #460137">Tentang</a></b>
+            </li>
+          <?php else : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('/tentang') ?>">Tentang</a>
+            </li>
+          <?php endif ?>
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn my-2 my-sm-0" type="submit" style="background-color: #460137; color: white">Search</button>
         </form>
       </div>
     </nav>
