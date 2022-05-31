@@ -32,11 +32,11 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
-$routes->resource('brand');
-$routes->resource('hp');
-$routes->resource('top');
-$routes->resource('spek');
-$routes->resource('getHp');
+// $routes->resource('brand');
+// $routes->resource('hp');
+// $routes->resource('top');
+// $routes->resource('spek');
+// $routes->resource('getHp');
 
 $routes->get('/', 'Beranda::index');
 
