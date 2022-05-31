@@ -39,6 +39,7 @@ $routes->setAutoRoute(true);
 // $routes->resource('getHp');
 
 $routes->get('/', 'Beranda::index');
+$routes->get('/', 'Admin::index');
 
 /*
  * --------------------------------------------------------------------

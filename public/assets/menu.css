@@ -1,0 +1,46 @@
+.card1 {
+	border-radius: 8px; 
+	box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65); 
+	padding: 30px; 
+	width: 100%; 
+	margin-left: auto; 
+	margin-right: auto;
+}
+
+#judul_menu {
+	color: #C15A31;
+}
+
+#informasi_menu {
+	float: right; 
+	margin-top: -32px; 
+	color: black;
+}
+
+.gambaran_menu {
+	width: 75%;
+}
+
+.tengah {
+	opacity: 0.8; position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); text-align: center;
+}
+
+.teks {
+	background-color: black; color: white; font-size: 16px; padding: 52px 32px; width: 217px; height: 123px;
+}
+
+#harga {
+	color: #C15A31;
+}
+
+#rating {
+	color: #C15A31; margin-right: 7px;
+}
+
+.tombol_pesan {
+	background: #C15A31; color: white; border-radius: 10px; float: right;
+}
+
+#nbsp {
+	float: right; margin-bottom: 15px;
+}
