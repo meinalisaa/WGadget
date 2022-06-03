@@ -46,7 +46,7 @@
                           <i class="fas fa-edit"></i>
                         </a>
 
-                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusmenuModal" style="color: white" type="submit">
+                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusmenuModal<?= $val->id_brand ?>" style="color: white" type="submit">
                           <i class="fas fa-trash"></i>
                         </a>
                       </td>
@@ -125,7 +125,7 @@
   </style>
 
   <?php foreach($database as $val) : ?>
-    <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="hapusmenuModal<?= $val->id_brand ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="border-radius: 5px">
           <div class="modal-body">
@@ -143,7 +143,7 @@
             <br>
 
             <div class="row mb-2">
-              <a class="btn" href="" style="background: #30454A; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
+              <a class="btn" href="<?= base_url('admin/deleteBrand/'.$val->id_brand) ?>" style="background: #30454A; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
               <button class="btn" type="button" data-dismiss="modal" style="background: grey; color: white; margin-right: auto; margin-left: 10px; width: 105px; padding: 10px">Tidak</button>
             </div>
           </div>

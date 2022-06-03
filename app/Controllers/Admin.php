@@ -30,4 +30,23 @@
       $data['db'] = $model->getAll();
       return $this->respond($data['db'], 200);
     }
+
+    public function deleteBrand($id = null)
+    {
+      $model  = new BrandModel();
+      $data   = $model->find($id);
+      if($data){
+        $model->delete($id);
+        $response = [
+          'status'   => 200,
+          'error'    => null,
+          'messages' => [
+              'success' => 'Data Deleted'
+          ]
+        ];
+        return $this->respondDeleted($response);
+      }else{
+        return $this->failNotFound('No Data Found with id '.$id);
+      }
+    }
   }
