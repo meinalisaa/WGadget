@@ -21,7 +21,7 @@
 
        if($response->getStatusCode() == 200){
         $data['database'] = json_decode($response->getBody());
-        echo view('admin/admin_brand', $data);
+        echo view('admin/daftar_brand', $data);
       }
     }
 
