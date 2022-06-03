@@ -10,7 +10,7 @@
             <div class="card">
               <div class="card-header">
                 <div style="text-align: left; margin: 8px 7px 8px 0px">
-                  <a class="btn btn-info" data-toggle="modal" data-target="#tambahbrandModal<?= $val->id_brand ?>" style="color: white" type="submit">
+                  <a class="btn btn-info" data-toggle="modal" data-target="#tambahbrandModal" style="color: white" type="submit">
                       <i class="fas fa-plus" style="margin-right: 10px"></i> Tambah Brand
                   </a>
                 </div>
