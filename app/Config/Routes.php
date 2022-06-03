@@ -39,7 +39,7 @@ $routes->setAutoRoute(true);
 // $routes->resource('getHp');
 
 $routes->get('/', 'Beranda::index');
-$routes->get('/admin', 'Admin::index');
+$routes->get('/admin/daftar_brand', 'Admin::daftar_brand');
 
 /*
  * --------------------------------------------------------------------

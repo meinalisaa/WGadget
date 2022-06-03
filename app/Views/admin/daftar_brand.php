@@ -133,7 +133,7 @@
             </span>
 
             <h3 class="modal-title" id="exampleModalLabel" align="center">
-              <b style="font-family: Arial; color: #595959">Hapus Brand</b>
+              <b style="color: #595959">Hapus Brand</b>
             </h3>
 
             <h5 class="modal-title" id="exampleModalLabel" align="center" style="color: #545454">Anda yakin ingin menghapus brand ini?</h5>
@@ -156,7 +156,7 @@
         <div class="modal-content" style="border-radius: 5px">
           <div class="modal-body">
           <h3 class="modal-title" id="exampleModalLabel" align="center">
-              <b style="font-family: Arial; color: #595959">Tambah Brand</b>
+              <b style="color: #595959">Tambah Brand</b>
             </h3>
 
             <br>

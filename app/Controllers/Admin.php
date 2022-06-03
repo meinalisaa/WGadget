@@ -9,7 +9,7 @@
   class Admin extends ResourceController{
     use ResponseTrait;
 
-    public function admin_brand(){
+    public function daftar_brand(){
       $data['judul'] = 'WGadget | Daftar Brand';
       $url = base_url('/admin/getBrand');
 

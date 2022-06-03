@@ -44,7 +44,7 @@
       .siderbar-col{
         width: 230px;
         position: fixed;
-    		top: 60px;
+    		top: 59px;
     		z-index: 100;
       }
 
@@ -61,7 +61,7 @@
     <nav class="navbar navbar-expand navbar-light bg-white topbar static-top" style="box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3); position: fixed; position: left; z-index: 100; width: 100%">
       <a class="navbar-brand">
         <img src="<?= base_url('/assets/img/logo/logo-ungu.png') ?>" style="max-height: 30px; margin-left: 10px">
-        <span style="margin-left: 10px">WGadget</span>
+        <b style="margin-left: 10px; color: black">WGadget</b>
       </a>
     </nav>
 
