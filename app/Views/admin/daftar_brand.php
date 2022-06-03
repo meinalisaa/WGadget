@@ -36,7 +36,7 @@
 
                     <tr>
                       <td style="text-align: center"><?= $no ?></td>
-                      <td>Nama Brand</td>
+                      <td><?= $val->nama_brand ?></td>
                       <td style="text-align: center">
                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal2">
                           <i class="fas fa-eye"></i>
