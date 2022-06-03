@@ -21,7 +21,7 @@
 
        if($response->getStatusCode() == 200){
          $data['database'] = json_decode($response->getBody());
-        echo view('pages\beranda', $data);
+        echo view('pages/beranda', $data);
       }
     }
 

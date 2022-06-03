@@ -8,8 +8,8 @@
   class Admin extends ResourceController{
     use ResponseTrait;
 
-    public function index(){
-      $data['judul'] = 'Admin WGadget';
+    public function admin_brand(){
+      $data['judul'] = 'WGadget | Daftar Brand';
       $url = base_url('/admin/getBrand');
 
       $curl = service('curlrequest');
@@ -21,10 +21,7 @@
 
        if($response->getStatusCode() == 200){
         $data['database'] = json_decode($response->getBody());
-        echo view('templates\head', $data);
-        echo view('templates\navbar', $data);
-        echo view('admin\index', $data);
-        echo view('templates\foot', $data);
+        echo view('admin/admin_brand', $data);
       }
     }
 
