@@ -5,6 +5,7 @@
   use CodeIgniter\API\ResponseTrait;
   use App\Models\BrandModel;
 
+
   class Admin extends ResourceController{
     use ResponseTrait;
 
@@ -31,6 +32,24 @@
       return $this->respond($data['db'], 200);
     }
 
+    public function addBrand(){
+      $model = new BrandModel();
+      $data = [
+          'nama_brand' => $this->request->getVar('nama_brand')
+      ];
+
+      $model->insert($data);
+      $response = [
+          'status'   => 201,
+          'error'    => null,
+          'messages' => [
+              'success' => 'Data Saved'
+          ]
+      ];
+
+      return $this->respondCreated($data, 201);
+    }
+
     public function deleteBrand($id = null)
     {
       $model  = new BrandModel();
@@ -44,7 +63,9 @@
               'success' => 'Data Deleted'
           ]
         ];
+
         return $this->respondDeleted($response);
+
       }else{
         return $this->failNotFound('No Data Found with id '.$id);
       }

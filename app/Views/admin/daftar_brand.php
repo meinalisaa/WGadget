@@ -10,10 +10,8 @@
             <div class="card">
               <div class="card-header">
                 <div style="text-align: left; margin: 8px 7px 8px 0px">
-                  <a href="">
-                    <button class="btn btn-info">
+                  <a class="btn btn-info" data-toggle="modal" data-target="#tambahbrandModal<?= $val->id_brand ?>" style="color: white" type="submit">
                       <i class="fas fa-plus" style="margin-right: 10px"></i> Tambah Brand
-                    </button>
                   </a>
                 </div>
               </div>
@@ -146,6 +144,32 @@
               <a class="btn" href="<?= base_url('admin/deleteBrand/'.$val->id_brand) ?>" style="background: #30454A; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
               <button class="btn" type="button" data-dismiss="modal" style="background: grey; color: white; margin-right: auto; margin-left: 10px; width: 105px; padding: 10px">Tidak</button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <?php endforeach ?>
+
+  <?php foreach($database as $val) : ?>
+    <div class="modal fade" id="tambahbrandModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="border-radius: 5px">
+          <div class="modal-body">
+          <h3 class="modal-title" id="exampleModalLabel" align="center">
+              <b style="font-family: Arial; color: #595959">Tambah Brand</b>
+            </h3>
+
+            <br>
+
+            <form action="<?= base_url('admin/addBrand') ?>" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                  	<label>Nama Brand</label><br>
+                  	<input type="text" name="nama_brand" class="form-control">
+                </div>
+                <div class="form-group" style="text-align: center">
+                	   <button type="submit" class="btn" style="background: #460137; color: white; border-radius: 20px; width: 200px">Tambah Brand</button>
+                </div>
+            </form>
           </div>
         </div>
       </div>
