@@ -27,7 +27,7 @@
       }
 
       ::-webkit-scrollbar-thumb{
-        background:#30454A
+        background: #460137
       }
     </style>
   </head>
@@ -64,13 +64,13 @@
             </li>
           <?php endif ?>
 
-          <?php if($judul == 'WGadget | Bandingkan HP') : ?>
+          <?php if($judul == 'WGadget | Perbandingan Hp') : ?>
             <li class="nav-item active">
-              <b><a class="nav-link disabled" style="color: #460137">Bandingkan HP</a></b>
+              <b><a class="nav-link disabled" style="color: #460137">Perbandingan HP</a></b>
             </li>
           <?php else : ?>
             <li class="nav-item">
-              <a class="nav-link" href="<?= base_url('/bandingkan_hp') ?>">Bandingkan HP</a>
+              <a class="nav-link" href="<?= base_url('/perbandingan_hp') ?>">Perbandingan HP</a>
             </li>
           <?php endif ?>
 

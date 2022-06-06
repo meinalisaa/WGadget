@@ -28,6 +28,6 @@
     public function getInterest(){
       $model      = new InterestModel();
       $data['db'] = $model->getAll();
-      return $this->respond($data['db'], 200, 'Daftar ponsel yang paling diminati berhasil ditampilkan.');
+      return $this->respond($data['db'], 200, 'Daftar hp yang paling diminati berhasil ditampilkan.');
     }
   }

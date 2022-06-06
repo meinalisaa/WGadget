@@ -27,7 +27,7 @@
       }
 
       ::-webkit-scrollbar-thumb{
-        background:#460137
+        background: #460137
       }
 
       #body-row{

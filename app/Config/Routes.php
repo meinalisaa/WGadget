@@ -40,6 +40,8 @@ $routes->setAutoRoute(true);
 
 $routes->get('/', 'Beranda::index');
 $routes->get('/paling_diminati', 'PalingDiminati::index');
+$routes->get('/perbandingan_hp', 'PerbandinganHp::index');
+$routes->get('/hasil_perbandingan', 'PerbandinganHp::hasil_perbandingan');
 $routes->get('/search', 'Search::index');
 $routes->get('/admin/daftar_brand', 'Admin::daftar_brand');
 
