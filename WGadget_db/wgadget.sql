@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2022 at 11:44 AM
+-- Generation Time: Jun 06, 2022 at 01:56 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -119,7 +119,8 @@ INSERT INTO `tabel_hp` (`id_hp`, `id_brand`, `nama_hp`, `foto_hp`) VALUES
 
 CREATE TABLE `tabel_pencarian` (
   `id_pencarian` int(11) NOT NULL,
-  `id_hp` int(11) NOT NULL
+  `id_hp` int(11) NOT NULL,
+  `id_brand` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -216,7 +217,8 @@ ALTER TABLE `tabel_hp`
 --
 ALTER TABLE `tabel_pencarian`
   ADD PRIMARY KEY (`id_pencarian`),
-  ADD KEY `id_hp_pencarian` (`id_hp`);
+  ADD KEY `id_hp_pencarian` (`id_hp`),
+  ADD KEY `id_brand_pencarian` (`id_brand`);
 
 --
 -- Indexes for table `tabel_spek`
@@ -267,6 +269,7 @@ ALTER TABLE `tabel_hp`
 -- Constraints for table `tabel_pencarian`
 --
 ALTER TABLE `tabel_pencarian`
+  ADD CONSTRAINT `id_brand_pencarian` FOREIGN KEY (`id_brand`) REFERENCES `tabel_brand` (`id_brand`),
   ADD CONSTRAINT `id_hp_pencarian` FOREIGN KEY (`id_hp`) REFERENCES `tabel_hp` (`id_hp`);
 
 --

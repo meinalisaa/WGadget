@@ -38,6 +38,6 @@
     public function getSearch($cari){
       $model      = new SearchModel();
       $data['db'] = $model->get($cari);
-      return $this->respond($data['db'], 200, 'Data Pencarian berhasil ditampilkan.');
+      return $this->respond($data['db'], 200, 'Data pencarian berhasil ditampilkan.');
     }
   }

@@ -15,4 +15,9 @@
       ->orLike('nama_hp', $search)
       ->get()->getResult();
     }
+
+    public function add($data){
+      return $this->db->table('tabel_pencarian')
+      ->insert($data);
+    }
   }
