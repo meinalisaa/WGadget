@@ -85,9 +85,9 @@
           <?php endif ?>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn my-2 my-sm-0" type="submit" style="background-color: #460137; color: white">Search</button>
+        <form action="<?= base_url('/search') ?>" method="POST" class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Cari" aria-label="Search" name="cari">
+          <button class="btn my-2 my-sm-0" type="submit" style="background-color: #460137; color: white" name="submit">Search</button>
         </form>
       </div>
     </nav>

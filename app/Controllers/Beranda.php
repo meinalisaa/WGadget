@@ -28,6 +28,6 @@
     public function getHp(){
       $model      = new HpModel();
       $data['db'] = $model->getAll();
-      return $this->respond($data['db'], 200);
+      return $this->respond($data['db'], 200, 'Data HP berhasil ditampilkan.');
     }
   }
