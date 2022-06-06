@@ -12,9 +12,8 @@
       return $this->db->table('tabel_pencarian')
       ->join('tabel_hp', 'tabel_hp.id_hp = tabel_pencarian.id_hp')
       ->join('tabel_brand', 'tabel_brand.id_brand = tabel_pencarian.id_brand')
-      //->selectCount('tabel_pencarian.id_hp', 'total')
       ->groupBy('tabel_pencarian.id_hp')
-      //->orderBy('total', 'DESC')
+      ->orderBy('id_pencarian', 'DESC')
       ->limit(18)
       ->get()->getResult();
     }

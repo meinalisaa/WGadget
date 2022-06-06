@@ -2,7 +2,7 @@
 <?= $this->extend('layout/template-user') ?>
 <?= $this->section('content') ?>
   <div class="container mt-3 mb-4">
-    <h1 align="center">Hasil Pencarian</h1>
+    <h1 align="center">Hasil Pencarian <?= $cari ?></h1>
 
     <div class="row">
       <?php

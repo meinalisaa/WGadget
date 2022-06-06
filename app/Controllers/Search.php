@@ -24,7 +24,7 @@
 
           if($response->getStatusCode() == 200){
             $data['cari']     = ucfirst($cari);
-            $data['judul']    = 'WGadget | Hasil Pencarian '.$data['cari'];
+            $data['judul']    = 'WGadget | Hasil Pencarian';
             $data['database'] = json_decode($response->getBody());
             echo view('pages/hasil_pencarian', $data);
           }
