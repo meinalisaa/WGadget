@@ -1,0 +1,22 @@
+Laporan Akhir Tugas Besar
+Laporan akhir harus memuat paling sedikit penjelasan tentang tugas besar yang tim Anda
+buat, dengan sistematika pelaporan sebagai berikut:
+• Judul Tugas Besar
+
+pije		Abstrak 
+milpa		Latar Belakang Masalah 
+ 			Tujuan dan hasil yang akan dicapai
+meina		Metode / strategi pencapaian tujuan 
+dinda		Identifikasi Pra-Implementasi (lihat slide pertemuan 8) 
+			o Alur Bisnis
+			o Halaman yang dibutuhkan
+
+
+
+	o Dokumentasi API 
+• Kode Program dan Penjelasan 
+• Dokumentasi Penggunaan
+• Bukti dan Penjelasan koordinasi dan komunikasi tim kerja (contoh: rapat tim, pembagian
+kerja tim dengan memanfaatkan git/github, rapat kemajuan)
+ppt	
+
