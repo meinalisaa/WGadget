@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2022 at 01:43 PM
+-- Generation Time: Jun 07, 2022 at 03:43 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -154,11 +154,11 @@ INSERT INTO `tabel_spek` (`id_spek`, `id_hp`, `id_brand`, `tgl_rilis`, `ukuran_l
 (2, 2, 1, '2022-04-08', 6.6, 'Android 12, One UI 4.1', 'Exynos 1280 (5 nm)', '6 GB/8 GB RAM, 128 GB Memori Internal', 5000, 'Kamera Depan 8 MP, Kamera Belakang 50 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE/5G', 3999000, 'Green, Blue, Brown'),
 (3, 3, 1, '2022-04-08', 6.6, 'Android 12, One UI 4.1', 'Qualcomm SM7225 Snapdragon 750G 5G (8 nm)', '4 GB/6 GB RAM, 128 GB Memori Internal', 5000, 'Kamera Depan 8 MP, Kamera Belakang 50 MP + 8 MP + 2 MP', 'GSM/HSPA/LTE/5G', 9999999, 'Deep Green, Light Blue, Orange Copper'),
 (4, 4, 1, '2022-03-22', 11, 'Android 12, One UI 4.1', 'Qualcomm SM8450 Snapdragon 8 Gen 1 (4 nm)', '8 GB/12 GB RAM, 128 GB/256 GB Memori Internal', 8000, 'Kamera Depan 12 MP, Kamera Belakang 13 MP + 6 MP', 'GSM/HSPA/LTE/5G', 9999000, 'Graphite, Silver, Pink Gold'),
-(5, 5, 1, '2021-10-13', 6.4, 'Android 11, upgradable to Android 12, One UI 4.1', 'Mediatek MT6769V/CU Helio G80 (12 nm)', '4 GB/6 GB RAM, 64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 13 MP, Kamera Belakang 48 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE', 4199000, 'Black, White, Light Blue'),
+(5, 5, 1, '2021-10-13', 6.4, 'Android 11, upgradable to Android 12, One UI 4.1', 'MediaTek MT6769V/CU Helio G80 (12 nm)', '4 GB/6 GB RAM, 64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 13 MP, Kamera Belakang 48 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE', 4199000, 'Black, White, Light Blue'),
 (6, 6, 2, '2022-03-31', 6.53, 'Android 11, MIUI 12.5', 'MediaTek MT6762G Helio G25 (12 nm)', '2 GB/3 GB/4 GB/6 GB RAM, 32 GB/64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 5 MP, Kamera Belakang 13 MP', 'GSM/HSPA/CDMA2000/LTE', 1449000, 'Charcoal Black, Sea Blue, Slate Grey'),
 (7, 7, 2, '2022-03-23', 6.71, 'Android 11, MIUI 13', 'Qualcomm SM6225 Snapdragon 680 4G (6 nm)', '4 GB RAM, 64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 5 MP, Kamera Belakang 50 MP + 2 MP', 'GSM/HSPA/LTE', 1849000, 'Graphite Gray, Ocean Blue, Mint Green'),
 (8, 8, 2, '2022-03-04', 6.67, 'Android 11, MIUI 13', 'Qualcomm SM6375 Snapdragon 695 5G (6 nm)', '6 GB/8 GB RAM, 128 GB/256 GB Memori Internal', 5000, 'Kamera Depan 16 MP, Kamera Belakang 108 MP + 8 MP + 2 MP', 'GSM/CDMA/HSPA/CDMA2000/LTE/5G', 3899000, 'Graphite Gray, Polar White, Atlantic Blue'),
-(9, 9, 2, '2022-02-09', 6.43, 'Android 11, MIUI 13', 'Mediatek Helio G96 (12 nm)', '6 GB/8 GB RAM, 64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 16 MP, Kamera Belakang 108 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE', 3599000, 'Graphite Gray, Pearl White, Twilight Blue'),
+(9, 9, 2, '2022-02-09', 6.43, 'Android 11, MIUI 13', 'MediaTek Helio G96 (12 nm)', '6 GB/8 GB RAM, 64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 16 MP, Kamera Belakang 108 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE', 3599000, 'Graphite Gray, Pearl White, Twilight Blue'),
 (10, 10, 2, '2022-02-09', 6.43, 'Android 11, MIUI 13', 'Qualcomm SM6225 Snapdragon 680 4G (6 nm)', '4 GB/6 GB RAM, 64 GB/128 GB Memori Internal', 5000, 'Kamera Depan 13 MP, Kamera Belakang 50 MP + 8 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE', 2499000, 'Graphite Gray, Pearl White, Star Blue'),
 (11, 11, 3, '2021-09-24', 6.7, 'iOS 15, upgradable to iOS 15.5', 'Apple A15 Bionic (5 nm)', '6 GB RAM, 128 GB/256 GB/512 GB/1 TB Memori Internal', 4352, 'Kamera Depan 12 MP + SL 3D, Kamera Belakang 12 MP + 12 MP + 12 MP + TOF 3D LiDAR scanner', 'GSM/CDMA/HSPA/EVDO/LTE/5G', 19999000, 'Graphite, Gold, Silver, Sierra Blue, Alpine Green'),
 (12, 12, 3, '2021-09-24', 6.1, 'iOS 15, upgradable to iOS 15.5', 'Apple A15 Bionic (5 nm)', '6 GB RAM, 128 GB/256 GB/512 GB/1 TB Memori Internal', 3095, 'Kamera Depan 12 MP + SL 3D, Kamera Belakang 12 MP + 12 MP + 12 MP + TOF 3D LiDAR scanner', 'GSM/CDMA/HSPA/EVDO/LTE/5G', 18499000, 'Graphite, Gold, Silver, Sierra Blue, Alpine Green'),
@@ -175,10 +175,10 @@ INSERT INTO `tabel_spek` (`id_spek`, `id_hp`, `id_brand`, `tgl_rilis`, `ukuran_l
 (23, 23, 5, '2022-04-15', 6.56, 'Android 12', 'MediaTek MT6833P Dimensity 810 5G (6 nm)', '6 GB/8 GB RAM, 128 GB Memori Internal', 5000, 'Kamera Depan 8 MP, Kamera Belakang Triple 13 MP + 2 MP', 'GSM/HSDPA/4G/5G', 3399000, 'Black, Blue, Lilac'),
 (24, 24, 5, '2022-03-29', 6.59, 'Android 11', 'Qualcomm SM6225 Snapdragon 680 4G (6 nm)', '6 GB/8 GB RAM, 128 GB Memori Internal', 5000, 'Kamera Depan 16 MP, Kamera Belakang Triple 50 MP + 2 MP + 2 MP', 'GSM/HSDPA/4G/5G', 2899000, 'Black Carbon, Blue Flame'),
 (25, 25, 5, '2022-04-15', 6.1, 'Android 11', 'Qualcomm SM6225 Snapdragon 680 4G (6 nm)', '8 GB RAM, 256 GB Memori Internal', 4500, 'Kamera Depan 32 MP, Kamera Belakang Triple 64 MP + 2 MP + 2 MP', 'GSM/HSDPA/4G', 4399000, 'Sunset Orange, Cosmic Black'),
-(26, 26, 6, '2016-02-10', 5.5, 'Android 5.1', 'Mediatek MT6753', '3 GB RAM, 32 GB Memori Internal', 4020, 'Kamera Depan 13 MP, Kamera Belakang 13 MP', 'GSM/HSDPA/LTE', 3399000, 'Black, Gold'),
-(27, 27, 6, '2014-12-12', 5, 'Android 4.4.4, upgradable to 5.1', 'Mediatek MT6752M', '2 GB RAM, 16 GB Memori Internal', 2300, 'Kamera Depan 5 MP, Kamera Belakang 13 MP', 'GSM/HSDPA/LTE', 1899000, 'Black, White, Red, Pink'),
-(28, 28, 6, '2016-10-25', 5, 'Android 6.0', 'Mediatek MT8735', '2 GB RAM, 16 GB/32 GB Memori Internal', 3400, 'Kamera Depan 2 MP, Kamera Belakang 13 MP', 'GSM/HSDPA/LTE', 1399000, 'Black'),
-(29, 29, 6, '2016-02-16', 5, 'Android 6.0', 'Mediatek MT6735', '1 GB RAM, 8 GB Memori Internal', 2000, 'Kamera Depan 5 MP, Kamera Belakang 8 MP', 'GSM/HSDPA/LTE', 1599000, 'Black, White'),
+(26, 26, 6, '2016-02-10', 5.5, 'Android 5.1', 'MediaTek MT6753', '3 GB RAM, 32 GB Memori Internal', 4020, 'Kamera Depan 13 MP, Kamera Belakang 13 MP', 'GSM/HSDPA/LTE', 3399000, 'Black, Gold'),
+(27, 27, 6, '2014-12-12', 5, 'Android 4.4.4, upgradable to 5.1', 'MediaTek MT6752M', '2 GB RAM, 16 GB Memori Internal', 2300, 'Kamera Depan 5 MP, Kamera Belakang 13 MP', 'GSM/HSDPA/LTE', 1899000, 'Black, White, Red, Pink'),
+(28, 28, 6, '2016-10-25', 5, 'Android 6.0', 'MediaTek MT8735', '2 GB RAM, 16 GB/32 GB Memori Internal', 3400, 'Kamera Depan 2 MP, Kamera Belakang 13 MP', 'GSM/HSDPA/LTE', 1399000, 'Black'),
+(29, 29, 6, '2016-02-16', 5, 'Android 6.0', 'MediaTek MT6735', '1 GB RAM, 8 GB Memori Internal', 2000, 'Kamera Depan 5 MP, Kamera Belakang 8 MP', 'GSM/HSDPA/LTE', 1599000, 'Black, White'),
 (30, 30, 6, '2015-11-19', 4.5, 'Microsoft Windows 10', 'Qualcomm MSM8909 Snapdragon 210', '1 GB RAM, 8 GB Memori Internal', 2000, 'Kamera Depan 5 MP, Kamera Belakang 5 MP', 'GSM/HSDPA/LTE', 1499000, 'Mystic Black, Pure White'),
 (31, 31, 7, '2020-04-28', 6.6, 'Android 12, Realme UI 3.0', 'Qualcomm SM6375 Snapdragon 695 5G (6 nm)', '6 GB/8 GB RAM, 128 GB/256 GB Memori Internal', 5000, 'Kamera Depan 16 MP, Kamera Belakang 50 MP + 2 MP + 2 MP', 'GSM/HSPA/LTE/5G', 3199000, 'Black, Silver, Yellow'),
 (32, 32, 7, '2022-04-18', 6.58, 'Android 12, Realme UI 3.0', 'MediaTek MT6833P Dimensity 810 (6 nm)', '4 GB/6 GB RAM, 128 GB Memori Internal', 5000, 'Kamera Depan 8 MP, Kamera Belakang 13 MP + 2 MP', 'GSM/HSPA/LTE/5G', 2799000, 'Black, Blue'),
