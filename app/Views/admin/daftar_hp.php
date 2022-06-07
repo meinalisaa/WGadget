@@ -10,9 +10,11 @@
             <div class="card">
               <div class="card-header">
                 <div style="text-align: left; margin: 8px 7px 8px 0px">
-                  <a class="btn btn-info" data-toggle="modal" data-target="#tambahhpModal" style="color: white" type="submit">
-                      <i class="fas fa-plus" style="margin-right: 10px"></i> Tambah Hp
-                  </a>
+									<a href="<?= site_url('admin/tambah_hp')?>">
+										<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2" style="color: white" type="submit">
+											<i class="fas fa-plus" style="margin-right: 10px"></i> Tambah Hp
+										</button>
+									</a>
                 </div>
               </div>
 
@@ -137,7 +139,7 @@
             </span>
 
             <h3 class="modal-title" id="exampleModalLabel" align="center">
-              <b style="color: #595959">Hapus hp</b>
+              <b style="color: #595959">Hapus Hp</b>
             </h3>
 
             <h5 class="modal-title" id="exampleModalLabel" align="center" style="color: #545454">Anda yakin ingin menghapus hp ini?</h5>
@@ -148,32 +150,6 @@
               <a class="btn" href="<?= base_url('admin/hapushp/'.$val->id_hp) ?>" style="background: #30454A; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
               <button class="btn" type="button" data-dismiss="modal" style="background: grey; color: white; margin-right: auto; margin-left: 10px; width: 105px; padding: 10px">Tidak</button>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <?php endforeach ?>
-
-  <?php foreach($database as $val) : ?>
-    <div class="modal fade" id="tambahhpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" style="border-radius: 5px">
-          <div class="modal-body">
-          <h3 class="modal-title" id="exampleModalLabel" align="center">
-              <b style="color: #595959">Tambah Hp</b>
-            </h3>
-
-            <br>
-
-            <form action="<?= base_url('admin/tambahhp') ?>" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                  	<label>Nama hp</label><br>
-                  	<input type="text" name="nama_hp" class="form-control">
-                </div>
-                <div class="form-group" style="text-align: center">
-                	   <button type="submit" class="btn" style="background: #460137; color: white; border-radius: 20px; width: 200px">Tambah hp</button>
-                </div>
-            </form>
           </div>
         </div>
       </div>
