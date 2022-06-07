@@ -91,8 +91,16 @@
           </tr>
 
           <tr>
-            <td style="padding: 7px"><?= $hp_1['memori'] ?></td>
-            <td style="padding: 7px"><?= $hp_2['memori'] ?></td>
+            <?php if(strlen($hp_1['memori']) < strlen($hp_2['memori'])) : ?>
+                <td style="padding: 7px" class="text-danger"><?= $hp_1['memori'] ?></td>
+                <td style="padding: 7px" class="text-success"><?= $hp_2['memori'] ?></td>
+            <?php elseif(strlen($hp_1['memori']) > strlen($hp_2['memori'])) : ?>
+              <td style="padding: 7px" class="text-success"><?= $hp_1['memori'] ?></td>
+              <td style="padding: 7px" class="text-danger"><?= $hp_2['memori'] ?></td>
+            <?php else : ?>
+              <td style="padding: 7px" class="text-primary"><?= $hp_1['memori'] ?></td>
+              <td style="padding: 7px" class="text-primary"><?= $hp_2['memori'] ?></td>
+            <?php endif ?>
           </tr>
 
           <tr>
@@ -109,39 +117,55 @@
           </tr>
 
           <tr>
-            <td style="padding: 7px"><?= $hp_1['kamera'] ?></td>
-            <td style="padding: 7px"><?= $hp_2['kamera'] ?></td>
+            <?php if(strlen($hp_1['kamera']) < strlen($hp_2['kamera'])) : ?>
+                <td style="padding: 7px" class="text-danger"><?= $hp_1['kamera'] ?></td>
+                <td style="padding: 7px" class="text-success"><?= $hp_2['kamera'] ?></td>
+            <?php elseif(strlen($hp_1['kamera']) > strlen($hp_2['kamera'])) : ?>
+              <td style="padding: 7px" class="text-success"><?= $hp_1['kamera'] ?></td>
+              <td style="padding: 7px" class="text-danger"><?= $hp_2['kamera'] ?></td>
+            <?php else : ?>
+              <td style="padding: 7px" class="text-primary"><?= $hp_1['kamera'] ?></td>
+              <td style="padding: 7px" class="text-primary"><?= $hp_2['kamera'] ?></td>
+            <?php endif ?>
           </tr>
 
           <tr>
-            <td style="padding: 7px"><?= $hp_1['jaringan'] ?></td>
-            <td style="padding: 7px"><?= $hp_2['jaringan'] ?></td>
+            <?php if(strlen($hp_1['jaringan']) < strlen($hp_2['jaringan'])) : ?>
+                <td style="padding: 7px" class="text-danger"><?= $hp_1['jaringan'] ?></td>
+                <td style="padding: 7px" class="text-success"><?= $hp_2['jaringan'] ?></td>
+            <?php elseif(strlen($hp_1['jaringan']) > strlen($hp_2['jaringan'])) : ?>
+              <td style="padding: 7px" class="text-success"><?= $hp_1['jaringan'] ?></td>
+              <td style="padding: 7px" class="text-danger"><?= $hp_2['jaringan'] ?></td>
+            <?php else : ?>
+              <td style="padding: 7px" class="text-primary"><?= $hp_1['jaringan'] ?></td>
+              <td style="padding: 7px" class="text-primary"><?= $hp_2['jaringan'] ?></td>
+            <?php endif ?>
           </tr>
 
           <tr>
             <?php if($hp_1['harga'] < $hp_2['harga']) : ?>
-              <td style="padding: 7px" class="text-danger">
+              <td style="padding: 7px" class="text-success">
                 <?php
                   $harga = "Rp ".number_format($hp_1['harga'],2,',','.');
                   echo $harga;
                 ?>
               </td>
 
-              <td style="padding: 7px" class="text-success">
+              <td style="padding: 7px" class="text-danger">
                 <?php
                   $harga = "Rp ".number_format($hp_2['harga'],2,',','.');
                   echo $harga;
                 ?>
               </td>
             <?php elseif($hp_1['harga'] > $hp_2['harga']) : ?>
-              <td style="padding: 7px" class="text-success">
+              <td style="padding: 7px" class="text-danger">
                 <?php
                   $harga = "Rp ".number_format($hp_1['harga'],2,',','.');
                   echo $harga;
                 ?>
               </td>
 
-              <td style="padding: 7px" class="text-danger">
+              <td style="padding: 7px" class="text-success">
                 <?php
                   $harga = "Rp ".number_format($hp_2['harga'],2,',','.');
                   echo $harga;
