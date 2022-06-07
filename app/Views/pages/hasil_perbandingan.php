@@ -68,10 +68,10 @@
               <?php elseif(strpos($hp_2['chipset'], 'Apple') !== false) : ?>
                 <td style="padding: 7px" class="text-danger"><?= $hp_1['chipset'] ?></td>
                 <td style="padding: 7px" class="text-success"><?= $hp_2['chipset'] ?></td>
-              <?php elseif(strpos($hp_1['chipset'], 'Mediatek') !== false) : ?>
+              <?php elseif(strpos($hp_1['chipset'], 'MediaTek') !== false) : ?>
                 <td style="padding: 7px" class="text-success"><?= $hp_1['chipset'] ?></td>
                 <td style="padding: 7px" class="text-danger"><?= $hp_2['chipset'] ?></td>
-              <?php elseif(strpos($hp_2['chipset'], 'Mediatek') !== false) : ?>
+              <?php elseif(strpos($hp_2['chipset'], 'MediaTek') !== false) : ?>
                 <td style="padding: 7px" class="text-danger"><?= $hp_1['chipset'] ?></td>
                 <td style="padding: 7px" class="text-success"><?= $hp_2['chipset'] ?></td>
               <?php elseif(strpos($hp_1['chipset'], 'Qualcomm') !== false) : ?>
