@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2022 at 01:57 PM
+-- Generation Time: Jun 07, 2022 at 12:52 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -66,6 +66,7 @@ CREATE TABLE `tabel_pencarian` (
 CREATE TABLE `tabel_spek` (
   `id_spek` int(11) NOT NULL,
   `id_hp` int(11) NOT NULL,
+  `id_brand` int(11) NOT NULL,
   `tgl_rilis` date NOT NULL,
   `ukuran_layar` float NOT NULL,
   `sistem_operasi` varchar(255) NOT NULL,
@@ -108,7 +109,8 @@ ALTER TABLE `tabel_pencarian`
 --
 ALTER TABLE `tabel_spek`
   ADD PRIMARY KEY (`id_spek`),
-  ADD KEY `id_hp` (`id_hp`);
+  ADD KEY `id_hp` (`id_hp`),
+  ADD KEY `id_brand_spek` (`id_brand`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -159,6 +161,7 @@ ALTER TABLE `tabel_pencarian`
 -- Constraints for table `tabel_spek`
 --
 ALTER TABLE `tabel_spek`
+  ADD CONSTRAINT `id_brand_spek` FOREIGN KEY (`id_brand`) REFERENCES `tabel_brand` (`id_brand`),
   ADD CONSTRAINT `id_hp` FOREIGN KEY (`id_hp`) REFERENCES `tabel_hp` (`id_hp`);
 COMMIT;
 

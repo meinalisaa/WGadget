@@ -13,4 +13,12 @@
       ->join('tabel_brand', 'tabel_brand.id_brand = tabel_hp.id_brand')
       ->get()->getResult();
     }
+
+    public function getOne($id){
+      return $this->db->table('tabel_spek')
+      ->join('tabel_hp', 'tabel_hp.id_hp = tabel_spek.id_hp')
+      ->join('tabel_brand', 'tabel_brand.id_brand = tabel_spek.id_brand')
+      ->where('tabel_spek.id_hp', $id)
+      ->get()->getRowArray();
+    }
   }
