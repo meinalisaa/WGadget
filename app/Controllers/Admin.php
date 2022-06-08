@@ -140,4 +140,10 @@
       $data['hp']       = $model->getOne($hp);
       return $this->respond($data['hp'], 200, 'Data hp dengan id '.$hp.' berhasil ditampilkan.');
     }
-  }
+
+    public function tambah_hp(){
+
+        echo view('admin/tambah_hp');
+      }
+    }
+  
