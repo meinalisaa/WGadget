@@ -96,7 +96,7 @@
     }
 
     public function daftar_hp(){
-      $data['judul'] = 'WGadget | Daftar HP';
+      $data['judul'] = 'WGadget | Daftar Hp';
       $url = base_url('/admin/getHp');
 
       $curl = service('curlrequest');
@@ -119,7 +119,7 @@
     }
 
     public function detail_hp($id = null){
-      $data['judul'] = 'WGadget | Detail HP';
+      $data['judul'] = 'WGadget | Detail Hp';
       $pager    = \Config\Services::pager();
       $url = base_url('/admin/getDetailHp/'.$id);
       $curl = service('curlrequest');
@@ -142,8 +142,9 @@
     }
 
     public function tambah_hp(){
-
-        echo view('admin/tambah_hp');
-      }
+      $data['judul'] = 'WGadget | Tambah Hp';
+      echo view('admin/tambah_hp', $data);
     }
+
+  }
   

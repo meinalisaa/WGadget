@@ -55,7 +55,7 @@
 
 			<div class="form-group">
 				<label>Daya Baterai</label>
-				<input value="<?= $database->daya_baterai ?>" class="form-control" readonly disabled>
+				<input value="<?= $database->daya_baterai ?> mAh" class="form-control" readonly disabled>
 			</div>
 
 			<div class="form-group">
