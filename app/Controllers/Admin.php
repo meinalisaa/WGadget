@@ -27,7 +27,7 @@
       }
     }
 
-    public function tambah_brand(){
+    public function tambahBrand(){
       $pager      = \Config\Services::pager();
       $session    = \Config\Services::session();
       $nama_brand = ucwords($this->request->getVar('nama_brand'));
@@ -70,7 +70,7 @@
       }
     }
 
-    public function ubah_brand($id_brand = null){
+    public function ubahBrand($id_brand = null){
       $model = new BrandModel();
       $json = $this->request->getJSON();
 
@@ -98,7 +98,7 @@
       return $this->respond($response);
     }
 
-    public function hapus_brand($id_brand){
+    public function hapusBrand($id_brand){
       $pager    = \Config\Services::pager();
       $session  = \Config\Services::session();
       $url      = base_url('/apiBrand/getOne/'.$id_brand);

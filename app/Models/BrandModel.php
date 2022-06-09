@@ -4,9 +4,9 @@
   use CodeIgniter\Model;
 
   class BrandModel extends Model{
-    protected $table          = 'tabel_brand';
-    protected $primaryKey     = 'id_brand';
-    protected $allowedFields  = ['nama_brand'];
+    protected $table         = 'tabel_brand';
+    protected $primaryKey    = 'id_brand';
+    protected $allowedFields = ['nama_brand'];
 
     public function getAll(){
       return $this->db->table('tabel_brand')
@@ -43,8 +43,20 @@
       ->update($data);
     }
 
-    public function deleteOne($id_brand){
+    public function deleteBrand($id_brand){
       return $this->db->table('tabel_brand')
+      ->where('id_brand', $id_brand)
+      ->delete();
+    }
+
+    public function deleteHp($id_brand){
+      return $this->db->table('tabel_hp')
+      ->where('id_brand', $id_brand)
+      ->delete();
+    }
+
+    public function deleteSpek($id_brand){
+      return $this->db->table('tabel_spek')
       ->where('id_brand', $id_brand)
       ->delete();
     }

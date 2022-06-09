@@ -162,7 +162,9 @@
       ]);
 
       if($response->getStatusCode() == 200){
-        $model->deleteOne($id_brand);
+        $model->deleteSpek($id_brand);
+        $model->deleteHp($id_brand);
+        $model->deleteBrand($id_brand);
         return $this->response->setStatusCode(200, 'Brand berhasil dihapus.');
       }
       else{
