@@ -1,20 +1,24 @@
 <?= $this->extend('layout/template-admin') ?>
 <?= $this->section('content') ?>
+  <?php $session = \Config\Services::session() ?>
+
   <div class="col-lg-10 mt-3" style="left: 225px">
-    <h1 class="ml-3">Daftar Hp</h1>
+    <h1 class="ml-3"><b>Daftar Hp</b></h1>
 
     <div class="col-lg-12 mt-2 mb-3">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="card">
+              <?= $session->getFlashdata('message') ?>
+
               <div class="card-header">
                 <div style="text-align: left; margin: 8px 7px 8px 0px">
-									<a href="<?= site_url('admin/tambah_hp')?>">
-										<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2" style="color: white" type="submit">
-											<i class="fas fa-plus" style="margin-right: 10px"></i> Tambah Hp
-										</button>
-									</a>
+                  <a href="<?= base_url('admin/tambah_hp') ?>">
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2" style="color: white" type="submit">
+                      <i class="fas fa-plus" style="margin-right: 10px"></i> Tambah Hp
+                    </button>
+                  </a>
                 </div>
               </div>
 
@@ -35,22 +39,22 @@
                       foreach($database as $val){
                     ?>
 
-                    <tr>
-                      <td style="text-align: center"><?= $no ?></td>
-                      <td><?= $val->nama_hp ?></td>
-											<td><center><img src="<?= base_url('/assets/img/hp/'.$val->nama_brand.'/'.$val->foto_hp) ?>" style="max-width: 100px"></center></td>
-                      <td style="text-align: center">
-												<a href="<?= site_url('admin/detail_hp/'.$val->id_hp)?>">
-                        	<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal2">
-														<i class="fas fa-eye"></i>
-													</button>
-												</a>
+                  <tr>
+                    <td style="text-align: center"><?= $no ?></td>
+                    <td><?= $val->nama_hp ?></td>
+                    <td><center><img src="<?= base_url('/assets/img/hp/'.$val->nama_brand.'/'.$val->foto_hp) ?>" style="width: 100px"></center></td>
+                    <td style="text-align: center">
+                      <a href="<?= base_url('admin/detail_hp/'.$val->id_hp) ?>">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal2">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </a>
 
-                        <a href="<?= site_url('admin/ubah_hp/'.$val->id_hp)?>" class="btn btn-warning btn-sm">
+                        <a href="<?= base_url('admin/ubah_hp/'.$val->id_hp) ?>" class="btn btn-warning btn-sm">
                           <i class="fas fa-edit"></i>
                         </a>
 
-                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusmenuModal<?= $val->id_hp ?>" style="color: white" type="submit">
+                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal<?= $val->id_hp ?>" style="color: white" type="submit">
                           <i class="fas fa-trash"></i>
                         </a>
                       </td>
@@ -129,7 +133,7 @@
   </style>
 
   <?php foreach($database as $val) : ?>
-    <div class="modal fade" id="hapusmenuModal<?= $val->id_hp ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="hapusModal<?= $val->id_hp ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="border-radius: 5px">
           <div class="modal-body">
@@ -147,7 +151,7 @@
             <br>
 
             <div class="row mb-2">
-              <a class="btn" href="<?= base_url('admin/hapushp/'.$val->id_hp) ?>" style="background: #30454A; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
+              <a class="btn" href="<?= base_url('admin/hapus_hp/'.$val->id_hp) ?>" style="background: #460137; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
               <button class="btn" type="button" data-dismiss="modal" style="background: grey; color: white; margin-right: auto; margin-left: 10px; width: 105px; padding: 10px">Tidak</button>
             </div>
           </div>

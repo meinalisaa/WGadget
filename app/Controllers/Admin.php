@@ -11,7 +11,7 @@
     use ResponseTrait;
 
     public function daftar_brand(){
-      $data['judul'] = 'WGadget | Daftar Brand';
+      $data['judul'] = 'Admin | Daftar Brand';
 
       $url      = base_url('/apiBrand/getAll');
       $curl     = service('curlrequest');
@@ -27,13 +27,7 @@
       }
     }
 
-    public function getBrand(){
-      $model      = new BrandModel();
-      $data['db'] = $model->findAll();
-      return $this->respond($data['db'], 200, 'Daftar Brand berhasil ditampilkan.');
-    }
-
-    public function tambahBrand(){
+    public function tambah_brand(){
       $pager      = \Config\Services::pager();
       $session    = \Config\Services::session();
       $nama_brand = ucwords($this->request->getVar('nama_brand'));
@@ -76,56 +70,66 @@
       }
     }
 
-    public function ubahBrand($id = null){
+    public function ubah_brand($id_brand = null){
       $model = new BrandModel();
-        $json = $this->request->getJSON();
-        if($json){
-            $data = [
-                'nama_brand' => $json->nama_brand
-            ];
-        }else{
-            $input = $this->request->getRawInput();
-            $data = [
-                'nama_brand' => $input['nama_brand']
-            ];
-        }
+      $json = $this->request->getJSON();
 
-        $model->update($id, $data);
-        $response = [
-            'status'   => 200,
-            'error'    => null,
-            'messages' => [
-                'success' => 'Data Updated'
-            ]
+      if($json){
+        $data = [
+        'nama_brand' => $json->nama_brand
         ];
-
-        return $this->respond($response);
-    }
-
-    public function hapusBrand($id = null){
-      $model = new BrandModel();
-      $data  = $model->find($id);
-
-      if($data){
-        $model->delete($id);
-        $response = [
-          'status'   => 200,
-          'error'    => null,
-          'messages' => 'Brand berhasil dihapus.'
-        ];
-
-        return $this->respondDeleted($response);
       }
       else{
-        return $this->failNotFound('Brand dengan id '.$id.' tidak ditemukan.', 401);
+        $input = $this->request->getRawInput();
+        $data = [
+        'nama_brand' => $input['nama_brand']
+        ];
+      }
+
+      $model->update($id_brand, $data);
+      $response = [
+        'status'   => 200,
+        'error'    => null,
+        'messages' => [
+          'success' => 'Data Updated'
+        ]
+      ];
+
+      return $this->respond($response);
+    }
+
+    public function hapus_brand($id_brand){
+      $pager    = \Config\Services::pager();
+      $session  = \Config\Services::session();
+      $url      = base_url('/apiBrand/getOne/'.$id_brand);
+      $curl     = service('curlrequest');
+      $response = $curl->request('GET', $url, [
+        "headers" => [
+          "Accept" => "application/json"
+        ]
+      ]);
+
+      if($response->getStatusCode() == 200){
+        $url      = base_url('/apiBrand/deleteOne/'.$id_brand);
+        $curl     = service('curlrequest');
+        $response = $curl->request('GET', $url, [
+          "headers" => [
+            "Accept" => "application/json"
+          ]
+        ]);
+
+        if($response->getStatusCode() == 200){
+          $session->setFlashdata('message', '<div class="alert alert-success alert-dismissible fade show alert-dismissible fade show" role="alert">Brand berhasil dihapus.</div>');
+          return redirect()->route('admin/daftar_brand');
+        }
       }
     }
 
     public function daftar_hp(){
-      $data['judul'] = 'WGadget | Daftar Hp';
-      $url = base_url('/admin/getHp');
+      $data['judul'] = 'Admin | Daftar HP';
 
-      $curl = service('curlrequest');
+      $url      = base_url('/apiHp/getAll');
+      $curl     = service('curlrequest');
       $response = $curl->request('GET', $url, [
         "headers" => [
           "Accept" => "application/json"
@@ -138,17 +142,12 @@
       }
     }
 
-    public function getHp(){
-      $model      = new HpModel();
-      $data['db'] = $model->getAll();
-      return $this->respond($data['db'], 200, 'Daftar hp berhasil ditampilkan.');
-    }
+    public function detail_hp($id_hp = null){
+      $data['judul'] = 'Admin | Detail HP';
 
-    public function detail_hp($id = null){
-      $data['judul'] = 'WGadget | Detail Hp';
       $pager    = \Config\Services::pager();
-      $url = base_url('/admin/getDetailHp/'.$id);
-      $curl = service('curlrequest');
+      $url      = base_url('/apiHp/getOne/'.$id_hp);
+      $curl     = service('curlrequest');
       $response = $curl->request('GET', $url, [
         "headers" => [
           "Accept" => "application/json"
@@ -161,15 +160,8 @@
       }
     }
 
-    public function getDetailHp($hp){
-      $model            = new HpModel();
-      $data['hp']       = $model->getOne($hp);
-      return $this->respond($data['hp'], 200, 'Data hp dengan id '.$hp.' berhasil ditampilkan.');
-    }
-
     public function tambah_hp(){
-      $data['judul'] = 'WGadget | Tambah Hp';
+      $data['judul'] = 'Admin | Tambah HP';
       echo view('admin/tambah_hp', $data);
     }
-
   }

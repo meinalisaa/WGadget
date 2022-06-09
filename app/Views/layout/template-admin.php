@@ -31,8 +31,8 @@
       }
 
       #body-row{
-        margin-left:0;
-        margin-right:0;
+        margin-left: 0;
+        margin-right: 0;
       }
 
       #sidebar-container{
@@ -52,7 +52,7 @@
         margin-top: 10px;
         height: 50px;
         color: white;
-        border-color: #460137;
+        border: 0;
       }
     </style>
   </head>
@@ -68,19 +68,37 @@
     <div class="row" id="body-row" style="padding-top: 50px">
       <div id="sidebar-container" class="siderbar-col col-lg-2 d-none d-md-block">
         <ul class="list-group">
-          <a href="<?= base_url('/admin/daftar_brand') ?>" style="background-color: #460137" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-start align-items-center" style="background-color: #460137">
-              <span class="fa fa-mobile fa-fw mr-3"></span>
-              <span>Daftar Brand</span>
-            </div>
-          </a>
+          <?php if($judul == 'Admin | Daftar Brand') : ?>
+            <a href="<?= base_url('/admin/daftar_brand') ?>" style="background-color: #2F0325" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-start align-items-center" style="background-color: #2F0325">
+                <span class="fab fa-apple fa-fw mr-3"></span>
+                <span>Daftar Brand</span>
+              </div>
+            </a>
+          <?php else : ?>
+            <a href="<?= base_url('/admin/daftar_brand') ?>" style="background-color: #460137" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-start align-items-center" style="background-color: #460137">
+                <span class="fab fa-apple fa-fw mr-3"></span>
+                <span>Daftar Brand</span>
+              </div>
+            </a>
+          <?php endif ?>
 
-          <a href="<?= base_url('/admin/daftar_hp') ?>" style="background-color: #460137" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-start align-items-center" style="background-color: #460137">
-              <span class="fa fa-mobile fa-fw mr-3" ></span>
-              <span>Daftar HP</span>
-            </div>
-          </a>
+          <?php if($judul == 'Admin | Daftar HP') : ?>
+            <a href="<?= base_url('/admin/daftar_hp') ?>" style="background-color: #2F0325" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-start align-items-center" style="background-color: #2F0325">
+                <span class="fa fa-mobile fa-fw mr-3" ></span>
+                <span>Daftar HP</span>
+              </div>
+            </a>
+          <?php else : ?>
+            <a href="<?= base_url('/admin/daftar_hp') ?>" style="background-color: #460137" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-start align-items-center" style="background-color: #460137">
+                <span class="fa fa-mobile fa-fw mr-3" ></span>
+                <span>Daftar HP</span>
+              </div>
+            </a>
+          <?php endif ?>
         </ul>
       </div>
 

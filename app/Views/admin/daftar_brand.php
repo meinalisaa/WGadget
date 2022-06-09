@@ -1,8 +1,9 @@
 <?= $this->extend('layout/template-admin') ?>
 <?= $this->section('content') ?>
-<?php $session = \Config\Services::session() ?>
+  <?php $session = \Config\Services::session() ?>
+
   <div class="col-lg-10 mt-3" style="left: 225px">
-    <h1 class="ml-3">Daftar Brand</h1>
+    <h1 class="ml-3"><b>Daftar Brand</b></h1>
 
     <div class="col-lg-12 mt-2 mb-3">
       <div class="container-fluid">
@@ -13,8 +14,8 @@
 
               <div class="card-header">
                 <div style="text-align: left; margin: 8px 7px 8px 0px">
-                  <a class="btn btn-info" data-toggle="modal" data-target="#tambahbrandModal" style="color: white" type="submit">
-                      <i class="fas fa-plus" style="margin-right: 10px"></i> Tambah Brand
+                  <a class="btn btn-info" data-toggle="modal" data-target="#tambahModal" style="color: white" type="submit">
+                    <i class="fas fa-plus" style="margin-right: 10px"></i> Tambah Brand
                   </a>
                 </div>
               </div>
@@ -40,10 +41,10 @@
                       <td><?= $val->nama_brand ?></td>
                       <td style="text-align: center">
                         <a href="<?= site_url('admin/ubah_brand/'.$val->id_brand)?>" class="btn btn-warning btn-sm">
-                          <i class="fas fa-edit"></i>
+                          <i class="fa fa-edit"></i>
                         </a>
 
-                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusmenuModal<?= $val->id_brand ?>" style="color: white" type="submit">
+                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal<?= $val->id_brand ?>" style="color: white" type="submit">
                           <i class="fas fa-trash"></i>
                         </a>
                       </td>
@@ -122,7 +123,7 @@
   </style>
 
   <?php foreach($database as $val) : ?>
-    <div class="modal fade" id="hapusmenuModal<?= $val->id_brand ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="hapusModal<?= $val->id_brand ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="border-radius: 5px">
           <div class="modal-body">
@@ -140,7 +141,7 @@
             <br>
 
             <div class="row mb-2">
-              <a class="btn" href="<?= base_url('admin/hapusBrand/'.$val->id_brand) ?>" style="background: #30454A; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
+              <a class="btn" href="<?= base_url('admin/hapus_brand/'.$val->id_brand) ?>" style="background: #460137; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
               <button class="btn" type="button" data-dismiss="modal" style="background: grey; color: white; margin-right: auto; margin-left: 10px; width: 105px; padding: 10px">Tidak</button>
             </div>
           </div>
@@ -150,24 +151,25 @@
   <?php endforeach ?>
 
   <?php foreach($database as $val) : ?>
-    <div class="modal fade" id="tambahbrandModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" style="border-radius: 5px">
+        <div class="modal-content" style="border-radius: 5px; padding: 0 20px">
           <div class="modal-body">
-          <h3 class="modal-title" id="exampleModalLabel" align="center">
+            <h3 class="modal-title" id="exampleModalLabel" align="center">
               <b style="color: #595959">Tambah Brand</b>
             </h3>
 
             <br>
 
             <form action="<?= base_url('admin/tambahBrand') ?>" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                  	<label>Nama Brand</label><br>
-                  	<input type="text" name="nama_brand" class="form-control">
-                </div>
-                <div class="form-group" style="text-align: center">
-                	   <button type="submit" class="btn" style="background: #460137; color: white; border-radius: 20px; width: 200px">Tambah Brand</button>
-                </div>
+              <div class="form-group">
+                <label>Nama Brand</label><br>
+                <input type="text" name="nama_brand" class="form-control">
+              </div>
+
+              <div class="form-group" style="text-align: center">
+                <button type="submit" class="btn" style="background: #460137; color: white; width: 100%">Tambah Brand</button>
+              </div>
             </form>
           </div>
         </div>
