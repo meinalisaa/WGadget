@@ -40,7 +40,7 @@
                       <td style="text-align: center"><?= $no ?></td>
                       <td><?= $val->nama_brand ?></td>
                       <td style="text-align: center">
-                        <a href="<?= base_url('admin/ubahBrand/'.$val->id_brand)?>" class="btn btn-warning btn-sm">
+                        <a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ubahModal<?= $val->id_brand ?>" type="submit">
                           <i class="fa fa-edit"></i>
                         </a>
 
@@ -148,27 +148,25 @@
         </div>
       </div>
     </div>
-  <?php endforeach ?>
 
-  <?php foreach($database as $val) : ?>
-    <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="ubahModal<?= $val->id_brand ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="border-radius: 5px; padding: 0 20px">
           <div class="modal-body">
             <h3 class="modal-title" id="exampleModalLabel" align="center">
-              <b style="color: #595959">Tambah Brand</b>
+              <b style="color: #595959">Ubah Brand</b>
             </h3>
 
             <br>
 
-            <form action="<?= base_url('admin/tambahBrand') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('admin/ubahBrand/'.$val->id_brand) ?>" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label>Nama Brand</label><br>
-                <input type="text" name="nama_brand" class="form-control">
+                <input type="text" name="nama_brand" class="form-control" placeholder="<?= $val->nama_brand ?>">
               </div>
 
               <div class="form-group" style="text-align: center">
-                <button type="submit" class="btn" style="background: #460137; color: white; width: 100%">Tambah Brand</button>
+                <button type="submit" class="btn" style="background: #460137; color: white; width: 100%">Ubah Brand</button>
               </div>
             </form>
           </div>
@@ -176,4 +174,29 @@
       </div>
     </div>
   <?php endforeach ?>
+
+  <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="border-radius: 5px; padding: 0 20px">
+        <div class="modal-body">
+          <h3 class="modal-title" id="exampleModalLabel" align="center">
+            <b style="color: #595959">Tambah Brand</b>
+          </h3>
+
+          <br>
+
+          <form action="<?= base_url('admin/tambahBrand') ?>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label>Nama Brand</label><br>
+              <input type="text" name="nama_brand" class="form-control">
+            </div>
+
+            <div class="form-group" style="text-align: center">
+              <button type="submit" class="btn" style="background: #460137; color: white; width: 100%">Tambah Brand</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 <?= $this->endSection() ?>

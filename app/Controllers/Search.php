@@ -3,7 +3,6 @@
 
   use CodeIgniter\RESTful\ResourceController;
   use CodeIgniter\API\ResponseTrait;
-  use App\Models\SearchModel;
 
   class Search extends ResourceController{
     use ResponseTrait;

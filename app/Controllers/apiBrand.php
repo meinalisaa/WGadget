@@ -82,7 +82,7 @@
       }
     }
 
-    public function updateOne($id_brand = null){
+    public function updateOne($id_brand, $nama_brand = 0){
       $model    = new BrandModel();
       $url      = base_url('/apiBrand/getOne/'.$id_brand);
       $curl     = service('curlrequest');
@@ -93,58 +93,63 @@
       ]);
 
       if($response->getStatusCode() == 200){
-        $json  = $this->request->getJSON();
-        $input = $this->request->getRawInput();
+        if(empty($nama_brand)){
+          $json  = $this->request->getJSON();
+          $input = $this->request->getRawInput();
 
-        if($json){
-          $nama_brand = ucwords($json->nama_brand);
+          if($json){
+            $nama_brand = ucwords($json->nama_brand);
 
-          if(!empty($nama_brand)){
-            $url      = base_url('/apiBrand/getBrand/'.$nama_brand);
-            $curl     = service('curlrequest');
-            $response = $curl->request('GET', $url, [
-              "headers" => [
-                "Accept" => "application/json"
-              ]
-            ]);
+            if(!empty($nama_brand)){
+              $url      = base_url('/apiBrand/getBrand/'.$nama_brand);
+              $curl     = service('curlrequest');
+              $response = $curl->request('GET', $url, [
+                "headers" => [
+                  "Accept" => "application/json"
+                ]
+              ]);
 
-            if($response->getStatusCode() == 200){
-              return $this->respond(json_decode($response->getBody()), 409, 'Brand sudah tersedia.');
+              if($response->getStatusCode() == 200){
+                return $this->respond(json_decode($response->getBody()), 409, 'Brand sudah tersedia.');
+              }
+              else{
+                $data = [ 'nama_brand' => $nama_brand ];
+              }
             }
             else{
-              $data = [ 'nama_brand' => $nama_brand ];
+              return $this->response->setStatusCode(400, 'Nama brand tidak boleh kosong.');
             }
           }
           else{
-            return $this->response->setStatusCode(400, 'Nama brand tidak boleh kosong.');
+            $nama_brand = ucwords($input['nama_brand']);
+
+            if(!empty($nama_brand)){
+              $url      = base_url('/apiBrand/getBrand/'.$nama_brand);
+              $curl     = service('curlrequest');
+              $response = $curl->request('GET', $url, [
+                "headers" => [
+                  "Accept" => "application/json"
+                ]
+              ]);
+
+              if($response->getStatusCode() == 200){
+                return $this->respond(json_decode($response->getBody()), 409, 'Brand sudah tersedia.');
+              }
+              else{
+                $data  = [ 'nama_brand' => $nama_brand ];
+              }
+            }
+            else{
+              return $this->response->setStatusCode(400, 'Nama brand tidak boleh kosong.');
+            }
           }
         }
         else{
-          $nama_brand = ucwords($input['nama_brand']);
-
-          if(!empty($nama_brand)){
-            $url      = base_url('/apiBrand/getBrand/'.$nama_brand);
-            $curl     = service('curlrequest');
-            $response = $curl->request('GET', $url, [
-              "headers" => [
-                "Accept" => "application/json"
-              ]
-            ]);
-
-            if($response->getStatusCode() == 200){
-              return $this->respond(json_decode($response->getBody()), 409, 'Brand sudah tersedia.');
-            }
-            else{
-              $data  = [ 'nama_brand' => $nama_brand ];
-            }
-          }
-          else{
-            return $this->response->setStatusCode(400, 'Nama brand tidak boleh kosong.');
-          }
-
-          $model->updateOne($id_brand, $data);
-          return $this->respond($data, 200, 'Brand berhasil diperbarui.');
+          $data = [ 'nama_brand' => $nama_brand ];
         }
+
+        $model->updateOne($id_brand, $data);
+        return $this->respond($data, 200, 'Brand berhasil diperbarui.');
       }
       else{
         return $this->response->setStatusCode(204, 'Brand dengan id '.$id_brand.' tidak ditemukan.');
