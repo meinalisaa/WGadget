@@ -40,7 +40,7 @@
                       <td style="text-align: center"><?= $no ?></td>
                       <td><?= $val->nama_brand ?></td>
                       <td style="text-align: center">
-                        <a href="<?= site_url('admin/ubah_brand/'.$val->id_brand)?>" class="btn btn-warning btn-sm">
+                        <a href="<?= base_url('admin/ubah_brand/'.$val->id_brand)?>" class="btn btn-warning btn-sm">
                           <i class="fa fa-edit"></i>
                         </a>
 
