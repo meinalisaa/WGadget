@@ -1,5 +1,6 @@
 <?= $this->extend('layout/template-admin') ?>
 <?= $this->section('content') ?>
+<?php $session = \Config\Services::session() ?>
   <div class="col-lg-10 mt-3" style="left: 225px">
     <h1 class="ml-3">Daftar Brand</h1>
 
@@ -8,6 +9,8 @@
         <div class="row">
           <div class="col-12">
             <div class="card">
+              <?= $session->getFlashdata('message') ?>
+
               <div class="card-header">
                 <div style="text-align: left; margin: 8px 7px 8px 0px">
                   <a class="btn btn-info" data-toggle="modal" data-target="#tambahbrandModal" style="color: white" type="submit">

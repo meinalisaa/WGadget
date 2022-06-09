@@ -10,24 +10,18 @@
 
     public function index(){
       $data['judul'] = 'WGadget';
-      $url = base_url('/beranda/getHp');
+      $url = base_url('/apiHp/getAll');
 
-       $curl = service('curlrequest');
-       $response = $curl->request('GET', $url, [
-  		 	"headers" => [
-  		 		"Accept" => "application/json"
-  		 	]
-  		 ]);
+      $curl = service('curlrequest');
+      $response = $curl->request('GET', $url, [
+        "headers" => [
+          "Accept" => "application/json"
+        ]
+      ]);
 
-       if($response->getStatusCode() == 200){
-         $data['database'] = json_decode($response->getBody());
+      if($response->getStatusCode() == 200){
+        $data['database'] = json_decode($response->getBody());
         echo view('pages/beranda', $data);
       }
-    }
-
-    public function getHp(){
-      $model      = new HpModel();
-      $data['db'] = $model->getAll();
-      return $this->respond($data['db'], 200, 'Daftar hp berhasil ditampilkan.');
     }
   }

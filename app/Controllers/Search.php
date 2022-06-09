@@ -14,7 +14,7 @@
 
         if(!empty($cari)){
           $pager    = \Config\Services::pager();
-          $url      = base_url('/search/getSearch/'.$cari);
+          $url      = base_url('/apiSearch/getSearch/'.$cari);
           $curl     = service('curlrequest');
           $response = $curl->request('GET', $url, [
             "headers" => [
@@ -33,11 +33,5 @@
           return redirect()->route('/');
         }
       }
-    }
-
-    public function getSearch($cari){
-      $model      = new SearchModel();
-      $data['db'] = $model->get($cari);
-      return $this->respond($data['db'], 200, 'Data pencarian berhasil ditampilkan.');
     }
   }

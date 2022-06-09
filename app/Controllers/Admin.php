@@ -12,9 +12,9 @@
 
     public function daftar_brand(){
       $data['judul'] = 'WGadget | Daftar Brand';
-      $url = base_url('/admin/getBrand');
 
-      $curl = service('curlrequest');
+      $url      = base_url('/apiBrand/getAll');
+      $curl     = service('curlrequest');
       $response = $curl->request('GET', $url, [
         "headers" => [
           "Accept" => "application/json"
@@ -34,20 +34,46 @@
     }
 
     public function tambahBrand(){
-      $model = new BrandModel();
-      $data = [
-        'nama_brand' => $this->request->getVar('nama_brand')
-      ];
+      $pager      = \Config\Services::pager();
+      $session    = \Config\Services::session();
+      $nama_brand = ucwords($this->request->getVar('nama_brand'));
 
-      $model->insert($data);
-      $response = [
-        'status'   => 201,
-        'error'    => null,
-        'messages' => 'Brand berhasil ditambahkan.'
-      ];
+      if(!empty($nama_brand)){
+        $url      = base_url('/apiBrand/getBrand/'.$nama_brand);
+        $curl     = service('curlrequest');
+        $response = $curl->request('GET', $url, [
+          "headers" => [
+            "Accept" => "application/json"
+          ]
+        ]);
 
-      // return redirect()->route('admin/daftar_brand');
-      return $this->respondCreated($response);
+        if($response->getStatusCode() == 200){
+          $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Brand sudah tersedia.</div>');
+          return redirect()->route('admin/daftar_brand');
+        }
+        else{
+          $url      = base_url('/apiBrand/addOne/'.$nama_brand);
+          $curl     = service('curlrequest');
+          $response = $curl->request('GET', $url, [
+            "headers" => [
+              "Accept" => "application/json"
+            ]
+          ]);
+
+          if($response->getStatusCode() == 201){
+            $session->setFlashdata('message', '<div class="alert alert-success alert-dismissible fade show alert-dismissible fade show" role="alert">Brand berhasil ditambahkan.</div>');
+            return redirect()->route('admin/daftar_brand');
+          }
+          else{
+            $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Terjadi kesalahan.</div>');
+            return redirect()->route('admin/daftar_brand');
+          }
+        }
+      }
+      else{
+        $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Nama brand tidak boleh kosong.</div>');
+        return redirect()->route('admin/daftar_brand');
+      }
     }
 
     public function ubahBrand($id = null){
@@ -147,4 +173,3 @@
     }
 
   }
-  

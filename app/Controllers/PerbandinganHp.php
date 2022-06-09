@@ -9,14 +9,23 @@
     use ResponseTrait;
 
     public function index(){
-      $data['judul']    = 'WGadget | Perbandingan Hp';
-      $model            = new HpModel();
-      $data['database'] = $model->getAll();
+      $data['judul'] = 'WGadget | Perbandingan Hp';
 
-      echo view('pages/perbandingan_hp', $data);
+      $url      = base_url('/apiHp/getAll');
+      $curl     = service('curlrequest');
+      $response = $curl->request('GET', $url, [
+        "headers" => [
+          "Accept" => "application/json"
+        ]
+      ]);
+
+      if($response->getStatusCode() == 200){
+        $data['database'] = json_decode($response->getBody());
+        echo view('pages/perbandingan_hp', $data);
+      }
     }
 
-    public function compare(){
+    public function getCompare(){
       if(isset($_POST['submit'])){
         $hp_1 = $this->request->getVar('hp_1');
         $hp_2 = $this->request->getVar('hp_2');
@@ -40,18 +49,44 @@
 		      return redirect()->to('/perbandingan_hp');
         }
         else{
-          return redirect()->to('/perbandinganhp/hasil_perbandingan/'.$hp_1.'/'.$hp_2);
+          $url      = base_url('/apiHp/getOne/'.$hp_1);
+          $curl     = service('curlrequest');
+          $response = $curl->request('GET', $url, [
+            "headers" => [
+              "Accept" => "application/json"
+            ]
+          ]);
+
+          if($response->getStatusCode() == 200){
+            $data['hp_1'] = json_decode($response->getBody());
+
+            $url      = base_url('/apiHp/getOne/'.$hp_2);
+            $curl     = service('curlrequest');
+            $response = $curl->request('GET', $url, [
+              "headers" => [
+                "Accept" => "application/json"
+              ]
+            ]);
+
+            if($response->getStatusCode() == 200){
+              $data['hp_2'] = json_decode($response->getBody());
+
+              $url      = base_url('/apiHp/getAll');
+              $curl     = service('curlrequest');
+              $response = $curl->request('GET', $url, [
+                "headers" => [
+                  "Accept" => "application/json"
+                ]
+              ]);
+
+              if($response->getStatusCode() == 200){
+                $data['judul']    = 'WGadget | Perbandingan Hp';
+                $data['database'] = json_decode($response->getBody());
+                echo view('pages/hasil_perbandingan', $data);
+              }
+            }
+          }
         }
       }
-    }
-
-    public function hasil_perbandingan($hp_1, $hp_2){
-      $data['judul']    = 'WGadget | Perbandingan Hp';
-      $model            = new HpModel();
-      $data['database'] = $model->getAll();
-      $data['hp_1']     = $model->getOne($hp_1);
-      $data['hp_2']     = $model->getOne($hp_2);
-
-      echo view('pages/hasil_perbandingan', $data);
     }
   }

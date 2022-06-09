@@ -10,9 +10,9 @@
 
     public function index(){
       $data['judul'] = 'WGadget | Paling Diminati';
-      $url = base_url('/palingdiminati/getInterest');
 
-      $curl = service('curlrequest');
+      $url      = base_url('/apiInterest/getAll');
+      $curl     = service('curlrequest');
       $response = $curl->request('GET', $url, [
         "headers" => [
           "Accept" => "application/json"
@@ -23,11 +23,9 @@
         $data['database'] = json_decode($response->getBody());
         echo view('pages/paling_diminati', $data);
       }
-    }
-
-    public function getInterest(){
-      $model      = new InterestModel();
-      $data['db'] = $model->getAll();
-      return $this->respond($data['db'], 200, 'Daftar hp yang paling diminati berhasil ditampilkan.');
+      else{
+        $data['database'] = null;
+        echo view('pages/paling_diminati', $data);
+      }
     }
   }

@@ -13,9 +13,9 @@
       ->select('nama_hp, nama_brand, foto_hp')
       ->join('tabel_hp', 'tabel_hp.id_hp = tabel_pencarian.id_hp')
       ->join('tabel_brand', 'tabel_brand.id_brand = tabel_pencarian.id_brand')
-      ->selectCount('tabel_pencarian.id_hp', 'total')
+      ->selectCount('tabel_pencarian.id_hp', 'total_pencarian')
       ->groupBy('tabel_pencarian.id_hp')
-      ->orderBy('total', 'DESC')
+      ->orderBy('total_pencarian', 'DESC')
       ->limit(18)
       ->get()->getResult();
     }
