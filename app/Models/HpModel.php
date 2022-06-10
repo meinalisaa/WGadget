@@ -29,6 +29,12 @@
       ->get()->getRowArray();
     }
 
+    public function getHpBrand($id_brand){
+      return $this->db->table('tabel_hp')
+      ->where('id_brand', $id_brand)
+      ->get()->getRowArray();
+    }
+
     public function getLast(){
       return $this->db->table('tabel_hp')
       ->orderBy('id_hp', 'DESC')

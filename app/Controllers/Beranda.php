@@ -20,7 +20,20 @@
 
       if($response->getStatusCode() == 200){
         $data['database'] = json_decode($response->getBody());
-        echo view('pages/beranda', $data);
+        
+        $url = base_url('/apiBrand/getAll');
+        
+        $curl = service('curlrequest');
+        $response = $curl->request('GET', $url, [
+          "headers" => [
+            "Accept" => "application/json"
+          ]
+        ]);
+
+        if($response->getStatusCode() == 200){
+          $data['brand'] = json_decode($response->getBody());
+          echo view('pages/beranda', $data);
+        }
       }
     }
   }
