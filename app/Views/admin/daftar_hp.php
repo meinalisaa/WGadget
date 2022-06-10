@@ -146,12 +146,12 @@
               <b style="color: #595959">Hapus Hp</b>
             </h3>
 
-            <h5 class="modal-title" id="exampleModalLabel" align="center" style="color: #545454">Anda yakin ingin menghapus hp ini?</h5>
+            <h5 class="modal-title" id="exampleModalLabel" align="center" style="color: #545454">Anda yakin ingin menghapus Hp ini?</h5>
 
             <br>
 
             <div class="row mb-2">
-              <a class="btn" href="<?= base_url('admin/hapus_hp/'.$val->id_hp) ?>" style="background: #460137; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
+              <a class="btn" href="<?= base_url('admin/hapusHp/'.$val->id_hp) ?>" style="background: #460137; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
               <button class="btn" type="button" data-dismiss="modal" style="background: grey; color: white; margin-right: auto; margin-left: 10px; width: 105px; padding: 10px">Tidak</button>
             </div>
           </div>

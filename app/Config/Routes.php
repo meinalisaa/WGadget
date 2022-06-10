@@ -44,6 +44,7 @@ $routes->get('/perbandingan_hp', 'PerbandinganHp::index');
 $routes->get('/hasil_perbandingan', 'PerbandinganHp::hasil_perbandingan');
 $routes->get('/search', 'Search::index');
 $routes->get('/admin/daftar_brand', 'Admin::daftar_brand');
+$routes->get('/admin/daftar_hp', 'Admin::daftar_hp');
 
 /*
  * --------------------------------------------------------------------

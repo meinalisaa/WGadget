@@ -177,4 +177,120 @@
       $data['judul'] = 'Admin | Tambah HP';
       echo view('admin/tambah_hp', $data);
     }
+
+    public function ubah_hp($id_hp){
+      $data['judul'] = 'Admin | Ubah HP';
+
+      $pager    = \Config\Services::pager();
+      $url      = base_url('/apiHp/getOne/'.$id_hp);
+      $curl     = service('curlrequest');
+      $response = $curl->request('GET', $url, [
+        "headers" => [
+          "Accept" => "application/json"
+        ]
+      ]);
+
+      if($response->getStatusCode() == 200){
+        $data['database'] = json_decode($response->getBody());
+        echo view('admin/ubah_hp', $data);
+      }
+    }
+
+    public function ubahHp($id_hp = 0){
+      $pager          = \Config\Services::pager();
+      $session        = \Config\Services::session();
+
+      $nama_hp        = ucwords($this->request->getVar('nama_hp'));
+      $foto_hp        = strtolower($this->request->getVar('foto_hp'));
+      $tgl_rilis      = $this->request->getVar('tgl_rilis');
+      $ukuran_layar   = $this->request->getVar('ukuran_layar');
+      $sistem_operasi = $this->request->getVar('sistem_operasi');
+      $chipset        = $this->request->getVar('chipset');
+      $memori         = $this->request->getVar('memori');
+      $daya_baterai   = $this->request->getVar('daya_baterai');
+      $kamera         = $this->request->getVar('kamera');
+      $jaringan       = strtoupper($this->request->getVar('jaringan'));
+      $harga          = $this->request->getVar('harga');
+      $warna          = ucwords($this->request->getVar('warna'));
+
+      $data = [
+        'nama_hp'         => $nama_hp,
+        'foto_hp'         => $foto_hp,
+        'tgl_rilis'       => $tgl_rilis,
+        'ukuran_layar'    => $ukuran_layar,
+        'sistem_operasi'  => $sistem_operasi,
+        'chipset'         => $chipset,
+        'memori'          => $memori,
+        'daya_baterai'    => $daya_baterai,
+        'kamera'          => $kamera,
+        'jaringan'        => $jaringan,
+        'harga'           => $harga,
+        'warna'           => $warna
+       ];
+
+      if(!empty($data)){
+        $url      = base_url('/apiHp/getHp/'.$nama_hp);
+        $curl     = service('curlrequest');
+        $response = $curl->request('GET', $url, [
+          "headers" => [
+            "Accept" => "application/json"
+          ]
+        ]);
+
+        if($response->getStatusCode() == 200){
+          $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Hp sudah tersedia.</div>');
+          return redirect()->route('admin/daftar_hp');
+        }
+        else{
+          $url      = base_url('/apiHp/updateOne/'.$id_hp.'/'.$data);
+          $curl     = service('curlrequest');
+          $response = $curl->request('GET', $url, [
+            "headers" => [
+              "Accept" => "application/json"
+            ]
+          ]);
+
+          if($response->getStatusCode() == 200){
+            $session->setFlashdata('message', '<div class="alert alert-success alert-dismissible fade show alert-dismissible fade show" role="alert">Hp berhasil diperbarui.</div>');
+            return redirect()->route('admin/daftar_hp');
+          }
+          else{
+            $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Terjadi kesalahan.</div>');
+            return redirect()->route('admin/daftar_hp');
+          }
+        }
+      }
+      else{
+        $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Nama hp tidak boleh kosong.</div>');
+        return redirect()->route('admin/daftar_hp');
+      }
+    }
+    
+    public function hapusHp($id_hp){
+      $pager    = \Config\Services::pager();
+      $session  = \Config\Services::session();
+      $url      = base_url('/apiHp/getOne/'.$id_hp);
+      $curl     = service('curlrequest');
+      $response = $curl->request('GET', $url, [
+        "headers" => [
+          "Accept" => "application/json"
+        ]
+      ]);
+
+      if($response->getStatusCode() == 200){
+        $url      = base_url('/apiHp/deleteOne/'.$id_hp);
+        $curl     = service('curlrequest');
+        $response = $curl->request('GET', $url, [
+          "headers" => [
+            "Accept" => "application/json"
+          ]
+        ]);
+
+        if($response->getStatusCode() == 200){
+          $session->setFlashdata('message', '<div class="alert alert-success alert-dismissible fade show alert-dismissible fade show" role="alert">Hp berhasil dihapus.</div>');
+          return redirect()->route('admin/daftar_hp');
+        }
+      }
+    }
+
   }

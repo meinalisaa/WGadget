@@ -88,7 +88,7 @@
             <a href="<?= base_url('/admin/daftar_hp') ?>" style="background-color: #2F0325" class="list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center" style="background-color: #2F0325">
                 <span class="fa fa-mobile fa-fw mr-3" ></span>
-                <span>Daftar HP</span>
+                <span>Daftar Hp</span>
               </div>
             </a>
           <?php else : ?>

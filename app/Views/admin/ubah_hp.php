@@ -6,23 +6,13 @@
     <h2 style="margin-left: 15px; margin-top: -8px"><b>Ubah Hp</b></h2>
 	</div>
 
-	<form action="" method="post" enctype="multipart/form-data">
+	<form action="<?= base_url('/admin/ubahHp') ?>" method="POST" enctype="multipart/form-data">
 		<div class="row mt-2">
-			<div class="col-lg-12">
-				<center>
-					<img src="<?= base_url('/assets/img/hp/'.$database->nama_brand.'/'.$database->foto_hp) ?>" style="width: 200px; object-fit: contain;">
-					<input type="file" name="foto_hp">
-				</center>
-			</div>
+			
 		</div>
 
 		<div class="row mt-3">
 			<div class="col-lg-6">
-				<div class="form-group">
-					<label>Nama Brand</label>
-					<input type="text" name="nama_brand" value="<?= $database->nama_brand ?>" class="form-control" disabled>
-				</div>
-
 				<div class="form-group">
 					<label>Nama Hp</label>
 					<input type="text" name="nama_hp" value="<?= $database->nama_hp ?>" class="form-control">
@@ -30,12 +20,19 @@
 
 				<div class="form-group">
 					<label>Tanggal Rilis</label>
-					<input name="tgl_rilis" value="<?= date('d-m-Y', strtotime($database->tgl_rilis)) ?>" class="form-control" disabled>
+					<div class="row">
+						<div class="col-lg-6">
+							<input name="tgl_rilis" value="<?= date('d-m-Y', strtotime($database->tgl_rilis)) ?>" class="form-control" disabled>
+						</div>
+						<!-- <div class="col-lg-6">
+							<input type="date" name="tgl_rilis" class="form-control">
+						</div> -->
+					</div>					
 				</div>
 
 				<div class="form-group">
 					<label>Ukuran Layar</label>
-					<input type="text" name="ukuran_layar" value="<?= $database->ukuran_layar ?> Inci" class="form-control">
+					<input type="text" name="ukuran_layar" value="<?= $database->ukuran_layar ?>" class="form-control">
 				</div>
 
 				<div class="form-group">
@@ -47,9 +44,7 @@
 					<label>Chipset</label>
 					<input type="text" name="chipset" value="<?= $database->chipset ?>" class="form-control">
 				</div>
-			</div>
 
-			<div class="col-lg-6">
 				<div class="form-group">
 					<label>Memori</label>
 					<input type="text" name="memori" value="<?= $database->memori ?>" class="form-control">
@@ -59,7 +54,9 @@
 					<label>Daya Baterai</label>
 					<input type="text" name="daya_baterai" value="<?= $database->daya_baterai ?>" class="form-control">
 				</div>
+			</div>
 
+			<div class="col-lg-6">
 				<div class="form-group">
 					<label>Kamera</label>
 					<input type="text" name="kamera" value="<?= $database->kamera ?>" class="form-control">
@@ -79,6 +76,12 @@
 					<label>Warna</label>
 					<input type="text" name="warna" value="<?= $database->warna ?>" class="form-control">
 				</div>
+
+				<div class="col-lg-12">
+					<label>Foto Hp</label><br>
+					<img src="<?= base_url('/assets/img/hp/'.$database->nama_brand.'/'.$database->foto_hp) ?>" style="width: 160px; object-fit: contain;">&nbsp;&nbsp;&nbsp;
+					<input type="file" name="foto_hp">
+			</div>
 			</div>
 		</div>
 
