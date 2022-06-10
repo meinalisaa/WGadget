@@ -36,7 +36,7 @@ Menampilkan data brand dengan nama tertentu dapat dilakukan dengan cara memanggi
 Menambah data brand dapat dilakukan dengan cara memanggil perintah POST ../apiBrand/addOne. POST ../apiBrand/addOne mengizinkan user untuk menambahkan data brand ke dalam server Website WGadget. Penambahan data dapat dilakukan melalui tab Body dan pilih x-www-form-urlencode. Lalu tambahkan data dengan memasukkan parameter nama_brand.
 
 #### Data :
-- nama_brand memiliki tipe data varchar(255).
+nama_brand memiliki tipe data varchar(255).
 
 #### Respon :
 - Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Data brand berhasil ditambahkan." dengan kode status 201.
@@ -49,7 +49,7 @@ Menambah data brand dapat dilakukan dengan cara memanggil perintah POST ../apiBr
 Memperbarui data brand dengan id tertentu dapat dilakukan dengan cara memanggil perintah PUT ../apiBrand/updateOne/{id_brand}. ID diinput oleh user ke dalam {id_brand} yang terletak pada url endpoint. PUT ../apiBrand/updateOne/{id_brand} mengizinkan user untuk memperbarui data brand yang terdapat di dalam server Website WGadget. Pembaruan data dapat dilakukan melalui tab Body dan pilih x-www-form-urlencode. Lalu perbarui data dengan memasukkan parameter nama_brand.
 
 #### Data :
-- nama_brand memiliki tipe data varchar(255)
+nama_brand memiliki tipe data varchar(255)
 
 ##### Respon :
 - Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Data brand berhasil diperbarui." dengan kode status 200.
