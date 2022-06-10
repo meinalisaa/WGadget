@@ -24,9 +24,12 @@
             ]
           ]);
         }
-      }
 
-      return $this->respond($data, 200, 'Data pencarian berhasil ditampilkan.');
+        return $this->respond($data, 200, 'Data pencarian berhasil ditampilkan.');
+      }
+      else{
+        return $this->response->setStatusCode(204, 'Tidak ada data yang ditemukan.');
+      }
     }
 
     public function addSearch($id_hp, $id_brand){
