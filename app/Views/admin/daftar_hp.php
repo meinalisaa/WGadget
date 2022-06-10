@@ -42,7 +42,7 @@
                   <tr>
                     <td style="text-align: center"><?= $no ?></td>
                     <td><?= $val->nama_hp ?></td>
-                    <td><center><img src="<?= base_url('/assets/img/hp/'.$val->nama_brand.'/'.$val->foto_hp) ?>" style="width: 100px"></center></td>
+                    <td><center><img src="<?= base_url('/assets/img/hp/'.$val->foto_hp) ?>" style="width: 100px"></center></td>
                     <td style="text-align: center">
                       <a href="<?= base_url('admin/detail_hp/'.$val->id_hp) ?>">
                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal2">

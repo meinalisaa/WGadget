@@ -9,7 +9,7 @@
 		<div class="row mt-2">
 			<div class="col-lg-12">
 				<center>
-					<img src="<?= base_url('/assets/img/hp/'.$database->nama_brand.'/'.$database->foto_hp) ?>" style="width: 200px; object-fit: contain;">
+					<img src="<?= base_url('/assets/img/hp/'$database->foto_hp) ?>" style="width: 200px; object-fit: contain;">
 				</center>
 			</div>
 		</div>

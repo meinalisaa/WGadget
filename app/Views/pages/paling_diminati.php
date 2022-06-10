@@ -7,7 +7,7 @@
       <?php if($database){ foreach($database as $db){ ?>
         <div class="col-md-2" style="margin-top: 10px; text-align: center">
           <div class="card" style="padding: 20px 10px 70px 10px; width: 100%; height: 200px">
-            <img src="<?= base_url('/assets/img/hp/'.$db->nama_brand.'/'.$db->foto_hp) ?>" style="height: 80%; margin-left: auto; margin-right: auto">
+            <img src="<?= base_url('/assets/img/hp/'.$db->foto_hp) ?>" style="height: 80%; margin-left: auto; margin-right: auto">
             <p style="margin-top: 10px"><?= $db->nama_hp ?></p>
           </div>
         </div>

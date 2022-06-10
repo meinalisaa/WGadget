@@ -4,6 +4,7 @@
   use CodeIgniter\RESTful\ResourceController;
   use CodeIgniter\API\ResponseTrait;
   use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Php;
+  use App\Models\HpModel;
 
   class Admin extends ResourceController{
     use ResponseTrait;
@@ -192,44 +193,8 @@
 
       if($response->getStatusCode() == 200){
         $data['database'] = json_decode($response->getBody());
-        echo view('admin/ubah_hp', $data);
-      }
-    }
 
-    public function ubahHp($id_hp = 0){
-      $pager          = \Config\Services::pager();
-      $session        = \Config\Services::session();
-
-      $nama_hp        = ucwords($this->request->getVar('nama_hp'));
-      $foto_hp        = strtolower($this->request->getVar('foto_hp'));
-      $tgl_rilis      = $this->request->getVar('tgl_rilis');
-      $ukuran_layar   = $this->request->getVar('ukuran_layar');
-      $sistem_operasi = $this->request->getVar('sistem_operasi');
-      $chipset        = $this->request->getVar('chipset');
-      $memori         = $this->request->getVar('memori');
-      $daya_baterai   = $this->request->getVar('daya_baterai');
-      $kamera         = $this->request->getVar('kamera');
-      $jaringan       = strtoupper($this->request->getVar('jaringan'));
-      $harga          = $this->request->getVar('harga');
-      $warna          = ucwords($this->request->getVar('warna'));
-
-      $data = [
-        'nama_hp'         => $nama_hp,
-        'foto_hp'         => $foto_hp,
-        'tgl_rilis'       => $tgl_rilis,
-        'ukuran_layar'    => $ukuran_layar,
-        'sistem_operasi'  => $sistem_operasi,
-        'chipset'         => $chipset,
-        'memori'          => $memori,
-        'daya_baterai'    => $daya_baterai,
-        'kamera'          => $kamera,
-        'jaringan'        => $jaringan,
-        'harga'           => $harga,
-        'warna'           => $warna
-       ];
-
-      if(!empty($data)){
-        $url      = base_url('/apiHp/getHp/'.$nama_hp);
+        $url      = base_url('/apiBrand/getAll');
         $curl     = service('curlrequest');
         $response = $curl->request('GET', $url, [
           "headers" => [
@@ -238,11 +203,43 @@
         ]);
 
         if($response->getStatusCode() == 200){
-          $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Hp sudah tersedia.</div>');
-          return redirect()->route('admin/daftar_hp');
+          $data['brand'] = json_decode($response->getBody());
+          echo view('admin/ubah_hp', $data);
+        }
+      }
+    }
+
+    public function ubahHp(){
+      $model = new HpModel();
+
+      if(isset($_POST['submit'])){
+        $pager          = \Config\Services::pager();
+        $session        = \Config\Services::session();
+        $id_hp          = $_POST['id_hp'];
+        $id_brand       = $_POST['id_brand'];
+        $nama_hp        = $_POST['nama_hp'];
+        $tgl_rilis      = $_POST['tgl_rilis'];
+        $ukuran_layar   = $_POST['ukuran_layar'];
+        $sistem_operasi = $_POST['sistem_operasi'];
+        $chipset        = $_POST['chipset'];
+        $memori         = $_POST['memori'];
+        $daya_baterai   = $_POST['daya_baterai'];
+        $kamera         = $_POST['kamera'];
+        $jaringan       = strtoupper($_POST['jaringan']);
+        $harga          = preg_replace("/[^0-9]/", "", $_POST['harga']);
+        $warna          = ucwords($_POST['warna']);
+
+        if(empty($id_brand) OR empty($nama_hp) OR empty($tgl_rilis) OR empty($ukuran_layar) OR empty($sistem_operasi) OR empty($chipset)
+        OR empty($memori) OR empty($daya_baterai) OR empty($kamera) OR empty($jaringan) OR empty($harga) OR empty($warna)){
+          $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert" style="width: 100%">Data tidak boleh kosong.</div>');
+          return redirect()->route('admin.ubah_hp', [$id_hp]);
         }
         else{
-          $url      = base_url('/apiHp/updateOne/'.$id_hp.'/'.$data);
+          $validation = $this->validate([
+            'foto_hp' => 'uploaded[foto_hp]|mime_in[foto_hp,image/jpg,image/jpeg,image/gif,image/png]'
+          ]);
+
+          $url      = base_url('/apiHp/getHp/'.$nama_hp);
           $curl     = service('curlrequest');
           $response = $curl->request('GET', $url, [
             "headers" => [
@@ -251,21 +248,145 @@
           ]);
 
           if($response->getStatusCode() == 200){
-            $session->setFlashdata('message', '<div class="alert alert-success alert-dismissible fade show alert-dismissible fade show" role="alert">Hp berhasil diperbarui.</div>');
-            return redirect()->route('admin/daftar_hp');
+            $url      = base_url('/apiHp/getOne/'.$id_hp);
+            $curl     = service('curlrequest');
+            $response = $curl->request('GET', $url, [
+              "headers" => [
+                "Accept" => "application/json"
+              ]
+            ]);
+
+            if($response->getStatusCode() == 200){
+              $hp = json_decode($response->getBody());
+
+              if($nama_hp == $hp->nama_hp){
+                if($validation == TRUE){
+                  $upload  = $this->request->getFile('foto_hp');
+                  $foto_hp = $upload->getName();
+
+                  $upload->move(WRITEPATH . '../public/assets/img/hp/');
+
+                  $url      = base_url('/apiHp/updateOne/'.$id_hp.'/'.$id_brand.'/'.$nama_hp.'/'.$foto_hp.'/'.$tgl_rilis.'/'.$ukuran_layar.'/'.$sistem_operasi.'/'.
+                              $chipset.'/'.$memori.'/'.$daya_baterai.'/'.$kamera.'/'.$jaringan.'/'.$harga.'/'.$warna);
+                  $curl     = service('curlrequest');
+                  $response = $curl->request('GET', $url, [
+                    "headers" => [
+                      "Accept" => "application/json"
+                    ]
+                  ]);
+
+                  if($response->getStatusCode() == 200){
+                    $session->setFlashdata('message', '<div class="alert alert-success alert-dismissible fade show alert-dismissible fade show" role="alert">Hp berhasil diperbarui.</div>');
+                    return redirect()->route('admin/daftar_hp');
+                  }
+                  else{
+                    $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Terjadi kesalahan.</div>');
+                    return redirect()->route('admin/daftar_hp');
+                  }
+                }
+                else{
+                  $url      = base_url('/apiHp/getOne/'.$id_hp);
+                  $curl     = service('curlrequest');
+                  $response = $curl->request('GET', $url, [
+                    "headers" => [
+                      "Accept" => "application/json"
+                    ]
+                  ]);
+
+                  if($response->getStatusCode() == 200){
+                    $hp       = json_decode($response->getBody());
+                    $foto_hp  = $hp->foto_hp;
+                    $url      = base_url('/apiHp/updateOne/'.$id_hp.'/'.$id_brand.'/'.$nama_hp.'/'.$foto_hp.'/'.$tgl_rilis.'/'.$ukuran_layar.'/'.$sistem_operasi.'/'.
+                                $chipset.'/'.$memori.'/'.$daya_baterai.'/'.$kamera.'/'.$jaringan.'/'.$harga.'/'.$warna);
+                    $curl     = service('curlrequest');
+                    $response = $curl->request('GET', $url, [
+                      "headers" => [
+                        "Accept" => "application/json"
+                      ]
+                    ]);
+
+                    if($response->getStatusCode() == 200){
+                      $session->setFlashdata('message', '<div class="alert alert-success alert-dismissible fade show alert-dismissible fade show" role="alert">Hp berhasil diperbarui.</div>');
+                      return redirect()->route('admin/daftar_hp');
+                    }
+                    else{
+                      $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Terjadi kesalahan.</div>');
+                      return redirect()->route('admin/daftar_hp');
+                    }
+                  }
+                }
+              }
+              else{
+                $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert" style="width: 100%">Hp sudah tersedia.</div>');
+                return redirect()->route('admin.ubah_hp', [$id_hp]);
+              }
+            }
+            else{
+              $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert" style="width: 100%">Hp sudah tersedia.</div>');
+              return redirect()->route('admin.ubah_hp', [$id_hp]);
+            }
           }
           else{
-            $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Terjadi kesalahan.</div>');
-            return redirect()->route('admin/daftar_hp');
+            if($validation == TRUE){
+              $upload  = $this->request->getFile('foto_hp');
+              $foto_hp = $upload->getName();
+
+              $upload->move(WRITEPATH . '../public/assets/img/hp/');
+
+              $url      = base_url('/apiHp/updateOne/'.$id_hp.'/'.$id_brand.'/'.$nama_hp.'/'.$foto_hp.'/'.$tgl_rilis.'/'.$ukuran_layar.'/'.$sistem_operasi.'/'.
+                          $chipset.'/'.$memori.'/'.$daya_baterai.'/'.$kamera.'/'.$jaringan.'/'.$harga.'/'.$warna);
+              $curl     = service('curlrequest');
+              $response = $curl->request('GET', $url, [
+                "headers" => [
+                  "Accept" => "application/json"
+                ]
+              ]);
+
+              if($response->getStatusCode() == 200){
+                $session->setFlashdata('message', '<div class="alert alert-success alert-dismissible fade show alert-dismissible fade show" role="alert">Hp berhasil diperbarui.</div>');
+                return redirect()->route('admin/daftar_hp');
+              }
+              else{
+                $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Terjadi kesalahan.</div>');
+                return redirect()->route('admin/daftar_hp');
+              }
+            }
+            else{
+              $url      = base_url('/apiHp/getOne/'.$id_hp);
+              $curl     = service('curlrequest');
+              $response = $curl->request('GET', $url, [
+                "headers" => [
+                  "Accept" => "application/json"
+                ]
+              ]);
+
+              if($response->getStatusCode() == 200){
+                $hp       = json_decode($response->getBody());
+                $foto_hp  = $hp->foto_hp;
+                $url      = base_url('/apiHp/updateOne/'.$id_hp.'/'.$id_brand.'/'.$nama_hp.'/'.$foto_hp.'/'.$tgl_rilis.'/'.$ukuran_layar.'/'.$sistem_operasi.'/'.
+                            $chipset.'/'.$memori.'/'.$daya_baterai.'/'.$kamera.'/'.$jaringan.'/'.$harga.'/'.$warna);
+                $curl     = service('curlrequest');
+                $response = $curl->request('GET', $url, [
+                  "headers" => [
+                    "Accept" => "application/json"
+                  ]
+                ]);
+
+                if($response->getStatusCode() == 200){
+                  $session->setFlashdata('message', '<div class="alert alert-success alert-dismissible fade show alert-dismissible fade show" role="alert">Hp berhasil diperbarui.</div>');
+                  return redirect()->route('admin/daftar_hp');
+                }
+                else{
+                  $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Terjadi kesalahan.</div>');
+                  return redirect()->route('admin/daftar_hp');
+                }
+              }
+            }
           }
         }
       }
-      else{
-        $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Nama hp tidak boleh kosong.</div>');
-        return redirect()->route('admin/daftar_hp');
-      }
     }
-    
+
     public function hapusHp($id_hp){
       $pager    = \Config\Services::pager();
       $session  = \Config\Services::session();

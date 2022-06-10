@@ -27,8 +27,8 @@
       <div class="col-md-9">
         <table style="width: 100%">
           <tr align="center">
-            <td style="width: 50%"><img src="<?= base_url('/assets/img/hp/'.$hp_1->nama_brand.'/'.$hp_1->foto_hp) ?>" style="height: 150px; margin-bottom: 10px"></td>
-            <td style="width: 50%"><img src="<?= base_url('/assets/img/hp/'.$hp_2->nama_brand.'/'.$hp_2->foto_hp) ?>" style="height: 150px; margin-bottom: 10px"></td>
+            <td style="width: 50%"><img src="<?= base_url('/assets/img/hp/'.$hp_1->foto_hp) ?>" style="height: 150px; margin-bottom: 10px"></td>
+            <td style="width: 50%"><img src="<?= base_url('/assets/img/hp/'.$hp_2->foto_hp) ?>" style="height: 150px; margin-bottom: 10px"></td>
           </tr>
 
           <tr align="center">

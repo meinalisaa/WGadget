@@ -1,0 +1,488 @@
+{
+	"info": {
+		"_postman_id": "7b8314f5-8773-4ce5-b0e2-ed0c98268e00",
+		"name": "WGadget",
+		"description": "WGadget's API dibangun untuk mengintegrasikan data hp yang tersedia di server Website WGadget. Untuk menjalankan API ini, diharapkan untuk membuka aplikasi xampp terlebih dahulu. Lalu, jalankan Apache dan MySQL. Selanjutnya, importlah file wgadget.sql ke dalam database Anda.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20961579"
+	},
+	"item": [
+		{
+			"name": "../apiBrand/getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiBrand/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiBrand",
+						"getAll"
+					]
+				},
+				"description": "Menampilkan semua data brand dapat dilakukan dengan cara memanggil perintah GET ../apiBrand/getAll. Perintah ini merupakan suatu method HTTP yang mengizinkan pengambilan data brand dari server Website WGadget.\n\n**Respon :**\n\nJika method HTTP ini berhasil, maka server akan menampilkan pesan \"Daftar brand behasil ditampilkan.\" dengan kode status 200."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiBrand/getOne/{id_brand}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiBrand/getOne/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiBrand",
+						"getOne",
+						"1"
+					]
+				},
+				"description": "Menampilkan data brand dengan id tertentu dapat dilakukan dengan cara memanggil perintah GET ../apiBrand/getOne/{id_brand}. ID diinput oleh user ke dalam {id_brand} yang terletak pada url endpoint. GET ../apiBrand/getOne/{id_brand} mengizinkan pengambilan data brand dengan id tertentu dari server Website WGadget.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data brand dengan id {id_brand} behasil ditampilkan.\" dengan kode status 200.\n*   Jika id yang diinput oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan \"Data brand dengan id {id_brand} tidak ditemukan.\" dengan kode status 204."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiBrand/getBrand/{nama_brand}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiBrand/getBrand/samsung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiBrand",
+						"getBrand",
+						"samsung"
+					]
+				},
+				"description": "Menampilkan data brand dengan nama tertentu dapat dilakukan dengan cara memanggil perintah GET ../apiBrand/getBrand/{nama_brand}. Nama brand diinput oleh user ke dalam {nama_brand} yang terletak pada url endpoint. GET ../apiBrand/getBrand/{nama_brand} mengizinkan pengambilan data brand dengan nama tertentu dari server Website WGadget.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data brand dengan nama {nama_brand} behasil ditampilkan.\" dengan kode status 200.\n*   Jika nama yang diinput oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan \"Data brand dengan nama {nama_brand} tidak ditemukan.\" dengan kode status 204."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiBrand/addOne",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nama_brand",
+							"value": "Nama Brand",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiBrand/addOne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiBrand",
+						"addOne"
+					]
+				},
+				"description": "Menambah data brand dapat dilakukan dengan cara memanggil perintah POST ../apiBrand/addOne. POST ../apiBrand/addOne mengizinkan user untuk menambahkan data brand ke dalam server Website WGadget. Penambahan data dapat dilakukan melalui tab Body dan pilih x-www-form-urlencode. Lalu tambahkan data dengan memasukkan parameter nama_brand.\n\n**Data :**\n\n*   nama_brand memiliki tipe data varchar(255).\n    \n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data brand berhasil ditambahkan.\" dengan kode status 201.\n*   Jika nama_brand yang diinput sudah ada di dalam server Website WGadget, maka server akan menampilkan pesan \"Brand sudah tersedia.\" dengan kode status 409.\n*   Jika nama_brand kosong, maka server akan menampilkan pesan \"Nama brand tidak boleh kosong.\" dengan kode status 400."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiBrand/updateOne/{id_brand}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nama_brand",
+							"value": "Nama Brand",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiBrand/updateOne/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiBrand",
+						"updateOne",
+						"10"
+					]
+				},
+				"description": "Memperbarui data brand dengan id tertentu dapat dilakukan dengan cara memanggil perintah PUT ../apiBrand/updateOne/{id_brand}. ID diinput oleh user ke dalam {id_brand} yang terletak pada url endpoint. PUT ../apiBrand/updateOne/{id_brand} mengizinkan user untuk memperbarui data brand yang terdapat di dalam server Website WGadget. Pembaruan data dapat dilakukan melalui tab Body dan pilih x-www-form-urlencode. Lalu perbarui data dengan memasukkan parameter nama_brand.\n\n**Data :**\n\n*   nama_brand memiliki tipe data varchar(255)\n    \n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data brand berhasil diperbarui.\" dengan kode status 200.\n*   Jika nama_brand yang diinput sudah ada di dalam server Website WGadget, maka server akan menampilkan pesan \"Brand sudah tersedia.\" dengan kode status 409.\n*   Jika nama_brand kosong, maka server akan menampilkan pesan \"Nama brand tidak boleh kosong.\" dengan kode status 400."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiBrand/deleteOne/{id_brand}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiBrand/deleteOne/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiBrand",
+						"deleteOne",
+						"10"
+					]
+				},
+				"description": "Menghapus data Brand dengan id tertentu dapat dilakukan dengan cara memanggil perintah DELETE ../apiBrand/deleteOne/{id_brand}. ID diinput oleh user ke dalam {id_brand} yang terletak pada url endpoint. DELETE ../apiBrand/deleteOne/{id_brand} mengizinkan user untuk menghapus data brand yang terdapat di dalam server Website WGadget.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data brand berhasil dihapus\" dengan kode status 200.\n*   Jika id yang dimasukkan oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan \"Data brand dengan id {id_brand} tidak ditemukan.\" dengan kode status 204."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiHp/getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiHp/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiHp",
+						"getAll"
+					]
+				},
+				"description": "Menampilkan semua data hp dapat dilakukan dengan cara memanggil perintah GET ../apiHp/getAll. Perintah ini merupakan suatu method HTTP yang mengizinkan pengambilan data hp dari server Website WGadget.\n\n**Respon :**\n\nJika method HTTP ini berhasil, maka server akan menampilkan pesan \"Daftar hp behasil ditampilkan.\" dengan kode status 200."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiHp/getOne/{id_hp}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiHp/getOne/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiHp",
+						"getOne",
+						"1"
+					]
+				},
+				"description": "Menampilkan data hp dengan id tertentu dapat dilakukan dengan cara memanggil perintah GET ../apiHp/getOne/{id_hp}. ID diinput oleh user ke dalam {id_hp} yang terletak pada url endpoint. GET ../apiHp/getOne/{id_hp} mengizinkan pengambilan data hp dengan id tertentu dari server Website WGadget.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data hp dengan id {id_hp} behasil ditampilkan.\" dengan kode status 200.\n*   Jika id yang diinput oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan \"Data hp dengan id {id_hp} tidak ditemukan.\" dengan kode status 204."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiHp/getHp/{nama_hp}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiHp/getHp/iPhone 13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiHp",
+						"getHp",
+						"iPhone 13"
+					]
+				},
+				"description": "Menampilkan data hp dengan nama tertentu dapat dilakukan dengan cara memanggil perintah GET ../apiHp/getHp/{nama_hp}. Nama hp diinput oleh user ke dalam {nama_hp} yang terletak pada url endpoint. GET ../apiHp/getHp/{nama_hp} mengizinkan pengambilan data hp dengan nama tertentu dari server Website WGadget.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data hp dengan nama {nama_hp} behasil ditampilkan.\" dengan kode status 200.\n*   Jika nama yang diinput oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan \"Data hp dengan nama {nama_hp} tidak ditemukan.\" dengan kode status 204."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiHp/addOne",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id_brand",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "nama_hp",
+							"value": "Nama HP",
+							"type": "text"
+						},
+						{
+							"key": "foto_hp",
+							"value": "nama-hp.jpg",
+							"type": "text"
+						},
+						{
+							"key": "tgl_rilis",
+							"value": "2022-06-10",
+							"type": "text"
+						},
+						{
+							"key": "ukuran_layar",
+							"value": "10.9",
+							"type": "text"
+						},
+						{
+							"key": "sistem_operasi",
+							"value": "Android 12",
+							"type": "text"
+						},
+						{
+							"key": "chipset",
+							"value": "MediaTek",
+							"type": "text"
+						},
+						{
+							"key": "memori",
+							"value": "6 GB RAM, 32 GB Memori Internal",
+							"type": "text"
+						},
+						{
+							"key": "daya_baterai",
+							"value": "5000",
+							"type": "text"
+						},
+						{
+							"key": "kamera",
+							"value": "Kamera Depan 8 MP, Kamera Belakang 13 MP",
+							"type": "text"
+						},
+						{
+							"key": "jaringan",
+							"value": "4G/5G",
+							"type": "text"
+						},
+						{
+							"key": "harga",
+							"value": "19999999",
+							"type": "text"
+						},
+						{
+							"key": "warna",
+							"value": "Black Marbel",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiHp/addOne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiHp",
+						"addOne"
+					]
+				},
+				"description": "Menambah data hp dapat dilakukan dengan cara memanggil perintah POST ../apiHp/addOne. POST ../apiHp/addOne mengizinkan user untuk menambahkan data hp ke dalam server Website WGadget. Penambahan data dapat dilakukan melalui tab Body dan pilih x-www-form-urlencode. Lalu tambahkan data dengan memasukkan parameter id_brand, nama_hp, foto_hp, tgl_rilis, ukuran_layar, sistem_operasi, chipset, memori, daya_baterai, kamera, jaringan, harga, dan warna.\n\n**Data :**\n\n*   id_brand merupakan foreign key sehingga apabila id_brand yang diinput tidak terdapat di dalam database, maka penambahan hp gagal. id_brand memiliki tipe data int(11).\n*   nama_hp memiliki tipe data varchar(255).\n*   foto_hp memiliki tipe data varchar(255).\n*   tgl_rilis memiliki tipe data date dan format penulisannya : YYYY-MM-DD.\n*   ukuran_layar memiliki tipe data float.\n*   sistem_operasi memiliki tipe data varchar(255).\n*   chipset memiliki tipe data varchar(255).\n*   memori memiliki tipe data varchar(255) dengan format penulisan : X GB RAM dan X GB Memori Internal.\n*   daya_baterai memiliki tipe data int(11).\n*   kamera memiliki tipe data varchar(255) dengan format penulisan : Kamera Depan X MP, Kamera Belakang X MP.\n*   jaringan memiliki tipe data varchar(255).\n*   harga memiliki tipe data int(11).\n*   warna memiliki tipe data text.\n    \n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data hp berhasil ditambahkan.\" dengan kode status 201.\n*   Jika hp yang ditambahkan sudah ada di dalam server Website WGadget, maka server akan menampilkan pesan \"Hp sudah tersedia.\" dengan kode status 409.\n*   Jika salah satu data kosong, maka server akan menampilkan pesan \"Data tidak boleh kosong.\" dengan kode status 400.\n*   Jika id_brand yang diinput tidak sesuai dengan data manapun di dalam database server, maka server akan menampilkan pesan \"Brand dengan id {id_brand} tidak ditemukan.\" dengan kode status 204."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiHp/updateOne",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id_brand",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "nama_hp",
+							"value": "Nama HP",
+							"type": "text"
+						},
+						{
+							"key": "foto_hp",
+							"value": "nama-hp.jpg",
+							"type": "text"
+						},
+						{
+							"key": "tgl_rilis",
+							"value": "2022-06-10",
+							"type": "text"
+						},
+						{
+							"key": "ukuran_layar",
+							"value": "10.9",
+							"type": "text"
+						},
+						{
+							"key": "sistem_operasi",
+							"value": "Android 14",
+							"type": "text"
+						},
+						{
+							"key": "chipset",
+							"value": "Qualcomm Snapdragon",
+							"type": "text"
+						},
+						{
+							"key": "memori",
+							"value": "6 GB RAM, 32 GB Memori Internal",
+							"type": "text"
+						},
+						{
+							"key": "daya_baterai",
+							"value": "5000",
+							"type": "text"
+						},
+						{
+							"key": "kamera",
+							"value": "Kamera Depan 8 MP, Kamera Belakang 13 MP",
+							"type": "text"
+						},
+						{
+							"key": "jaringan",
+							"value": "4G/5G",
+							"type": "text"
+						},
+						{
+							"key": "harga",
+							"value": "19999999",
+							"type": "text"
+						},
+						{
+							"key": "warna",
+							"value": "Black Marbel",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiHp/updateOne/46",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiHp",
+						"updateOne",
+						"46"
+					]
+				},
+				"description": "Memperbarui data hp dengan id tertentu dapat dilakukan dengan cara memanggil perintah PUT ../apiHp/updateOne/{id_hp}. ID diinput oleh user ke dalam {id_hp} yang terletak pada url endpoint. PUT ../apiHp/updateOne/{id_hp} mengizinkan user untuk memperbarui data hp yang terdapat di dalam server Website WGadget. Pembaruan data dapat dilakukan melalui tab Body dan pilih x-www-form-urlencode. Lalu perbarui data dengan memasukkan parameter id_brand, nama_hp, foto_hp, tgl_rilis, ukuran_layar, sistem_operasi, chipset, memori, daya_baterai, kamera, jaringan, harga, dan warna.\n\n**Data :**\n\n*   id_brand merupakan foreign key sehingga apabila id_brand yang diinput tidak terdapat di dalam database, maka penambahan hp gagal. id_brand memiliki tipe data int(11).\n*   nama_hp memiliki tipe data varchar(255).\n*   foto_hp memiliki tipe data varchar(255).\n*   tgl_rilis memiliki tipe data date dan format penulisannya : YYYY-MM-DD.\n*   ukuran_layar memiliki tipe data float.\n*   sistem_operasi memiliki tipe data varchar(255).\n*   chipset memiliki tipe data varchar(255).\n*   memori memiliki tipe data varchar(255) dengan format penulisan : X GB RAM dan X GB Memori Internal.\n*   daya_baterai memiliki tipe data int(11).\n*   kamera memiliki tipe data varchar(255) dengan format penulisan : Kamera Depan X MP, Kamera Belakang X MP.\n*   jaringan memiliki tipe data varchar(255).\n*   harga memiliki tipe data int(11).\n*   warna memiliki tipe data text.\n    \n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data hp berhasil diperbarui.\" dengan kode status 200.\n*   Jika hp yang ditambahkan sudah ada di dalam server Website WGadget, maka server akan menampilkan pesan \"Hp sudah tersedia.\" dengan kode status 409.\n*   Jika salah satu data kosong, maka server akan menampilkan pesan \"Data tidak boleh kosong.\" dengan kode status 400.\n*   Jika id_brand yang diinput tidak sesuai dengan data manapun di dalam database server, maka server akan menampilkan pesan \"Brand dengan id {id_brand} tidak ditemukan.\" dengan kode status 204."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiHp/deleteOne/{id_hp}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiHp/deleteOne/46",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiHp",
+						"deleteOne",
+						"46"
+					]
+				},
+				"description": "Menghapus data Hp dengan id tertentu dapat dilakukan dengan cara memanggil perintah DELETE ../apiHp/deleteOne/{id_hp}. ID diinput oleh user ke dalam {id_hp} yang terletak pada url endpoint. DELETE ../apiHp/deleteOne/{id_hp} mengizinkan user untuk menghapus data hp yang terdapat di dalam server Website WGadget.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data hp berhasil dihapus\" dengan kode status 200.\n*   Jika id yang dimasukkan oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan \"Data hp dengan id {id_hp} tidak ditemukan.\" dengan kode status 204."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiInterest/getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiInterest/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiInterest",
+						"getAll"
+					]
+				},
+				"description": "Menampilkan data hp yang paling diminati oleh user dapat dilakukan dengan cara memanggil perintah GET ../apiInterest/getAll. Perintah ini merupakan suatu method HTTP yang mengizinkan pengambilan data 18 besar hp yang paling diminati oleh user dari server Website WGadget.\n\n**Respon :**\n\nJika method HTTP ini berhasil, maka server akan menampilkan pesan \"Daftar hp yang paling diminati behasil ditampilkan.\" dengan kode status 200. Namun, jika database masih kosong, maka server akan menampilkan pesan \"Belum ada data yang tersedia.\" dengan kode status 204."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiSearch/getSearch/{kata_kunci}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiSearch/getSearch/samsung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiSearch",
+						"getSearch",
+						"samsung"
+					]
+				},
+				"description": "Menampilkan data pencarian dapat dilakukan dengan cara memanggil perintah GET ../apiSearch/getSearch/{kata_kunci}. Perintah ini merupakan suatu method HTTP yang mengizinkan pencarian data hp dari server Website WGadget dengan memasukkan kata kunci tertentu yang dapat berupa nama hp ataupun nama brand.\n\n**Respon :**\n\nJika method HTTP ini berhasil, maka server akan menampilkan pesan \"Daftar pencarian behasil ditampilkan.\" dengan kode status 200. Namun, jika data yang dicari tidak ditemukan, maka server akan menampilkan pesan \"Tidak ada data yang ditemukan.\" dengan kode status 204."
+			},
+			"response": []
+		}
+	]
+}

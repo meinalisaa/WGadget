@@ -46,7 +46,7 @@
 
       if(empty($data)){
         $id_brand       = $this->request->getVar('id_brand');
-        $nama_hp        = ucwords($this->request->getVar('nama_hp'));
+        $nama_hp        = $this->request->getVar('nama_hp');
         $foto_hp        = strtolower($this->request->getVar('foto_hp'));
         $tgl_rilis      = $this->request->getVar('tgl_rilis');
         $ukuran_layar   = $this->request->getVar('ukuran_layar');
@@ -119,7 +119,7 @@
       }
       else{
         $id_brand       = $data['id_brand'];
-        $nama_hp        = ucwords($data['nama_hp']);
+        $nama_hp        = $data['nama_hp'];
         $foto_hp        = strtolower($data['foto_hp']);
         $tgl_rilis      = $data['tgl_rilis'];
         $ukuran_layar   = $data['ukuran_layar'];
@@ -160,109 +160,51 @@
       }
     }
 
-    public function updateOne($id_hp, $data = 0){
+    public function updateOne($id_hp, $id_brand = null, $nama_hp = null, $foto_hp = null, $tgl_rilis = null, $ukuran_layar = null, $sistem_operasi = null,
+    $chipset = null, $memori = null, $daya_baterai = null, $kamera = null, $jaringan = null, $harga = null, $warna = null){
       $model = new HpModel();
-      $url      = base_url('/apiHp/getOne/'.$id_hp);
-      $curl     = service('curlrequest');
-      $response = $curl->request('GET', $url, [
-        "headers" => [
-          "Accept" => "application/json"
-        ]
-      ]);
 
-      if($response->getStatusCode() == 200){
-        if(empty($nama_brand)){
-          $json  = $this->request->getJSON();
-          $input = $this->request->getRawInput();
+      if(empty($id_brand) AND empty($nama_hp) AND empty($foto_hp) AND empty($tgl_rilis) AND empty($ukuran_layar) AND empty($sistem_operasi) AND empty($chipset)
+      AND empty($memori) AND empty($daya_baterai) AND empty($kamera) AND empty($jaringan) AND empty($harga) AND empty($warna)){
+        $url      = base_url('/apiHp/getOne/'.$id_hp);
+        $curl     = service('curlrequest');
+        $response = $curl->request('GET', $url, [
+          "headers" => [
+            "Accept" => "application/json"
+          ]
+        ]);
 
-          if($json){
-            $id_brand       = $json->id_brand;
-            $nama_hp        = ucwords($json->nama_hp);
-            $foto_hp        = strtolower($json->foto_hp);
-            $tgl_rilis      = $json->tgl_rilis;
-            $ukuran_layar   = $json->ukuran_layar;
-            $sistem_operasi = $json->sistem_operasi;
-            $chipset        = $json->chipset;
-            $memori         = $json->memori;
-            $daya_baterai   = $json->daya_baterai;
-            $kamera         = $json->kamera;
-            $jaringan       = strtoupper($json->jaringan);
-            $harga          = $json->harga;
-            $warna          = ucwords($json->warna);
+        if($response->getStatusCode() == 200){
+          $input          = $this->request->getRawInput();
+          $id_brand       = $input['id_brand'];
+          $nama_hp        = $input['nama_hp'];
+          $foto_hp        = strtolower($input['foto_hp']);
+          $tgl_rilis      = $input['tgl_rilis'];
+          $ukuran_layar   = $input['ukuran_layar'];
+          $sistem_operasi = $input['sistem_operasi'];
+          $chipset        = $input['chipset'];
+          $memori         = $input['memori'];
+          $daya_baterai   = $input['daya_baterai'];
+          $kamera         = $input['kamera'];
+          $jaringan       = strtoupper($input['jaringan']);
+          $harga          = $input['harga'];
+          $warna          = ucwords($input['warna']);
 
-            if(empty($id_brand) OR empty($nama_hp) OR empty($foto_hp) OR empty($tgl_rilis) OR empty($ukuran_layar) OR empty($sistem_operasi) OR empty($chipset)
-            OR empty($memori) OR empty($daya_baterai) OR empty($kamera) OR empty($jaringan) OR empty($harga) OR empty($warna)){
-              return $this->response->setStatusCode(400, 'Data tidak boleh kosong.');
-            }
-            else{
-              $url      = base_url('/apiBrand/getOne/'.$id_brand);
-              $curl     = service('curlrequest');
-              $response = $curl->request('GET', $url, [
-                "headers" => [
-                  "Accept" => "application/json"
-                ]
-              ]);
-
-              if($response->getStatusCode() == 200){
-                $url      = base_url('/apiHp/getHp/'.$nama_hp);
-                $curl     = service('curlrequest');
-                $response = $curl->request('GET', $url, [
-                  "headers" => [
-                    "Accept" => "application/json"
-                  ]
-                ]);
-
-                if($response->getStatusCode() == 200){
-                  return $this->respond(json_decode($response->getBody()), 409, 'Hp sudah tersedia.');
-                }
-                else{
-                  $data1 = [
-                    'id_brand' => $id_brand,
-                    'nama_hp'  => $nama_hp,
-                    'foto_hp'  => $foto_hp
-                  ];
-
-                  $data2 = [
-                    'id_brand'       => $id_brand,
-                    'tgl_rilis'      => $tgl_rilis,
-                    'ukuran_layar'   => $ukuran_layar,
-                    'sistem_operasi' => $sistem_operasi,
-                    'chipset'        => $chipset,
-                    'memori'         => $memori,
-                    'daya_baterai'   => $daya_baterai,
-                    'kamera'         => $kamera,
-                    'jaringan'       => $jaringan,
-                    'harga'          => $harga,
-                    'warna'          => $warna
-                  ];
-                }
-              }
-              else{
-                return $this->response->setStatusCode(204, 'Brand dengan id '.$id_brand.' tidak ditemukan.');
-              }
-            }
+          if(empty($id_brand) OR empty($nama_hp) OR empty($foto_hp) OR empty($tgl_rilis) OR empty($ukuran_layar) OR empty($sistem_operasi) OR empty($chipset)
+          OR empty($memori) OR empty($daya_baterai) OR empty($kamera) OR empty($jaringan) OR empty($harga) OR empty($warna)){
+            return $this->response->setStatusCode(400, 'Data tidak boleh kosong.');
           }
           else{
-            $id_brand       = $input['id_brand'];
-            $nama_hp        = ucwords($input['nama_hp']);
-            $foto_hp        = strtolower($input['foto_hp']);
-            $tgl_rilis      = $input['tgl_rilis'];
-            $ukuran_layar   = $input['ukuran_layar'];
-            $sistem_operasi = $input['sistem_operasi'];
-            $chipset        = $input['chipset'];
-            $memori         = $input['memori'];
-            $daya_baterai   = $input['daya_baterai'];
-            $kamera         = $input['kamera'];
-            $jaringan       = strtoupper($input['jaringan']);
-            $harga          = $input['harga'];
-            $warna          = ucwords($input['warna']);
+            $url      = base_url('/apiBrand/getOne/'.$id_brand);
+            $curl     = service('curlrequest');
+            $response = $curl->request('GET', $url, [
+              "headers" => [
+                "Accept" => "application/json"
+              ]
+            ]);
 
-            if(empty($id_brand) OR empty($nama_hp) OR empty($foto_hp) OR empty($tgl_rilis) OR empty($ukuran_layar) OR empty($sistem_operasi) OR empty($chipset)
-            OR empty($memori) OR empty($daya_baterai) OR empty($kamera) OR empty($jaringan) OR empty($harga) OR empty($warna)){
-              return $this->response->setStatusCode(400, 'Data tidak boleh kosong.');
-            }
-            else{
-              $url      = base_url('/apiBrand/getOne/'.$id_brand);
+            if($response->getStatusCode() == 200){
+              $url      = base_url('/apiHp/getHp/'.$nama_hp);
               $curl     = service('curlrequest');
               $response = $curl->request('GET', $url, [
                 "headers" => [
@@ -271,87 +213,67 @@
               ]);
 
               if($response->getStatusCode() == 200){
-                $url      = base_url('/apiHp/getHp/'.$nama_hp);
-                $curl     = service('curlrequest');
-                $response = $curl->request('GET', $url, [
-                  "headers" => [
-                    "Accept" => "application/json"
-                  ]
-                ]);
-
-                if($response->getStatusCode() == 200){
-                  return $this->respond(json_decode($response->getBody()), 409, 'Hp sudah tersedia.');
-                }
-                else{
-                  $data1 = [
-                    'id_brand' => $id_brand,
-                    'nama_hp'  => $nama_hp,
-                    'foto_hp'  => $foto_hp
-                  ];
-
-                  $data2 = [
-                    'id_brand'       => $id_brand,
-                    'tgl_rilis'      => $tgl_rilis,
-                    'ukuran_layar'   => $ukuran_layar,
-                    'sistem_operasi' => $sistem_operasi,
-                    'chipset'        => $chipset,
-                    'memori'         => $memori,
-                    'daya_baterai'   => $daya_baterai,
-                    'kamera'         => $kamera,
-                    'jaringan'       => $jaringan,
-                    'harga'          => $harga,
-                    'warna'          => $warna
-                  ];
-                }
+                return $this->respond(json_decode($response->getBody()), 409, 'Hp sudah tersedia.');
               }
               else{
-                return $this->response->setStatusCode(204, 'Brand dengan id '.$id_brand.' tidak ditemukan.');
+                $data1 = [
+                  'id_brand' => $id_brand,
+                  'nama_hp'  => $nama_hp,
+                  'foto_hp'  => $foto_hp
+                ];
+
+                $data2 = [
+                  'id_brand'       => $id_brand,
+                  'tgl_rilis'      => $tgl_rilis,
+                  'ukuran_layar'   => $ukuran_layar,
+                  'sistem_operasi' => $sistem_operasi,
+                  'chipset'        => $chipset,
+                  'memori'         => $memori,
+                  'daya_baterai'   => $daya_baterai,
+                  'kamera'         => $kamera,
+                  'jaringan'       => $jaringan,
+                  'harga'          => $harga,
+                  'warna'          => $warna
+                ];
               }
+
+              $model->updateHp($id_hp, $data1);
+              $model->updateSpek($id_hp, $data2);
+              return $this->respond($data1, 200, 'Hp berhasil diperbarui.');
+            }
+            else{
+              return $this->response->setStatusCode(204, 'Brand dengan id '.$id_brand.' tidak ditemukan.');
             }
           }
         }
         else{
-          $id_brand       = $data['id_brand'];
-          $nama_hp        = ucwords($data['nama_hp']);
-          $foto_hp        = strtolower($data['foto_hp']);
-          $tgl_rilis      = $data['tgl_rilis'];
-          $ukuran_layar   = $data['ukuran_layar'];
-          $sistem_operasi = $data['sistem_operasi'];
-          $chipset        = $data['chipset'];
-          $memori         = $data['memori'];
-          $daya_baterai   = $data['daya_baterai'];
-          $kamera         = $data['kamera'];
-          $jaringan       = strtoupper($data['jaringan']);
-          $harga          = $data['harga'];
-          $warna          = ucwords($data['warna']);
-
-          $data1 = [
-            'id_brand' => $id_brand,
-            'nama_hp'  => $nama_hp,
-            'foto_hp'  => $foto_hp
-          ];
-
-          $data2 = [
-            'id_brand'       => $id_brand,
-            'tgl_rilis'      => $tgl_rilis,
-            'ukuran_layar'   => $ukuran_layar,
-            'sistem_operasi' => $sistem_operasi,
-            'chipset'        => $chipset,
-            'memori'         => $memori,
-            'daya_baterai'   => $daya_baterai,
-            'kamera'         => $kamera,
-            'jaringan'       => $jaringan,
-            'harga'          => $harga,
-            'warna'          => $warna
-          ];
+          return $this->response->setStatusCode(204, 'Hp dengan id '.$id_hp.' tidak ditemukan.');
         }
+      }
+      else{
+        $data1 = [
+          'id_brand' => $id_brand,
+          'nama_hp'  => $nama_hp,
+          'foto_hp'  => $foto_hp
+        ];
+
+        $data2 = [
+          'id_brand'       => $id_brand,
+          'tgl_rilis'      => $tgl_rilis,
+          'ukuran_layar'   => $ukuran_layar,
+          'sistem_operasi' => $sistem_operasi,
+          'chipset'        => $chipset,
+          'memori'         => $memori,
+          'daya_baterai'   => $daya_baterai,
+          'kamera'         => $kamera,
+          'jaringan'       => $jaringan,
+          'harga'          => $harga,
+          'warna'          => $warna
+        ];
 
         $model->updateHp($id_hp, $data1);
         $model->updateSpek($id_hp, $data2);
         return $this->respond($data1, 200, 'Hp berhasil diperbarui.');
-      }
-      else{
-        return $this->response->setStatusCode(204, 'Hp dengan id '.$id_hp.' tidak ditemukan.');
       }
     }
 
