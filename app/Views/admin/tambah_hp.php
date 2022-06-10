@@ -6,69 +6,74 @@
     <h2 style="margin-left: 15px; margin-top: -8px"><b>Tambah Hp</b></h2>
 	</div>
 
-	<form action="" method="post" enctype="multipart/form-data">
+	<form action="<?= base_url('/admin/tambahHp') ?>" method="POST" enctype="multipart/form-data">
 		<div class="row mt-3">
 			<div class="col-lg-6">
 				<div class="form-group ml-3" style="width: 95%">
 					<label>Nama Brand</label>
-					<input type="text" name="nama_brand" class="form-control">
+					<select name="id_brand" class="form-control">
+	          <option selected="selected" disabled="disabled">Pilih Brand</option>
+						<?php foreach($brand as $brand) : ?>
+							<option value="<?= $brand->id_brand ?>"><?= $brand->nama_brand ?></option>
+						<?php endforeach ?>
+					</select>
 				</div>
 
 				<div class="form-group ml-3" style="width: 95%">
 					<label>Nama Hp</label>
-					<input type="text" name="nama_hp" class="form-control">
+					<input type="text" id="nama_hp" name="nama_hp" class="form-control">
 				</div>
 
 				<div class="form-group ml-3" style="width: 95%">
 					<label>Tanggal Rilis</label>
-					<input type="date" name="tgl_rilis" class="form-control">
+					<input type="date" id="tgl_rilis" name="tgl_rilis" class="form-control">
 				</div>
 
 				<div class="form-group ml-3" style="width: 95%">
 					<label>Ukuran Layar</label>
-					<input type="text" name="ukuran_layar" class="form-control">
+					<input type="text" id="ukuran_layar" name="ukuran_layar" class="form-control">
 				</div>
 
 				<div class="form-group ml-3" style="width: 95%">
 					<label>Sistem Operasi</label>
-					<input type="text" name="sistem_operasi" class="form-control">
+					<input type="text" id="sistem_operasi" name="sistem_operasi" class="form-control">
 				</div>
 
 				<div class="form-group ml-3" style="width: 95%">
 					<label>Chipset</label>
-					<input type="text" name="chipset" class="form-control">
+					<input type="text" id="chipset" name="chipset" class="form-control">
 				</div>
 
 				<div class="form-group ml-3" style="width: 95%">
 					<label>Memori</label>
-					<input type="text" name="memori" class="form-control">
+					<input type="text" id="memori" name="memori" class="form-control">
 				</div>
 			</div>
 
 			<div class="col-lg-6">
 				<div class="form-group" style="margin-left: 10px; width: 95%">
 					<label>Daya Baterai</label>
-					<input type="text" name="daya_baterai" class="form-control">
+					<input type="text" id="daya_baterai" name="daya_baterai" class="form-control">
 				</div>
 
 				<div class="form-group" style="margin-left: 10px; width: 95%">
 					<label>Kamera</label>
-					<input type="text" name="kamera" class="form-control">
+					<input type="text" id="kamera" name="kamera" class="form-control">
 				</div>
 
 				<div class="form-group" style="margin-left: 10px; width: 95%">
 					<label>Jaringan</label>
-					<input type="text" name="jaringan" class="form-control">
+					<input type="text" id="jaringan" name="jaringan" class="form-control">
 				</div>
 
 				<div class="form-group" style="margin-left: 10px; width: 95%">
 					<label>Harga</label>
-					<input type="text" name="harga" class="form-control">
+					<input type="text" id="harga" name="harga" class="form-control">
 				</div>
 
 				<div class="form-group" style="margin-left: 10px; width: 95%">
 					<label>Warna</label>
-					<input type="text" name="warna" class="form-control">
+					<input type="text" id="warna" name="warna" class="form-control">
 				</div>
 
 				<div class="form-group" style="margin-left: 10px; width: 95%">
@@ -80,7 +85,7 @@
 
 		<div class="form-group">
 			<center>
-				<button class="btn" style="background: #460137; color: white; width: 200px">Simpan</button>
+				<button type="submit" class="btn" style="background: #460137; color: white; width: 200px">Simpan</button>
 			</center>
 		</div>
 	</form>

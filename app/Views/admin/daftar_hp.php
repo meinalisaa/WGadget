@@ -27,8 +27,8 @@
                   <thead>
                     <tr style="text-align: center">
                       <th>No.</th>
-                      <th>Nama HP</th>
-                      <th>Foto HP</th>
+                      <th>Nama Hp</th>
+                      <th>Foto Hp</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -45,16 +45,16 @@
                     <td><center><img src="<?= base_url('/assets/img/hp/'.$val->foto_hp) ?>" style="width: 100px"></center></td>
                     <td style="text-align: center">
                       <a href="<?= base_url('admin/detail_hp/'.$val->id_hp) ?>">
-                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal2">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal2"  title="Detail Hp">
                           <i class="fas fa-eye"></i>
                         </button>
                       </a>
 
-                        <a href="<?= base_url('admin/ubah_hp/'.$val->id_hp) ?>" class="btn btn-warning btn-sm">
+                        <a href="<?= base_url('admin/ubah_hp/'.$val->id_hp) ?>" class="btn btn-warning btn-sm" title="Ubah Hp">
                           <i class="fas fa-edit"></i>
                         </a>
 
-                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal<?= $val->id_hp ?>" style="color: white" type="submit">
+                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal<?= $val->id_hp ?>" style="color: white" type="submit" title="Hapus Hp">
                           <i class="fas fa-trash"></i>
                         </a>
                       </td>

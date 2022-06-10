@@ -40,11 +40,11 @@
                       <td style="text-align: center"><?= $no ?></td>
                       <td><?= $val->nama_brand ?></td>
                       <td style="text-align: center">
-                        <a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ubahModal<?= $val->id_brand ?>" type="submit">
+                        <a class="btn btn-warning btn-sm" data-toggle="modal" data-target="#ubahModal<?= $val->id_brand ?>" type="submit" title="Ubah Brand">
                           <i class="fa fa-edit"></i>
                         </a>
 
-                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal<?= $val->id_brand ?>" style="color: white" type="submit">
+                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal<?= $val->id_brand ?>" style="color: white" type="submit" title="Hapus Brand">
                           <i class="fas fa-trash"></i>
                         </a>
                       </td>

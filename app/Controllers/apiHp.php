@@ -39,7 +39,8 @@
       }
     }
 
-    public function addOne($data = null){
+    public function addOne($id_brand = null, $nama_hp = null, $foto_hp = null, $tgl_rilis = null, $ukuran_layar = null, $sistem_operasi = null,
+    $chipset = null, $memori = null, $daya_baterai = null, $kamera = null, $jaringan = null, $harga = null, $warna = null){
       $model = new HpModel();
       $id    = $model->getLast();
       $id_hp = $id['id_hp'] + 1;
@@ -118,20 +119,6 @@
         }
       }
       else{
-        $id_brand       = $data['id_brand'];
-        $nama_hp        = $data['nama_hp'];
-        $foto_hp        = strtolower($data['foto_hp']);
-        $tgl_rilis      = $data['tgl_rilis'];
-        $ukuran_layar   = $data['ukuran_layar'];
-        $sistem_operasi = $data['sistem_operasi'];
-        $chipset        = $data['chipset'];
-        $memori         = $data['memori'];
-        $daya_baterai   = $data['daya_baterai'];
-        $kamera         = $data['kamera'];
-        $jaringan       = strtoupper($data['jaringan']);
-        $harga          = $data['harga'];
-        $warna          = ucwords($data['warna']);
-
         $data1 = [
           'id_hp'    => $id_hp,
           'id_brand' => $id_brand,
