@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "93ad3df6-0b57-4935-aafb-d22b1d0710d2",
+		"_postman_id": "7b8314f5-8773-4ce5-b0e2-ed0c98268e00",
 		"name": "WGadget",
 		"description": "WGadget's API dibangun untuk mengintegrasikan data hp yang tersedia di server Website WGadget. Untuk menjalankan API ini, diharapkan untuk membuka aplikasi xampp terlebih dahulu. Lalu, jalankan Apache dan MySQL. Selanjutnya, importlah file wgadget.sql ke dalam database Anda.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "11785527"
+		"_exporter_id": "20961579"
 	},
 	"item": [
 		{
@@ -159,7 +159,7 @@
 						"10"
 					]
 				},
-				"description": "Menghapus data Brand dengan id tertentu dapat dilakukan dengan cara memanggil perintah DELETE ../apiBrand/deleteOne/{id_brand}. ID diinput oleh user ke dalam {id_brand} yang terletak pada url endpoint. DELETE ../apiBrand/deleteOne/{id_brand} mengizinkan user untuk menghapus data brand yang terdapat di dalam server Website WGadget.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data brand berhasil dihapus\" dengan kode status 200.\n*   Jika id yang dimasukkan oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan \"Data brand dengan id {id_brand} tidak ditemukan.\" dengan kode status 204.\n    \n\n**Catatan :**\n\nApabila data suatu brand dihapus, maka data pencarian dan data hp yang dimiliki brand tersebut beserta spesifikiasinya akan ikut terhapus, karena id_brand pada tabel_pencarian, tabel_spek, dan tabel_hp merupakan foreign key."
+				"description": "Menghapus data Brand dengan id tertentu dapat dilakukan dengan cara memanggil perintah DELETE ../apiBrand/deleteOne/{id_brand}. ID diinput oleh user ke dalam {id_brand} yang terletak pada url endpoint. DELETE ../apiBrand/deleteOne/{id_brand} mengizinkan user untuk menghapus data brand yang terdapat di dalam server Website WGadget.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data brand berhasil dihapus\" dengan kode status 200.\n*   Jika id yang dimasukkan oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan \"Data brand dengan id {id_brand} tidak ditemukan.\" dengan kode status 204.\n    \n\n**Catatan :**\n\nApabila data suatu brand dihapus, maka data pencarian dan data hp yang dimiliki brand tersebut beserta spesifikasinya akan ikut terhapus, karena id_brand pada tabel_pencarian, tabel_spek, dan tabel_hp merupakan foreign key."
 			},
 			"response": []
 		},
@@ -228,6 +228,29 @@
 					]
 				},
 				"description": "Menampilkan data hp dengan nama tertentu dapat dilakukan dengan cara memanggil perintah GET ../apiHp/getHp/{nama_hp}. Nama hp diinput oleh user ke dalam {nama_hp} yang terletak pada url endpoint. GET ../apiHp/getHp/{nama_hp} mengizinkan pengambilan data hp dengan nama tertentu dari server Website WGadget.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Data hp dengan nama {nama_hp} behasil ditampilkan.\" dengan kode status 200.\n*   Jika nama yang diinput oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan \"Data hp dengan nama {nama_hp} tidak ditemukan.\" dengan kode status 204."
+			},
+			"response": []
+		},
+		{
+			"name": "../apiHp/getBrand/{nama_brand}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiHp/getBrand/samsung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiHp",
+						"getBrand",
+						"samsung"
+					]
+				},
+				"description": "Menampilkan data hp dengan brand tertentu dapat dilakukan dengan cara memanggil perintah GET ../apiHp/getBrand/{nama_brand}. Nama brand diinput oleh user ke dalam {nama_brand} yang terletak pada url endpoint. GET ../apiHp/getBrand/{nama_brand} mengizinkan pengambilan data hp dengan brand tertentu dari server Website WGadget.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Daftar hp dengan brand {nama_brand} berhasil ditampilkan.\" dengan kode status 200.\n*   Jika nama yang diinput oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan \"Tidak ada hp dengan brand {nama_brand}.\" dengan kode status 204."
 			},
 			"response": []
 		},

@@ -29,10 +29,11 @@
       ->get()->getRowArray();
     }
 
-    public function getHpBrand($id_brand){
+    public function getBrand($nama_brand){
       return $this->db->table('tabel_hp')
-      ->where('id_brand', $id_brand)
-      ->get()->getRowArray();
+      ->join('tabel_brand', 'tabel_brand.id_brand = tabel_hp.id_brand')
+      ->where('tabel_brand.nama_brand', $nama_brand)
+      ->get()->getResult();
     }
 
     public function getLast(){

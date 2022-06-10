@@ -39,6 +39,19 @@
       }
     }
 
+    public function getBrand($nama_brand){
+      $model      = new HpModel();
+      $nama_brand = ucwords($nama_brand);
+      $data       = $model->getBrand($nama_brand);
+
+      if($data){
+        return $this->respond($data, 200, 'Daftar hp dengan brand '.$nama_brand.' berhasil ditampilkan.');
+      }
+      else{
+        return $this->response->setStatusCode(204, 'Tidak ada hp dengan brand '.$nama_brand.'.');
+      }
+    }
+
     public function addOne($id_brand = null, $nama_hp = null, $foto_hp = null, $tgl_rilis = null, $ukuran_layar = null, $sistem_operasi = null,
     $chipset = null, $memori = null, $daya_baterai = null, $kamera = null, $jaringan = null, $harga = null, $warna = null){
       $model = new HpModel();
