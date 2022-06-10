@@ -288,6 +288,7 @@
       ]);
 
       if($response->getStatusCode() == 200){
+        $model->deleteSearch($id_hp);
         $model->deleteSpek($id_hp);
         $model->deleteHp($id_hp);
         return $this->response->setStatusCode(200, 'Hp berhasil dihapus.');

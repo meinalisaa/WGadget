@@ -167,6 +167,7 @@
       ]);
 
       if($response->getStatusCode() == 200){
+        $model->deleteSearch($id_brand);
         $model->deleteSpek($id_brand);
         $model->deleteHp($id_brand);
         $model->deleteBrand($id_brand);

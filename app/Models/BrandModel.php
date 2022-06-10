@@ -60,4 +60,10 @@
       ->where('id_brand', $id_brand)
       ->delete();
     }
+
+    public function deleteSearch($id_brand){
+      return $this->db->table('tabel_pencarian')
+      ->where('id_brand', $id_brand)
+      ->delete();
+    }
   }
