@@ -45,7 +45,8 @@
       $id    = $model->getLast();
       $id_hp = $id['id_hp'] + 1;
 
-      if(empty($data)){
+      if(empty($id_brand) AND empty($nama_hp) AND empty($foto_hp) AND empty($tgl_rilis) AND empty($ukuran_layar) AND empty($sistem_operasi) AND empty($chipset)
+      AND empty($memori) AND empty($daya_baterai) AND empty($kamera) AND empty($jaringan) AND empty($harga) AND empty($warna)){
         $id_brand       = $this->request->getVar('id_brand');
         $nama_hp        = $this->request->getVar('nama_hp');
         $foto_hp        = strtolower($this->request->getVar('foto_hp'));
