@@ -94,6 +94,45 @@
 
     <?= $this->renderSection('content') ?>
 
+    <div id="footer">
+      <footer class="sticky-footer mt-5" style="width: 100%; background: #E4E4E4">
+        <div class="container my-auto">
+          <br>
+
+          <div class="copyright my-auto" style="color: #8B8B8B">
+            <table style="width: 100%">
+              <tr>
+                <td style="text-align: left">Copyright &copy; 2022 Tim Wacana - All Rights Reserved</td>
+                <td style="text-align: right"><a href="https://github.com/meinalisaa/WGadget" style="color: #8B8B8B">
+                  <i class="fab fa-github"></i> Github WGadget
+                </a></td>
+              </tr>
+            </table>
+          </div>
+
+          <br>
+        </div>
+      </footer>
+    </div>
+
+    <style>
+      body {
+        margin:0;
+        padding:0;
+        height:100%;
+      }
+
+      body, #container{
+        margin-bottom: 100px;
+      }
+
+      #footer{
+        bottom: 0;
+        width: 100%;
+        position: fixed;
+      }
+    </style>
+
     <script src="<?= base_url('/assets/plugins/jquery/jquery.min.js') ?>"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

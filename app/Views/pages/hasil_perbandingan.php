@@ -117,42 +117,42 @@
             <?php if($hp_1->harga < $hp_2->harga) : ?>
               <td style="padding: 7px; width: 50%" class="text-success">
                 <?php
-                  $harga = "Rp ".number_format($hp_1->harga,2,',','.');
+                  $harga = "Rp ".number_format($hp_1->harga,0,',','.');
                   echo $harga;
                 ?>
               </td>
 
               <td style="padding: 7px; width: 50%" class="text-danger">
                 <?php
-                  $harga = "Rp ".number_format($hp_2->harga,2,',','.');
+                  $harga = "Rp ".number_format($hp_2->harga,0,',','.');
                   echo $harga;
                 ?>
               </td>
             <?php elseif($hp_1->harga > $hp_2->harga) : ?>
               <td style="padding: 7px; width: 50%" class="text-danger">
                 <?php
-                  $harga = "Rp ".number_format($hp_1->harga,2,',','.');
+                  $harga = "Rp ".number_format($hp_1->harga,0,',','.');
                   echo $harga;
                 ?>
               </td>
 
               <td style="padding: 7px; width: 50%" class="text-success">
                 <?php
-                  $harga = "Rp ".number_format($hp_2->harga,2,',','.');
+                  $harga = "Rp ".number_format($hp_2->harga,0,',','.');
                   echo $harga;
                 ?>
               </td>
             <?php else : ?>
               <td style="padding: 7px; width: 50%" class="text-primary">
                 <?php
-                  $harga = "Rp ".number_format($hp_1->harga,2,',','.');
+                  $harga = "Rp ".number_format($hp_1->harga,0,',','.');
                   echo $harga;
                 ?>
               </td>
 
               <td style="padding: 7px; width: 50%" class="text-primary">
                 <?php
-                  $harga = "Rp ".number_format($hp_2->harga,2,',','.');
+                  $harga = "Rp ".number_format($hp_2->harga,0,',','.');
                   echo $harga;
                 ?>
               </td>
