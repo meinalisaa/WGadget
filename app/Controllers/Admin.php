@@ -4,7 +4,6 @@
   use CodeIgniter\RESTful\ResourceController;
   use CodeIgniter\API\ResponseTrait;
   use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Php;
-  use App\Models\HpModel;
 
   class Admin extends ResourceController{
     use ResponseTrait;
@@ -178,7 +177,7 @@
       $data['judul'] = 'Admin | Tambah Hp';
 
       $pager    = \Config\Services::pager();
-      
+
         $url      = base_url('/apiBrand/getAll');
         $curl     = service('curlrequest');
         $response = $curl->request('GET', $url, [
@@ -191,11 +190,10 @@
           $data['brand'] = json_decode($response->getBody());
           echo view('admin/tambah_hp', $data);
         }
-      
+
     }
-    
+
     public function tambahHp(){
-      $model    = new HpModel();
       $pager    = \Config\Services::pager();
       $session  = \Config\Services::session();
 
@@ -302,8 +300,6 @@
     }
 
     public function ubahHp(){
-      $model = new HpModel();
-
       if(isset($_POST['submit'])){
         $pager          = \Config\Services::pager();
         $session        = \Config\Services::session();
