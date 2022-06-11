@@ -11,7 +11,13 @@
     public function getAll(){
       $model = new BrandModel();
       $data  = $model->getAll();
-      return $this->respond($data, 200, 'Daftar brand berhasil ditampilkan.');
+
+      if($data){
+        return $this->respond($data, 200, 'Daftar brand berhasil ditampilkan.');
+      }
+      else{
+        return $this->response->setStatusCode(204, 'Belum ada data brand.');
+      }
     }
 
     public function getOne($id_brand){

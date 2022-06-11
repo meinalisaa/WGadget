@@ -10,7 +10,8 @@ Untuk melihat dokumentasi, Anda bisa mengimport file 'WGadget.postman_collection
 Menampilkan semua data brand dapat dilakukan dengan cara memanggil perintah GET ../apiBrand/getAll. Perintah ini merupakan suatu method HTTP yang mengizinkan pengambilan data brand dari server Website WGadget.
 
 #### Respon :
-Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar brand behasil ditampilkan." dengan kode status 200.
+- Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar brand behasil ditampilkan." dengan kode status 200.
+- Jika belum ada data di dalam database, maka server akan menampilkan pesan "Belum ada data brand." dengan kode status 204.
 
 ## GET ../apiBrand/getOne/{id_brand}
 #### http://localhost/WGadget/public/apiBrand/getOne/1
@@ -74,7 +75,8 @@ Apabila data suatu brand dihapus, maka data pencarian dan data hp yang dimiliki 
 Menampilkan semua data hp dapat dilakukan dengan cara memanggil perintah GET ../apiHp/getAll. Perintah ini merupakan suatu method HTTP yang mengizinkan pengambilan data hp dari server Website WGadget.
 
 #### Respon :
-Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar hp behasil ditampilkan." dengan kode status 200.
+- Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar hp behasil ditampilkan." dengan kode status 200.
+- Jika belum ada data hp di dalam database, maka server akan menampilkan pesan "Belum ada data hp." dengan kode status 204.
 
 ## GET ../apiHp/getOne/{id_hp}
 #### http://localhost/WGadget/public/apiHp/getOne/1
@@ -174,7 +176,8 @@ Apabila data suatu hp dihapus, maka data pencarian dan spesifikasi dari hp terse
 Menampilkan data hp yang paling diminati oleh user dapat dilakukan dengan cara memanggil perintah GET ../apiInterest/getAll. Perintah ini merupakan suatu method HTTP yang mengizinkan pengambilan data 18 besar hp yang paling diminati oleh user dari server Website WGadget.
 
 #### Respon :
-Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar hp yang paling diminati behasil ditampilkan." dengan kode status 200. Namun, jika database masih kosong, maka server akan menampilkan pesan "Belum ada data yang tersedia." dengan kode status 204.
+- Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar hp yang paling diminati behasil ditampilkan." dengan kode status 200.
+- Jika belum ada data hp yang paling diminati di dalam database, maka server akan menampilkan pesan "Belum ada data yang tersedia." dengan kode status 204.
 
 ## GET ../apiSearch/getSearch/{kata_kunci}
 #### http://localhost/WGadget/public/apiSearch/getSearch/samsung
@@ -182,4 +185,5 @@ Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar hp yan
 Menampilkan data pencarian dapat dilakukan dengan cara memanggil perintah GET ../apiSearch/getSearch/{kata_kunci}. Perintah ini merupakan suatu method HTTP yang mengizinkan pencarian data hp dari server Website WGadget dengan memasukkan kata kunci tertentu yang dapat berupa nama hp ataupun nama brand.
 
 #### Respon :
-Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar pencarian behasil ditampilkan." dengan kode status 200. Namun, jika data yang dicari tidak ditemukan, maka server akan menampilkan pesan "Tidak ada data yang ditemukan." dengan kode status 204.
+- Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar pencarian behasil ditampilkan." dengan kode status 200. 
+- Jika data yang dicari tidak terdapat dalam database, maka server akan menampilkan pesan "Tidak ada data yang ditemukan." dengan kode status 204.
