@@ -63,6 +63,16 @@
         <img src="<?= base_url('/assets/img/logo/logo-ungu.png') ?>" style="max-height: 30px; margin-left: 10px">
         <b style="margin-left: 10px; color: black">WGadget</b>
       </a>
+
+      <ul class="navbar-nav ml-auto">
+        <div class="topbar-divider d-none d-sm-block" style="width: 0; border-right: 1px solid #E3E6F0; height: calc(4.375rem - 2rem); margin: auto 1rem"></div>
+
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('admin/logout') ?>" data-toggle="modal" data-target="#logoutModal" style="color: black">
+            <i class="fa fa-sign-out-alt fa-fw mr-3"></i>Keluar
+          </a>
+        </li>
+      </ul>
     </nav>
 
     <div class="row" id="body-row" style="padding-top: 50px">
@@ -101,6 +111,32 @@
           <?php endif ?>
         </ul>
       </div>
+
+      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content" style="border-radius: 5px">
+					<div class="modal-body">
+						<span>
+							<p style="border-radius: 50%; border: 4px solid #FACEA8; width: 85px; height: 85px; margin-left: auto; margin-right: auto; margin-top: 30px"></p>
+							<p style="color: #F8BB86; font-size: 60px; margin-top: -105px; margin-left: 225px">!</p>
+						</span>
+
+						<h3 class="modal-title mt-4" id="exampleModalLabel" align="center">
+							<b style="font-family: Arial; color: #595959">Keluar</b>
+						</h3>
+
+						<h5 class="modal-title" id="exampleModalLabel" align="center" style="color: #545454">Anda yakin ingin keluar?</h5>
+
+						<br>
+
+						<div class="row mb-2">
+							<a class="btn" href="<?= base_url('login/logout') ?>" style="background: #30454A; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
+							<button class="btn" type="button" data-dismiss="modal" style="background: grey; color: white; margin-right: auto; margin-left: 10px; width: 105px; padding: 10px">Tidak</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
       <?= $this->renderSection('content') ?>
     </div>

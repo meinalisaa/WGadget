@@ -23,7 +23,7 @@
 				<div class="row mt-4">
 					<div class="col">
 						<?= $session->getFlashdata('message') ?>
-						<form action="<?= base_url('/admin/login') ?>" method="POST">
+						<form action="<?= base_url('/admin/index') ?>" method="POST">
 							<div class="form-group">
 								<input type="text" class="form-control" id="email" name="email" placeholder="Email" style="padding: 20px 20px">
 							</div>
@@ -33,7 +33,7 @@
 								<span id="show" onclick="show()" style="position: relative; z-index: 1; left: 90%; top: -31px; cursor: pointer; color: #AFAFAF"><i class="fa fa-eye icon"></i></span>
 							</div>
 							
-							<button class="form-control btn" style="background: #460137; color: white; margin-top: -30px;" type="submit" name="submit">Simpan</button>
+							<button class="form-control btn" style="background: #460137; color: white; margin-top: -30px;" type="submit" name="submit">Masuk</button>
 						</form>
 					</div>
 				</div>

@@ -18,37 +18,46 @@
       $data['judul'] = 'Admin | Daftar Brand';
 
       if(isset($_POST['submit'])){
+        $email       = strtolower($_POST['email']);
         $kata_sandi  = $_POST['kata_sandi'];
-        $email       = $_POST['email'];
 
-        $url         = base_url('/apiLogin/getAll/'.$email.'/'.$kata_sandi);
-        $curl        = service('curlrequest');
-        
-        $response    = $curl->request('GET', $url, [
-          "headers" => [
-            "Accept" => "application/json"
-          ]
-        ]);
-  
-        if($response->getStatusCode() == 200){
-          $url      = base_url('/apiBrand/getAll/');
-          $curl     = service('curlrequest');
-          
-          $response = $curl->request('GET', $url, [
+        if(empty($kata_sandi) OR empty($email)){
+          $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Email dan kata sandi tidak boleh kosong.</div>');
+          return redirect()->route('admin', $data);
+        }
+        else{
+          $url         = base_url('/apiLogin/login/'.$email.'/'.$kata_sandi);
+          $curl        = service('curlrequest');
+          $response    = $curl->request('GET', $url, [
             "headers" => [
               "Accept" => "application/json"
             ]
           ]);
 
-          $data['database'] = json_decode($response->getBody());
-          return redirect()->route('admin/daftar_brand', $data);
-        }
-        else{
-          $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Login Gagal.</div>');
-          return redirect()->route('admin', $data);
+          if($response->getStatusCode() == 200){
+            $url      = base_url('/apiBrand/getAll');
+            $curl     = service('curlrequest');
+            $response = $curl->request('GET', $url, [
+              "headers" => [
+                "Accept" => "application/json"
+              ]
+            ]);
+
+            $data['database'] = json_decode($response->getBody());
+            return redirect()->route('admin/daftar_brand', $data);
+          }
+          else{
+            $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Email atau kata sandi salah.</div>');
+            return redirect()->route('admin', $data);
+          }
         }
       }
-    }    
+    }
+    
+    public function logout(){
+      $data['judul'] = 'WGadget | Login';
+      echo view('admin/login', $data);
+    }
 
     public function daftar_brand(){
       $data['judul'] = 'Admin | Daftar Brand';
