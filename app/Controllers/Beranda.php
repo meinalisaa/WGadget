@@ -38,7 +38,7 @@
     }
 
     public function Brand($nama_brand){
-      $data['judul'] = 'WGadget | Brand';
+      $data['judul']      = 'WGadget | Brand '.$nama_brand;
       $data['nama_brand'] = $nama_brand;
 
       $pager    = \Config\Services::pager();
@@ -52,6 +52,16 @@
 
       if($response->getStatusCode() == 200){
         $data['database'] = json_decode($response->getBody());
+
+        $url      = base_url('/apiBrand/getAll');
+        $curl     = service('curlrequest');
+        $response = $curl->request('GET', $url, [
+          "headers" => [
+            "Accept" => "application/json"
+          ]
+        ]);
+
+        $data['brand'] = json_decode($response->getBody());
         echo view('pages/brand', $data);
       }
     }

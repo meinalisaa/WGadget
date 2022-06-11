@@ -1,7 +1,7 @@
 <?= $this->extend('layout/template-user') ?>
 <?= $this->section('content') ?>
   <div class="container mt-3 mb-4">
-    <h1 align="center">Perbandingan Hp</h1>
+    <h1 align="center"><b>Perbandingan Hp</b></h1>
 
     <div class="row mt-3">
       <div class="col-md-3">
