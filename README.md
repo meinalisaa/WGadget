@@ -56,6 +56,7 @@ nama_brand memiliki tipe data varchar(255)
 - Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Data brand berhasil diperbarui." dengan kode status 200.
 - Jika nama_brand yang diinput sudah ada di dalam server Website WGadget, maka server akan menampilkan pesan "Brand sudah tersedia." dengan kode status 409.
 - Jika nama_brand kosong, maka server akan menampilkan pesan "Nama brand tidak boleh kosong." dengan kode status 400.
+- Jika id_brand yang dimasukkan oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan "Brand dengan id {id_brand tidak ditemukan." dengan kode status 204.
 
 ## DEL ../apiBrand/deleteOne/{id_brand}
 #### http://localhost/WGadget/public/apiBrand/deleteOne/10
@@ -64,7 +65,7 @@ Menghapus data Brand dengan id tertentu dapat dilakukan dengan cara memanggil pe
 
 #### Respon :
 - Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Data brand berhasil dihapus" dengan kode status 200.
-- Jika id yang dimasukkan oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan "Data brand dengan id {id_brand} tidak ditemukan." dengan kode status 204.
+- Jika id_brand yang dimasukkan oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan "Data brand dengan id {id_brand} tidak ditemukan." dengan kode status 204.
 
 #### Catatan :
 Apabila data suatu brand dihapus, maka data pencarian dan data hp yang dimiliki brand tersebut beserta spesifikasinya akan ikut terhapus, karena id_brand pada tabel_pencarian, tabel_spek, dan tabel_hp merupakan foreign key.
@@ -156,6 +157,7 @@ Memperbarui data hp dengan id tertentu dapat dilakukan dengan cara memanggil per
 - Jika hp yang ditambahkan sudah ada di dalam server Website WGadget, maka server akan menampilkan pesan "Hp sudah tersedia." dengan kode status 409.
 - Jika salah satu data kosong, maka server akan menampilkan pesan "Data tidak boleh kosong." dengan kode status 400.
 - Jika id_brand yang diinput tidak sesuai dengan data manapun di dalam database server, maka server akan menampilkan pesan "Brand dengan id {id_brand} tidak ditemukan." dengan kode status 204.
+- Jika id_hp yang dimasukkan oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan "Data hp dengan id {id_hp} tidak ditemukan." dengan kode status 204.
 
 ## DEL ../apiHp/deleteOne/{id_hp}
 #### http://localhost/WGadget/public/apiHp/deleteOne/46
@@ -164,7 +166,7 @@ Menghapus data Hp dengan id tertentu dapat dilakukan dengan cara memanggil perin
 
 #### Respon :
 - Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Data hp berhasil dihapus" dengan kode status 200.
-- Jika id yang dimasukkan oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan "Data hp dengan id {id_hp} tidak ditemukan." dengan kode status 204.
+- Jika id_hp yang dimasukkan oleh user tidak sesuai dengan data manapun, maka server akan menampilkan pesan "Data hp dengan id {id_hp} tidak ditemukan." dengan kode status 204.
 
 #### Catatan :
 
@@ -185,5 +187,5 @@ Menampilkan data hp yang paling diminati oleh user dapat dilakukan dengan cara m
 Menampilkan data pencarian dapat dilakukan dengan cara memanggil perintah GET ../apiSearch/getSearch/{kata_kunci}. Perintah ini merupakan suatu method HTTP yang mengizinkan pencarian data hp dari server Website WGadget dengan memasukkan kata kunci tertentu yang dapat berupa nama hp ataupun nama brand.
 
 #### Respon :
-- Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar pencarian behasil ditampilkan." dengan kode status 200. 
+- Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar pencarian behasil ditampilkan." dengan kode status 200.
 - Jika data yang dicari tidak terdapat dalam database, maka server akan menampilkan pesan "Tidak ada data yang ditemukan." dengan kode status 204.

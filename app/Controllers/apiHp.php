@@ -11,7 +11,7 @@
     public function getAll(){
       $model = new HpModel();
       $data  = $model->getAll();
-      
+
       if($data){
         return $this->respond($data, 200, 'Daftar hp berhasil ditampilkan.');
       }
@@ -127,10 +127,6 @@
                 'harga'          => $harga,
                 'warna'          => $warna
               ];
-
-              $model->addHp($data1);
-              $model->addSpek($data2);
-              return $this->respond($data1, 201, 'Hp berhasil ditambahkan.');
             }
           }
           else{
@@ -160,11 +156,11 @@
           'harga'          => $harga,
           'warna'          => $warna
         ];
-
-        $model->addHp($data1);
-        $model->addSpek($data2);
-        return $this->respond($data1, 201, 'Hp berhasil ditambahkan.');
       }
+
+      $model->addHp($data1);
+      $model->addSpek($data2);
+      return $this->respond($data1, 201, 'Hp berhasil ditambahkan.');
     }
 
     public function updateOne($id_hp, $id_brand = null, $nama_hp = null, $foto_hp = null, $tgl_rilis = null, $ukuran_layar = null, $sistem_operasi = null,
@@ -220,7 +216,40 @@
               ]);
 
               if($response->getStatusCode() == 200){
-                return $this->respond(json_decode($response->getBody()), 409, 'Hp sudah tersedia.');
+                $url      = base_url('/apiHp/getOne/'.$id_hp);
+                $curl     = service('curlrequest');
+                $response = $curl->request('GET', $url, [
+                  "headers" => [
+                    "Accept" => "application/json"
+                  ]
+                ]);
+
+                $hp = json_decode($response->getBody());
+
+                if($nama_hp == $hp->nama_hp){
+                  $data1 = [
+                    'id_brand' => $id_brand,
+                    'nama_hp'  => $nama_hp,
+                    'foto_hp'  => $foto_hp
+                  ];
+
+                  $data2 = [
+                    'id_brand'       => $id_brand,
+                    'tgl_rilis'      => $tgl_rilis,
+                    'ukuran_layar'   => $ukuran_layar,
+                    'sistem_operasi' => $sistem_operasi,
+                    'chipset'        => $chipset,
+                    'memori'         => $memori,
+                    'daya_baterai'   => $daya_baterai,
+                    'kamera'         => $kamera,
+                    'jaringan'       => $jaringan,
+                    'harga'          => $harga,
+                    'warna'          => $warna
+                  ];
+                }
+                else{
+                  return $this->respond(json_decode($response->getBody()), 409, 'Hp sudah tersedia.');
+                }
               }
               else{
                 $data1 = [
@@ -243,10 +272,6 @@
                   'warna'          => $warna
                 ];
               }
-
-              $model->updateHp($id_hp, $data1);
-              $model->updateSpek($id_hp, $data2);
-              return $this->respond($data1, 200, 'Hp berhasil diperbarui.');
             }
             else{
               return $this->response->setStatusCode(204, 'Brand dengan id '.$id_brand.' tidak ditemukan.');
@@ -277,11 +302,11 @@
           'harga'          => $harga,
           'warna'          => $warna
         ];
-
-        $model->updateHp($id_hp, $data1);
-        $model->updateSpek($id_hp, $data2);
-        return $this->respond($data1, 200, 'Hp berhasil diperbarui.');
       }
+
+      $model->updateHp($id_hp, $data1);
+      $model->updateSpek($id_hp, $data2);
+      return $this->respond($data1, 200, 'Hp berhasil diperbarui.');
     }
 
     public function deleteOne($id_hp){

@@ -70,8 +70,6 @@
               'id_brand'   => $id_brand,
               'nama_brand' => $nama_brand
             ];
-            $model->addOne($data);
-            return $this->respond($data, 201, 'Brand berhasil ditambahkan.');
           }
         }
         else{
@@ -83,9 +81,10 @@
           'id_brand'   => $id_brand,
           'nama_brand' => $nama_brand
         ];
-        $model->addOne($data);
-        return $this->respond($data, 201, 'Brand berhasil ditambahkan.');
       }
+
+      $model->addOne($data);
+      return $this->respond($data, 201, 'Brand berhasil ditambahkan.');
     }
 
     public function updateOne($id_brand, $nama_brand = 0){
@@ -100,14 +99,21 @@
 
       if($response->getStatusCode() == 200){
         if(empty($nama_brand)){
-          $json  = $this->request->getJSON();
           $input = $this->request->getRawInput();
 
-          if($json){
-            $nama_brand = ucwords($json->nama_brand);
+          $nama_brand = ucwords($input['nama_brand']);
 
-            if(!empty($nama_brand)){
-              $url      = base_url('/apiBrand/getBrand/'.$nama_brand);
+          if(!empty($nama_brand)){
+            $url      = base_url('/apiBrand/getBrand/'.$nama_brand);
+            $curl     = service('curlrequest');
+            $response = $curl->request('GET', $url, [
+              "headers" => [
+                "Accept" => "application/json"
+              ]
+            ]);
+
+            if($response->getStatusCode() == 200){
+              $url      = base_url('/apiBrand/getOne/'.$id_brand);
               $curl     = service('curlrequest');
               $response = $curl->request('GET', $url, [
                 "headers" => [
@@ -115,39 +121,21 @@
                 ]
               ]);
 
-              if($response->getStatusCode() == 200){
-                return $this->respond(json_decode($response->getBody()), 409, 'Brand sudah tersedia.');
+              $brand = json_decode($response->getBody());
+
+              if($nama_brand == $brand->nama_brand){
+                $data  = [ 'nama_brand' => $nama_brand ];
               }
               else{
-                $data = [ 'nama_brand' => $nama_brand ];
+                return $this->respond(json_decode($response->getBody()), 409, 'Brand sudah tersedia.');
               }
             }
             else{
-              return $this->response->setStatusCode(400, 'Nama brand tidak boleh kosong.');
+              $data  = [ 'nama_brand' => $nama_brand ];
             }
           }
           else{
-            $nama_brand = ucwords($input['nama_brand']);
-
-            if(!empty($nama_brand)){
-              $url      = base_url('/apiBrand/getBrand/'.$nama_brand);
-              $curl     = service('curlrequest');
-              $response = $curl->request('GET', $url, [
-                "headers" => [
-                  "Accept" => "application/json"
-                ]
-              ]);
-
-              if($response->getStatusCode() == 200){
-                return $this->respond(json_decode($response->getBody()), 409, 'Brand sudah tersedia.');
-              }
-              else{
-                $data  = [ 'nama_brand' => $nama_brand ];
-              }
-            }
-            else{
-              return $this->response->setStatusCode(400, 'Nama brand tidak boleh kosong.');
-            }
+            return $this->response->setStatusCode(400, 'Nama brand tidak boleh kosong.');
           }
         }
         else{
