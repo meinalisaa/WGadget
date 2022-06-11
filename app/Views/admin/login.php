@@ -23,7 +23,7 @@
 				<div class="row mt-4">
 					<div class="col">
 						<?= $session->getFlashdata('message') ?>
-						<form action="<?= base_url('/admin/index') ?>" method="POST">
+						<form action="<?= base_url('/admin/login') ?>" method="POST">
 							<div class="form-group">
 								<input type="text" class="form-control" id="email" name="email" placeholder="Email" style="padding: 20px 20px">
 							</div>

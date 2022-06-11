@@ -9,7 +9,7 @@
     use ResponseTrait;
 
     public function index(){
-      $data['judul'] = 'WGadget | Login';
+      $data['judul'] = 'WGadget | Masuk';
       echo view('admin/login', $data);
     }
 
@@ -55,7 +55,7 @@
     }
     
     public function logout(){
-      $data['judul'] = 'WGadget | Login';
+      $data['judul'] = 'WGadget | Keluar';
       echo view('admin/login', $data);
     }
 

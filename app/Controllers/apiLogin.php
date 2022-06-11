@@ -12,7 +12,7 @@
 				return $this->response->setStatusCode(200, 'Login berhasil.');
 			}
 			else{
-				return $this->response->setStatusCode(401, 'Email atau kata sandi Salah.');
+				return $this->response->setStatusCode(204, 'Email atau kata sandi salah.');
 			}
     }
 	}
