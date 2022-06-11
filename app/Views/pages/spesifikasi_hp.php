@@ -15,7 +15,7 @@
         <table style="width: 100%" border="2" class="mt-2">
           <tr>
             <td style="width: 20%; background: #F0F0F0">Tanggal Rilis</td>
-            <td><?= $database->tgl_rilis ?></td>
+            <td><?= date('d-m-Y', strtotime($database->tgl_rilis)) ?></td>
           </tr>
 
           <tr>
