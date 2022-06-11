@@ -39,6 +39,7 @@
 
     public function Brand($nama_brand){
       $data['judul'] = 'WGadget | Brand';
+      $data['nama_brand'] = $nama_brand;
 
       $pager    = \Config\Services::pager();
       $url      = base_url('/apiHp/getBrand/'.$nama_brand);
