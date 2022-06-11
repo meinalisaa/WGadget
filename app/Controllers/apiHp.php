@@ -166,18 +166,19 @@
     public function updateOne($id_hp, $id_brand = null, $nama_hp = null, $foto_hp = null, $tgl_rilis = null, $ukuran_layar = null, $sistem_operasi = null,
     $chipset = null, $memori = null, $daya_baterai = null, $kamera = null, $jaringan = null, $harga = null, $warna = null){
       $model = new HpModel();
+      $url      = base_url('/apiHp/getOne/'.$id_hp);
+      $curl     = service('curlrequest');
+      $response = $curl->request('GET', $url, [
+        "headers" => [
+          "Accept" => "application/json"
+        ]
+      ]);
 
-      if(empty($id_brand) AND empty($nama_hp) AND empty($foto_hp) AND empty($tgl_rilis) AND empty($ukuran_layar) AND empty($sistem_operasi) AND empty($chipset)
-      AND empty($memori) AND empty($daya_baterai) AND empty($kamera) AND empty($jaringan) AND empty($harga) AND empty($warna)){
-        $url      = base_url('/apiHp/getOne/'.$id_hp);
-        $curl     = service('curlrequest');
-        $response = $curl->request('GET', $url, [
-          "headers" => [
-            "Accept" => "application/json"
-          ]
-        ]);
+      $hp = json_decode($response->getBody());
 
-        if($response->getStatusCode() == 200){
+      if($response->getStatusCode() == 200){
+        if(empty($id_brand) AND empty($nama_hp) AND empty($foto_hp) AND empty($tgl_rilis) AND empty($ukuran_layar) AND empty($sistem_operasi) AND empty($chipset)
+        AND empty($memori) AND empty($daya_baterai) AND empty($kamera) AND empty($jaringan) AND empty($harga) AND empty($warna)){
           $input          = $this->request->getRawInput();
           $id_brand       = $input['id_brand'];
           $nama_hp        = $input['nama_hp'];
@@ -212,20 +213,10 @@
               $response = $curl->request('GET', $url, [
                 "headers" => [
                   "Accept" => "application/json"
-                ]
+                  ]
               ]);
 
               if($response->getStatusCode() == 200){
-                $url      = base_url('/apiHp/getOne/'.$id_hp);
-                $curl     = service('curlrequest');
-                $response = $curl->request('GET', $url, [
-                  "headers" => [
-                    "Accept" => "application/json"
-                  ]
-                ]);
-
-                $hp = json_decode($response->getBody());
-
                 if($nama_hp == $hp->nama_hp){
                   $data1 = [
                     'id_brand' => $id_brand,
@@ -279,29 +270,29 @@
           }
         }
         else{
-          return $this->response->setStatusCode(204, 'Hp dengan id '.$id_hp.' tidak ditemukan.');
+          $data1 = [
+            'id_brand' => $id_brand,
+            'nama_hp'  => $nama_hp,
+            'foto_hp'  => $foto_hp
+          ];
+
+          $data2 = [
+            'id_brand'       => $id_brand,
+            'tgl_rilis'      => $tgl_rilis,
+            'ukuran_layar'   => $ukuran_layar,
+            'sistem_operasi' => $sistem_operasi,
+            'chipset'        => $chipset,
+            'memori'         => $memori,
+            'daya_baterai'   => $daya_baterai,
+            'kamera'         => $kamera,
+            'jaringan'       => $jaringan,
+            'harga'          => $harga,
+            'warna'          => $warna
+          ];
         }
       }
       else{
-        $data1 = [
-          'id_brand' => $id_brand,
-          'nama_hp'  => $nama_hp,
-          'foto_hp'  => $foto_hp
-        ];
-
-        $data2 = [
-          'id_brand'       => $id_brand,
-          'tgl_rilis'      => $tgl_rilis,
-          'ukuran_layar'   => $ukuran_layar,
-          'sistem_operasi' => $sistem_operasi,
-          'chipset'        => $chipset,
-          'memori'         => $memori,
-          'daya_baterai'   => $daya_baterai,
-          'kamera'         => $kamera,
-          'jaringan'       => $jaringan,
-          'harga'          => $harga,
-          'warna'          => $warna
-        ];
+        return $this->response->setStatusCode(204, 'Hp dengan id '.$id_hp.' tidak ditemukan.');
       }
 
       $model->updateHp($id_hp, $data1);

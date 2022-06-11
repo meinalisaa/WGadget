@@ -130,7 +130,7 @@
               <br>
 
               <div class="row mb-2">
-                <a class="btn" href="<?= base_url('admin/logout') ?>" style="background: #30454A; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
+                <a class="btn" href="<?= base_url('admin/logout') ?>" style="background: #460137; color: white; margin-left: auto; margin-right: 10px; width: 105px; padding: 10px">Yakin</a>
                 <button class="btn" type="button" data-dismiss="modal" style="background: grey; color: white; margin-right: auto; margin-left: 10px; width: 105px; padding: 10px">Tidak</button>
               </div>
             </div>

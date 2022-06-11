@@ -506,6 +506,43 @@
 				"description": "Menampilkan data pencarian dapat dilakukan dengan cara memanggil perintah GET ../apiSearch/getSearch/{kata_kunci}. Perintah ini merupakan suatu method HTTP yang mengizinkan pencarian data hp dari server Website WGadget dengan memasukkan kata kunci tertentu yang dapat berupa nama hp ataupun nama brand.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Daftar pencarian behasil ditampilkan.\" dengan kode status 200.\n*   Jika data yang dicari tidak terdapat dalam database, maka server akan menampilkan pesan \"Tidak ada data yang ditemukan.\" dengan kode status 204."
 			},
 			"response": []
+		},
+		{
+			"name": "../apiLogin/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "email@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "kata_sandi",
+							"value": "katasandi",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/WGadget/public/apiLogin/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"WGadget",
+						"public",
+						"apiLogin",
+						"login"
+					]
+				},
+				"description": "Jika user ingin mengakses halaman admin melalui Website WGadget, maka user diminta untuk melakukan login. Ketika user melakukan user, server akan memanggil perintah GET ../apiLogin/login. Perintah ini merupakan suatu method HTTP yang akan menentukan apakah seorang user boleh mengakses halaman admin atau tidak.\n\n**Respon :**\n\n*   Jika method HTTP ini berhasil, maka server akan menampilkan pesan \"Login berhasil.\" dengan kode status 200.\n*   Jika data yang diinput oleh user tidak sesuai dengan ketentuan, maka server akan menampilkan pesan \"Email atau kata sandi salah.\" dengan kode status 204."
+			},
+			"response": []
 		}
 	]
 }

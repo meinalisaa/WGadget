@@ -189,3 +189,12 @@ Menampilkan data pencarian dapat dilakukan dengan cara memanggil perintah GET ..
 #### Respon :
 - Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Daftar pencarian behasil ditampilkan." dengan kode status 200.
 - Jika data yang dicari tidak terdapat dalam database, maka server akan menampilkan pesan "Tidak ada data yang ditemukan." dengan kode status 204.
+
+## POST ../apiLogin/login/
+#### http://localhost/WGadget/public/apiLogin/login
+
+Jika user ingin mengakses halaman admin melalui Website WGadget, maka user diminta untuk melakukan login. Ketika user melakukan user, server akan memanggil perintah POST ../apiLogin/login. Perintah ini merupakan suatu method HTTP yang akan menentukan apakah seorang user boleh mengakses halaman admin atau tidak.
+
+#### Respon :
+- Jika method HTTP ini berhasil, maka server akan menampilkan pesan "Login berhasil." dengan kode status 200.
+- Jika data yang diinput oleh user tidak sesuai dengan ketentuan, maka server akan menampilkan pesan "Email atau kata sandi salah." dengan kode status 204.

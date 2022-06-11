@@ -87,7 +87,7 @@
       return $this->respond($data, 201, 'Brand berhasil ditambahkan.');
     }
 
-    public function updateOne($id_brand, $nama_brand = 0){
+    public function updateOne($id_brand, $nama_brand = null){
       $model    = new BrandModel();
       $url      = base_url('/apiBrand/getOne/'.$id_brand);
       $curl     = service('curlrequest');
