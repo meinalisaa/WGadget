@@ -43,6 +43,8 @@ $routes->get('/paling_diminati', 'PalingDiminati::index');
 $routes->get('/perbandingan_hp', 'PerbandinganHp::index');
 $routes->get('/hasil_perbandingan', 'PerbandinganHp::hasil_perbandingan');
 $routes->get('/search', 'Search::index');
+$routes->get('/admin', 'Admin::index');
+$routes->get('/admin/login', 'Admin::login');
 $routes->get('/admin/daftar_brand', 'Admin::daftar_brand');
 $routes->get('/admin/daftar_hp', 'Admin::daftar_hp');
 $routes->get('/admin/tambah_hp', 'Admin::tambah_hp');

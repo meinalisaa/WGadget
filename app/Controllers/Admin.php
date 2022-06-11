@@ -8,6 +8,48 @@
   class Admin extends ResourceController{
     use ResponseTrait;
 
+    public function index(){
+      $data['judul'] = 'WGadget | Login';
+      echo view('admin/login', $data);
+    }
+
+    public function login(){
+      $session       = \Config\Services::session();
+      $data['judul'] = 'Admin | Daftar Brand';
+
+      if(isset($_POST['submit'])){
+        $kata_sandi  = $_POST['kata_sandi'];
+        $email       = $_POST['email'];
+
+        $url         = base_url('/apiLogin/getAll/'.$email.'/'.$kata_sandi);
+        $curl        = service('curlrequest');
+        
+        $response    = $curl->request('GET', $url, [
+          "headers" => [
+            "Accept" => "application/json"
+          ]
+        ]);
+  
+        if($response->getStatusCode() == 200){
+          $url      = base_url('/apiBrand/getAll/');
+          $curl     = service('curlrequest');
+          
+          $response = $curl->request('GET', $url, [
+            "headers" => [
+              "Accept" => "application/json"
+            ]
+          ]);
+
+          $data['database'] = json_decode($response->getBody());
+          return redirect()->route('admin/daftar_brand', $data);
+        }
+        else{
+          $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Login Gagal.</div>');
+          return redirect()->route('admin', $data);
+        }
+      }
+    }    
+
     public function daftar_brand(){
       $data['judul'] = 'Admin | Daftar Brand';
 
