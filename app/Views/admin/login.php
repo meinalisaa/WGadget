@@ -44,12 +44,12 @@
 			function show(){
 				var x = document.getElementById('kata_sandi').type;
 
-				if (x == 'kata_sandi'){
+				if (x == 'password'){
 					document.getElementById('kata_sandi').type = 'text';
 					document.getElementById('show').innerHTML = '<i class="fa fa-eye-slash icon"></i>';
 				}
 				else{
-					document.getElementById('kata_sandi').type = 'kata_sandi';
+					document.getElementById('kata_sandi').type = 'password';
 					document.getElementById('show').innerHTML = '<i class="fa fa-eye icon"></i>';
 				}
 			}
