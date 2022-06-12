@@ -162,7 +162,7 @@
             <form action="<?= base_url('admin/ubahBrand/'.$val->id_brand) ?>" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label>Nama Brand</label><br>
-                <input type="text" name="nama_brand" class="form-control" placeholder="<?= $val->nama_brand ?>">
+                <input type="text" name="nama_brand" class="form-control" value="<?= $val->nama_brand ?>">
               </div>
 
               <div class="form-group" style="text-align: center">
