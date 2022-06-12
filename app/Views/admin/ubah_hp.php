@@ -83,7 +83,7 @@
 
 					<div class="col-lg-12">
 						<label>Foto Hp</label><br>
-						<img src="<?= base_url('/assets/img/hp/'.$database->foto_hp) ?>" style="width: 160px; object-fit: contain;">&nbsp;&nbsp;&nbsp;
+						<img src="<?= base_url('/assets/img/hp/'.$database->foto_hp) ?>" style="width: 160px; object-fit: contain; margin-bottom: 15px">&nbsp;&nbsp;&nbsp;
 						<input type="file" name="foto_hp">
 				</div>
 				</div>
