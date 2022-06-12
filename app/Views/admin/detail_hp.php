@@ -70,7 +70,7 @@
 
 				<div class="form-group" style="margin-left: 10px; width: 95%">
 					<label>Harga</label>
-					<input value="Rp<?= number_format($database->harga, 2,',','.') ?>" class="form-control" readonly disabled>
+					<input value="Rp<?= number_format($database->harga, 0,',','.') ?>" class="form-control" readonly disabled>
 				</div>
 
 				<div class="form-group" style="margin-left: 10px; width: 95%">
