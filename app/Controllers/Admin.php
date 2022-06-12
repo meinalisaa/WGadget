@@ -176,7 +176,7 @@
               ]);
 
               if($response->getStatusCode() == 200){
-                $session->setFlashdata('message', '<div class="alert alert-success alert-dismissible fade show alert-dismissible fade show" role="alert">Brand berhasil diperbarui.</div>');
+                $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Brand sama seperti sebelumnya.</div>');
                 return redirect()->route('admin/daftar_brand');
               }
               else{
