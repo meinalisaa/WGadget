@@ -333,7 +333,6 @@
         if(isset($_POST['submit'])){
           $pager          = \Config\Services::pager();
           $session        = \Config\Services::session();
-          $id_brand       = $_POST['id_brand'];
           $nama_hp        = $_POST['nama_hp'];
           $tgl_rilis      = $_POST['tgl_rilis'];
           $ukuran_layar   = $_POST['ukuran_layar'];
@@ -346,12 +345,13 @@
           $harga          = preg_replace("/[^0-9]/", "", $_POST['harga']);
           $warna          = ucwords($_POST['warna']);
 
-          if(empty($id_brand) OR empty($nama_hp) OR empty($tgl_rilis) OR empty($ukuran_layar) OR empty($sistem_operasi) OR empty($chipset)
+          if(empty($_POST['id_brand']) OR empty($nama_hp) OR empty($tgl_rilis) OR empty($ukuran_layar) OR empty($sistem_operasi) OR empty($chipset)
           OR empty($memori) OR empty($daya_baterai) OR empty($kamera) OR empty($jaringan) OR empty($harga) OR empty($warna)){
             $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert" style="width: 100%">Data tidak boleh kosong.</div>');
             return redirect()->route('admin/tambah_hp');
           }
           else{
+            $id_brand   = $_POST['id_brand'];
             $validation = $this->validate([
               'foto_hp' => 'uploaded[foto_hp]|mime_in[foto_hp,image/jpg,image/jpeg,image/gif,image/png]'
             ]);
@@ -366,8 +366,8 @@
               ]);
 
               if($response->getStatusCode() == 200){
-                $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert">Hp sudah tersedia.</div>');
-                return redirect()->route('admin/daftar_hp');
+                $session->setFlashdata('message', '<div class="alert alert-danger alert-dismissible fade show alert-dismissible fade show" role="alert" style="width: 100%">Hp sudah tersedia.</div>');
+                return redirect()->route('admin/tambah_hp');
               }
               else{
                 $upload  = $this->request->getFile('foto_hp');
