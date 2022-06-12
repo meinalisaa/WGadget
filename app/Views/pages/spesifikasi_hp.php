@@ -50,7 +50,7 @@
 
           <tr>
             <td style="width: 20%; background: #F0F0F0">Jaringan</td>
-            <td><?= $database->warna ?></td>
+            <td><?= $database->jaringan ?></td>
           </tr>
 
           <tr>
@@ -60,7 +60,7 @@
 
           <tr>
             <td style="width: 20%; background: #F0F0F0">Warna</td>
-            <td><?= $database->jaringan ?></td>
+            <td><?= $database->warna ?></td>
           </tr>
         </table>
       </div>
