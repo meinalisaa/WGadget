@@ -16,7 +16,7 @@
       <div class="row">
         <img src="<?= base_url('/assets/img/tim/Milpa.jpeg') ?>" style="width: 190px; margin-right: 20px">
         <img src="<?= base_url('/assets/img/tim/Dinda.png') ?>" style="width: 190px; margin-right: 20px">
-        <img src="<?= base_url('/assets/img/tim/Meina.jpg') ?>" style="width: 190px; margin-right: 20px">
+        <img src="<?= base_url('/assets/img/tim/Meina.jpeg') ?>" style="width: 190px; margin-right: 20px">
         <img src="<?= base_url('/assets/img/tim/Pije.jpeg') ?>" style="width: 190px; margin-right: 20px">
       </div>
 
