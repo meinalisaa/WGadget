@@ -99,8 +99,7 @@
 
       if($response->getStatusCode() == 200){
         if(empty($nama_brand)){
-          $input = $this->request->getRawInput();
-
+          $input      = $this->request->getRawInput();
           $nama_brand = ucwords($input['nama_brand']);
 
           if(!empty($nama_brand)){
@@ -150,7 +149,7 @@
       }
     }
 
-    public function deleteOne($id_brand = null){
+    public function deleteOne($id_brand){
       $model    = new BrandModel();
       $url      = base_url('/apiBrand/getOne/'.$id_brand);
       $curl     = service('curlrequest');
